@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import joseMota from "@/assets/jose-mota.jpg";
 import maristelaMota from "@/assets/maristela-mota.jpg";
 import rafaelMota from "@/assets/rafael-mota.jpg";
@@ -49,6 +50,7 @@ const team = [
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,14 +84,14 @@ export const TeamSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Equipe
+            {t("team.title")}
           </h2>
           <p
             className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.
+            {t("team.subtitle")}
           </p>
         </div>
 
@@ -133,7 +135,7 @@ export const TeamSection = () => {
 
         {/* Scroll Indicator - Mobile Only */}
         <div className="text-center mt-6 text-muted-foreground text-sm lg:hidden">
-          ← Deslize para navegar →
+          {t("team.scroll_hint")}
         </div>
       </div>
     </section>

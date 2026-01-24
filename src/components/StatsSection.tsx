@@ -1,10 +1,18 @@
 import { useEffect, useState, useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/i18n/translations";
 
-const stats = [
-  { value: 25, suffix: "+", label: "Anos de Experiência" },
-  { value: 5000, suffix: "+", label: "Clientes Atendidos" },
-  { value: 98, suffix: "%", label: "Taxa de Sucesso" },
-  { value: 10000, suffix: "+", label: "Casos Resolvidos" },
+interface StatData {
+  value: number;
+  suffix: string;
+  labelKey: TranslationKey;
+}
+
+const statsData: StatData[] = [
+  { value: 25, suffix: "+", labelKey: "stats.years" },
+  { value: 5000, suffix: "+", labelKey: "stats.clients" },
+  { value: 98, suffix: "%", labelKey: "stats.success_rate" },
+  { value: 10000, suffix: "+", labelKey: "stats.cases" },
 ];
 
 const useCountUp = (end: number, duration: number = 2000, start: boolean = false) => {
@@ -59,7 +67,7 @@ export const StatsSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat, index) => (
+          {statsData.map((stat, index) => (
             <StatItem key={index} {...stat} isVisible={isVisible} />
           ))}
         </div>
@@ -71,15 +79,16 @@ export const StatsSection = () => {
 const StatItem = ({
   value,
   suffix,
-  label,
+  labelKey,
   isVisible,
 }: {
   value: number;
   suffix: string;
-  label: string;
+  labelKey: TranslationKey;
   isVisible: boolean;
 }) => {
   const count = useCountUp(value, 2000, isVisible);
+  const { t } = useLanguage();
 
   return (
     <div className="text-center">
@@ -90,7 +99,7 @@ const StatItem = ({
         </span>
       </div>
       <p className="text-primary-foreground/80 text-sm md:text-base font-medium">
-        {label}
+        {t(labelKey)}
       </p>
     </div>
   );

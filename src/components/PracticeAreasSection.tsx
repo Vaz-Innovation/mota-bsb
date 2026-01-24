@@ -22,100 +22,103 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/i18n/translations";
 
-interface Area {
+interface AreaData {
   icon: LucideIcon;
-  title: string;
-  description: string;
-  fullDescription: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  fullDescriptionKey: TranslationKey;
 }
 
-const areas: Area[] = [
+const areasData: AreaData[] = [
   {
     icon: Users,
-    title: "Direito Administrativo (Servidor Público)",
-    description: "Defesa dos direitos e interesses dos servidores públicos",
-    fullDescription: "Atuamos na defesa integral dos direitos dos servidores públicos federais, estaduais e municipais. Nossa equipe é especializada em processos administrativos disciplinares, revisão de aposentadorias, progressões funcionais, reenquadramentos, desvio de função, adicional de insalubridade e periculosidade, entre outras demandas relacionadas à carreira pública.",
+    titleKey: "areas.admin.title",
+    descriptionKey: "areas.admin.description",
+    fullDescriptionKey: "areas.admin.full",
   },
   {
     icon: Briefcase,
-    title: "Direito do Trabalho Individual e Coletivo",
-    description: "Reclamatórias trabalhistas e acompanhamento processual",
-    fullDescription: "Oferecemos assessoria completa em questões trabalhistas, desde a elaboração de reclamatórias até o acompanhamento processual em todas as instâncias. Atuamos em casos de rescisão contratual, horas extras, assédio moral, acidentes de trabalho, e representamos tanto trabalhadores quanto empresas em negociações coletivas.",
+    titleKey: "areas.labor.title",
+    descriptionKey: "areas.labor.description",
+    fullDescriptionKey: "areas.labor.full",
   },
   {
     icon: Building,
-    title: "Direito Sindical",
-    description: "Assessoria completa para entidades sindicais",
-    fullDescription: "Prestamos assessoria jurídica especializada para sindicatos e entidades de classe. Nossa atuação abrange desde a constituição e registro sindical até a representação em negociações coletivas, elaboração de convenções e acordos coletivos, e defesa dos interesses da categoria em instâncias administrativas e judiciais.",
+    titleKey: "areas.union.title",
+    descriptionKey: "areas.union.description",
+    fullDescriptionKey: "areas.union.full",
   },
   {
     icon: Heart,
-    title: "Direito Previdenciário",
-    description: "Concessão e revisão de benefícios previdenciários",
-    fullDescription: "Especializados em direito previdenciário, atuamos na concessão e revisão de aposentadorias (por idade, tempo de contribuição, especial), pensões por morte, auxílios (doença, acidente), BPC/LOAS, e demais benefícios junto ao INSS e regimes próprios de previdência.",
+    titleKey: "areas.social_security.title",
+    descriptionKey: "areas.social_security.description",
+    fullDescriptionKey: "areas.social_security.full",
   },
   {
     icon: Scale,
-    title: "Direito Constitucional",
-    description: "Elaboração de ADI e recursos extraordinários",
-    fullDescription: "Atuamos em questões constitucionais de alta complexidade, incluindo a elaboração e acompanhamento de Ações Diretas de Inconstitucionalidade (ADI), Arguições de Descumprimento de Preceito Fundamental (ADPF), e recursos extraordinários junto ao Supremo Tribunal Federal.",
+    titleKey: "areas.constitutional.title",
+    descriptionKey: "areas.constitutional.description",
+    fullDescriptionKey: "areas.constitutional.full",
   },
   {
     icon: Shield,
-    title: "Direito Penal",
-    description: "Habeas Corpus e recursos criminais",
-    fullDescription: "Nossa equipe de direito penal atua em todas as fases do processo criminal, desde a investigação até os recursos em tribunais superiores. Oferecemos defesa técnica qualificada em crimes contra a administração pública, crimes econômicos, habeas corpus e revisões criminais.",
+    titleKey: "areas.criminal.title",
+    descriptionKey: "areas.criminal.description",
+    fullDescriptionKey: "areas.criminal.full",
   },
   {
     icon: Vote,
-    title: "Direito Eleitoral",
-    description: "Assessoria eleitoral completa",
-    fullDescription: "Prestamos assessoria eleitoral completa para candidatos, partidos políticos e coligações. Nossa atuação abrange registro de candidaturas, prestação de contas, propaganda eleitoral, representações e recursos junto à Justiça Eleitoral em todas as instâncias.",
+    titleKey: "areas.electoral.title",
+    descriptionKey: "areas.electoral.description",
+    fullDescriptionKey: "areas.electoral.full",
   },
   {
     icon: Landmark,
-    title: "Tribunais Superiores",
-    description: "Atuação em Brasília junto aos Tribunais Superiores",
-    fullDescription: "Com sede em Brasília, temos atuação direta e constante junto aos Tribunais Superiores: STF, STJ, TST, TSE e STM. Oferecemos acompanhamento processual presencial, sustentações orais e toda a expertise necessária para a condução de processos nas mais altas instâncias do Judiciário.",
+    titleKey: "areas.superior_courts.title",
+    descriptionKey: "areas.superior_courts.description",
+    fullDescriptionKey: "areas.superior_courts.full",
   },
   {
     icon: Home,
-    title: "Direito Imobiliário",
-    description: "Assessoria completa em negócios e regularização imobiliária",
-    fullDescription: "Atuamos em todas as questões relacionadas a imóveis: compra e venda, locação, usucapião, regularização fundiária, incorporações imobiliárias, condomínios, e resolução de conflitos envolvendo propriedades urbanas e rurais.",
+    titleKey: "areas.real_estate.title",
+    descriptionKey: "areas.real_estate.description",
+    fullDescriptionKey: "areas.real_estate.full",
   },
   {
     icon: UserPlus,
-    title: "Direito de Família e Sucessões",
-    description: "Inventários, divórcios, pensões e sucessões",
-    fullDescription: "Oferecemos assessoria sensível e especializada em questões familiares: divórcios, guarda de filhos, pensão alimentícia, união estável, inventários, testamentos e planejamento sucessório. Buscamos sempre soluções que preservem os interesses e o bem-estar de todos os envolvidos.",
+    titleKey: "areas.family.title",
+    descriptionKey: "areas.family.description",
+    fullDescriptionKey: "areas.family.full",
   },
   {
     icon: Gavel,
-    title: "Fazenda Pública e Entes Federados",
-    description: "Ações contra União, Estados, DF e Municípios",
-    fullDescription: "Representamos clientes em ações contra a União, Estados, Distrito Federal e Municípios. Nossa experiência abrange desapropriações, responsabilidade civil do Estado, execuções contra a Fazenda Pública, precatórios e RPVs.",
+    titleKey: "areas.public_treasury.title",
+    descriptionKey: "areas.public_treasury.description",
+    fullDescriptionKey: "areas.public_treasury.full",
   },
   {
     icon: Handshake,
-    title: "Mediação e Conciliação",
-    description: "Métodos alternativos de resolução de conflitos",
-    fullDescription: "Acreditamos nos métodos alternativos de resolução de conflitos como forma eficiente e menos desgastante de solucionar disputas. Oferecemos serviços de mediação e conciliação conduzidos por profissionais capacitados, buscando acordos que atendam aos interesses de todas as partes.",
+    titleKey: "areas.mediation.title",
+    descriptionKey: "areas.mediation.description",
+    fullDescriptionKey: "areas.mediation.full",
   },
   {
     icon: Calculator,
-    title: "Direito Tributário e Empresarial",
-    description: "Assessoria jurídica para empresas e matéria tributária",
-    fullDescription: "Prestamos consultoria tributária e empresarial completa: planejamento fiscal, defesa em execuções fiscais, recuperação de créditos tributários, constituição e reestruturação societária, contratos empresariais e compliance corporativo.",
+    titleKey: "areas.tax.title",
+    descriptionKey: "areas.tax.description",
+    fullDescriptionKey: "areas.tax.full",
   },
 ];
 
 export const PracticeAreasSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedArea, setSelectedArea] = useState<Area | null>(null);
+  const [selectedArea, setSelectedArea] = useState<AreaData | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -149,14 +152,14 @@ export const PracticeAreasSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Áreas de Atuação
+            {t("areas.title")}
           </h2>
           <p
             className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Especializados em Direito Administrativo e atuantes em diversas áreas do Direito.
+            {t("areas.subtitle")}
           </p>
         </div>
 
@@ -167,7 +170,7 @@ export const PracticeAreasSection = () => {
             className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {areas.map((area, index) => (
+            {areasData.map((area, index) => (
               <div
                 key={index}
                 className={`flex-shrink-0 w-80 snap-center transition-all duration-700 ${
@@ -182,15 +185,15 @@ export const PracticeAreasSection = () => {
                   </div>
                   
                   <h3 className="text-lg font-semibold text-navy mb-2 font-serif">
-                    {area.title}
+                    {t(area.titleKey)}
                   </h3>
                   
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {area.description}
+                    {t(area.descriptionKey)}
                   </p>
                   
                   <div className="flex items-center gap-2 text-gold-light font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-                    <span>Saiba mais</span>
+                    <span>{t("areas.learn_more")}</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </div>
                 </div>
@@ -200,7 +203,7 @@ export const PracticeAreasSection = () => {
 
           {/* Scroll Indicator */}
           <div className="text-center mt-6 text-muted-foreground text-sm">
-            ← Deslize para navegar →
+            {t("areas.scroll_hint")}
           </div>
         </div>
       </div>
@@ -216,11 +219,11 @@ export const PracticeAreasSection = () => {
                 </div>
               )}
               <DialogTitle className="text-xl font-serif text-navy">
-                {selectedArea?.title}
+                {selectedArea && t(selectedArea.titleKey)}
               </DialogTitle>
             </div>
             <DialogDescription className="text-base text-muted-foreground leading-relaxed">
-              {selectedArea?.fullDescription}
+              {selectedArea && t(selectedArea.fullDescriptionKey)}
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

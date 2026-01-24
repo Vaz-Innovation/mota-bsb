@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     cpf: "",
@@ -54,17 +55,17 @@ export const ContactSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Localização
+            {t("contact.title")}
           </h2>
           <p
             className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Visite nosso escritório em Brasília.
+            {t("contact.subtitle")}
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edifício Athenas - Brasília - DF - CEP 70390-020
+            {t("contact.address")}
           </p>
         </div>
 
@@ -99,16 +100,16 @@ export const ContactSection = () => {
           >
             <div className="bg-card rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-navy mb-2 font-serif">
-                Contato
+                {t("contact.form_title")}
               </h3>
               <p className="text-muted-foreground mb-6">
-                Preencha o formulário abaixo e entraremos em contato o mais breve possível
+                {t("contact.form_subtitle")}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
-                    Nome Completo
+                    {t("contact.name")}
                   </label>
                   <Input
                     type="text"
@@ -123,7 +124,7 @@ export const ContactSection = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1">
-                      CPF
+                      {t("contact.cpf")}
                     </label>
                     <Input
                       type="text"
@@ -136,7 +137,7 @@ export const ContactSection = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1">
-                      Telefone
+                      {t("contact.phone")}
                     </label>
                     <Input
                       type="tel"
@@ -151,7 +152,7 @@ export const ContactSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
-                    E-mail
+                    {t("contact.email")}
                   </label>
                   <Input
                     type="email"
@@ -165,7 +166,7 @@ export const ContactSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
-                    Número do Processo (Opcional)
+                    {t("contact.process_number")}
                   </label>
                   <Input
                     type="text"
@@ -178,7 +179,7 @@ export const ContactSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
-                    Mensagem
+                    {t("contact.message")}
                   </label>
                   <Textarea
                     value={formData.message}
@@ -194,7 +195,7 @@ export const ContactSection = () => {
                   type="submit"
                   className="w-full bg-gradient-gold hover:opacity-90 text-navy font-semibold h-12"
                 >
-                  Enviar Mensagem
+                  {t("contact.send")}
                 </Button>
               </form>
             </div>
