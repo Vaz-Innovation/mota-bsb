@@ -164,7 +164,7 @@ export const AboutSection = () => {
                 </DialogTitle>
               </div>
             </div>
-            <DialogDescription className="text-base text-muted-foreground leading-relaxed">
+            <DialogDescription className="text-base text-muted-foreground leading-relaxed whitespace-pre-line">
               {selectedCard && t(selectedCard.fullDescriptionKey)}
             </DialogDescription>
           </DialogHeader>
