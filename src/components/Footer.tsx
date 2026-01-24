@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import logoGold from "@/assets/logo-gold.png";
+import logoFooter from "@/assets/logo-footer.png";
 
 export const Footer = () => {
   return (
@@ -8,15 +8,12 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="mb-6">
               <img
-                src={logoGold}
-                alt="Mota & Advogados"
-                className="h-14 w-auto"
+                src={logoFooter}
+                alt="Mota & Advogados Associados"
+                className="h-20 w-auto"
               />
-              <span className="text-primary-foreground font-serif font-bold text-xl">
-                Mota & Advogados
-              </span>
             </div>
             <p className="text-primary-foreground/70 leading-relaxed mb-6">
               Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados, atuando em todo o território nacional.
