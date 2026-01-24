@@ -24,7 +24,7 @@ const cards = [
     icon: MapPin,
     badge: "Atuação Nacional",
     title: "Escritório",
-    description: "Sede em Porto Alegre com cobertura nacional",
+    description: "Sede em Brasília com cobertura nacional",
   },
 ];
 
