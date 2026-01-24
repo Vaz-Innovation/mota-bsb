@@ -40,6 +40,8 @@ export default function AdminNewPost() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [importUrl, setImportUrl] = useState("");
+  const [importing, setImporting] = useState(false);
 
   useEffect(() => {
     if (!loading) {
@@ -71,6 +73,46 @@ export default function AdminNewPost() {
   const fetchCategories = async () => {
     const { data } = await supabase.from("categories").select("*").order("name");
     if (data) setCategories(data);
+  };
+
+  const handleImportUrl = async () => {
+    if (!importUrl.trim()) return;
+    
+    setImporting(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("import-article", {
+        body: { url: importUrl },
+      });
+
+      if (error) throw error;
+
+      if (data?.success && data?.data) {
+        const extracted = data.data;
+        setTitle(extracted.title || "");
+        setExcerpt(extracted.excerpt || "");
+        setContent(extracted.content || "");
+        setTags(extracted.tags?.join(", ") || "");
+        setMetaTitle(extracted.metaTitle || "");
+        setMetaDescription(extracted.metaDescription || "");
+        
+        toast({
+          title: "Artigo importado!",
+          description: "Os campos foram preenchidos automaticamente.",
+        });
+      } else {
+        throw new Error(data?.error || "Falha ao importar");
+      }
+    } catch (error: any) {
+      console.error("Import error:", error);
+      toast({
+        title: "Erro ao importar",
+        description: error.message || "Não foi possível importar o artigo.",
+        variant: "destructive",
+      });
+    } finally {
+      setImporting(false);
+    }
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -203,10 +245,18 @@ export default function AdminNewPost() {
                 <Input
                   placeholder="https://exemplo.com/artigo"
                   className="flex-1"
-                  disabled
+                  value={importUrl}
+                  onChange={(e) => setImportUrl(e.target.value)}
+                  disabled={importing}
                 />
-                <Button variant="secondary" disabled>
-                  Importar
+                <Button 
+                  type="button"
+                  variant="secondary" 
+                  onClick={handleImportUrl}
+                  disabled={importing || !importUrl.trim()}
+                  className="bg-navy text-white hover:bg-navy-deep"
+                >
+                  {importing ? "Importando..." : "Importar"}
                 </Button>
               </div>
             </div>
