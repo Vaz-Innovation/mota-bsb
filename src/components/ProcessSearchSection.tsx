@@ -2,10 +2,12 @@ import { useState } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const ProcessSearchSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [processNumber, setProcessNumber] = useState("");
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-navy/5">
@@ -22,10 +24,10 @@ export const ProcessSearchSection = () => {
                 </div>
                 <div className="text-left">
                   <h2 className="text-2xl md:text-3xl font-bold text-navy font-serif">
-                    Consulte Seu Processo
+                    {t("process.title")}
                   </h2>
                   <p className="text-muted-foreground mt-1">
-                    Digite o número do processo e receba atualizações em poucos minutos.
+                    {t("process.subtitle")}
                   </p>
                 </div>
               </div>
@@ -42,13 +44,13 @@ export const ProcessSearchSection = () => {
               <div className="space-y-4">
                 <Input
                   type="text"
-                  placeholder="Digite o número do processo"
+                  placeholder={t("process.placeholder")}
                   value={processNumber}
                   onChange={(e) => setProcessNumber(e.target.value)}
                   className="h-12 text-lg"
                 />
                 <Button className="w-full h-12 bg-gradient-gold hover:opacity-90 text-navy font-semibold">
-                  Consultar Processo
+                  {t("process.button")}
                 </Button>
               </div>
             </div>
