@@ -19,21 +19,22 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        orange: {
-          DEFAULT: "hsl(var(--orange))",
-          light: "hsl(var(--orange-light))",
-          dark: "hsl(var(--orange-dark))",
-        },
         navy: {
           DEFAULT: "hsl(var(--navy))",
           deep: "hsl(var(--navy-deep))",
           light: "hsl(var(--navy-light))",
         },
-        bronze: {
-          DEFAULT: "hsl(var(--bronze))",
-          light: "hsl(var(--bronze-light))",
+        beige: {
+          DEFAULT: "hsl(var(--beige))",
+          light: "hsl(var(--beige-light))",
         },
-        gold: "hsl(var(--gold))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          bright: "hsl(var(--gold-bright))",
+          medium: "hsl(var(--gold-medium))",
+          dark: "hsl(var(--gold-dark))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -104,8 +105,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         glow: {
-          from: { filter: "drop-shadow(0 0 30px rgba(255, 127, 62, 0.3))" },
-          to: { filter: "drop-shadow(0 0 50px rgba(255, 127, 62, 0.5))" },
+          from: { filter: "drop-shadow(0 0 30px rgba(245, 195, 95, 0.3))" },
+          to: { filter: "drop-shadow(0 0 50px rgba(245, 195, 95, 0.5))" },
         },
       },
       animation: {

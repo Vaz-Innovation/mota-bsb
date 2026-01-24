@@ -13,7 +13,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="py-20 bg-navy">
+    <section className="py-20 bg-navy-deep">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4 font-serif">
@@ -34,7 +34,7 @@ export const NewsletterSection = () => {
             />
             <Button
               type="submit"
-              className="h-12 px-8 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              className="h-12 px-8 bg-gradient-gold hover:opacity-90 text-navy font-semibold"
             >
               Inscrever
             </Button>
