@@ -121,8 +121,11 @@ export const translationKeys = [
   "process.title",
   "process.subtitle",
   "process.placeholder",
+  "process.name",
+  "process.cpf",
   "process.button",
-  
+  "process.whatsapp_message",
+
   // Cookie Banner
   "cookie.title",
   "cookie.description",
@@ -255,8 +258,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Consulte Seu Processo",
     "process.subtitle": "Digite o número do processo e receba atualizações em poucos minutos.",
-    "process.placeholder": "Digite o número do processo",
-    "process.button": "Consultar Processo",
+    "process.placeholder": "Número do processo (ex: 0000000-00.0000.0.00.0000)",
+    "process.name": "Nome completo",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Consultar via WhatsApp",
+    "process.whatsapp_message": "Olá! Gostaria de consultar meu processo.",
     
     // Cookie Banner
     "cookie.title": "Política de Cookies",
@@ -385,8 +391,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Consulta tu Proceso",
     "process.subtitle": "Ingresa el número del proceso y recibe actualizaciones en pocos minutos.",
-    "process.placeholder": "Ingresa el número del proceso",
-    "process.button": "Consultar Proceso",
+    "process.placeholder": "Número del proceso (ej: 0000000-00.0000.0.00.0000)",
+    "process.name": "Nombre completo",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Consultar vía WhatsApp",
+    "process.whatsapp_message": "¡Hola! Me gustaría consultar mi proceso.",
     
     // Cookie Banner
     "cookie.title": "Política de Cookies",
@@ -515,8 +524,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Check Your Case",
     "process.subtitle": "Enter the case number and receive updates in a few minutes.",
-    "process.placeholder": "Enter the case number",
-    "process.button": "Check Case",
+    "process.placeholder": "Case number (e.g.: 0000000-00.0000.0.00.0000)",
+    "process.name": "Full name",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Consult via WhatsApp",
+    "process.whatsapp_message": "Hello! I would like to check my case.",
     
     // Cookie Banner
     "cookie.title": "Cookie Policy",
@@ -645,8 +657,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Überprüfen Sie Ihren Fall",
     "process.subtitle": "Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.",
-    "process.placeholder": "Fallnummer eingeben",
-    "process.button": "Fall Prüfen",
+    "process.placeholder": "Fallnummer (z.B.: 0000000-00.0000.0.00.0000)",
+    "process.name": "Vollständiger Name",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Über WhatsApp anfragen",
+    "process.whatsapp_message": "Hallo! Ich möchte meinen Fall überprüfen.",
     
     // Cookie Banner
     "cookie.title": "Cookie-Richtlinie",
@@ -775,8 +790,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Controlla il Tuo Caso",
     "process.subtitle": "Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.",
-    "process.placeholder": "Inserisci il numero del caso",
-    "process.button": "Verifica Caso",
+    "process.placeholder": "Numero del caso (es.: 0000000-00.0000.0.00.0000)",
+    "process.name": "Nome completo",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Consulta tramite WhatsApp",
+    "process.whatsapp_message": "Ciao! Vorrei consultare il mio caso.",
     
     // Cookie Banner
     "cookie.title": "Politica dei Cookie",
@@ -905,8 +923,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "Consultez Votre Dossier",
     "process.subtitle": "Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.",
-    "process.placeholder": "Entrez le numéro du dossier",
-    "process.button": "Consulter le Dossier",
+    "process.placeholder": "Numéro du dossier (ex: 0000000-00.0000.0.00.0000)",
+    "process.name": "Nom complet",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "Consulter via WhatsApp",
+    "process.whatsapp_message": "Bonjour! Je voudrais consulter mon dossier.",
     
     // Cookie Banner
     "cookie.title": "Politique de Cookies",
@@ -1035,8 +1056,11 @@ export const translations: Translations = {
     // Process Search
     "process.title": "查询您的案件",
     "process.subtitle": "输入案件编号，几分钟内即可收到更新。",
-    "process.placeholder": "输入案件编号",
-    "process.button": "查询案件",
+    "process.placeholder": "案件编号 (例: 0000000-00.0000.0.00.0000)",
+    "process.name": "全名",
+    "process.cpf": "CPF (000.000.000-00)",
+    "process.button": "通过WhatsApp咨询",
+    "process.whatsapp_message": "您好！我想查询我的案件。",
     
     // Cookie Banner
     "cookie.title": "Cookie政策",
