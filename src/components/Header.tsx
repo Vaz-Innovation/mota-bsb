@@ -7,18 +7,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Language } from "@/i18n/translations";
 import logoHeader from "@/assets/logo-header.png";
 
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#areas", label: "Áreas de Atuação" },
-  { href: "#equipe", label: "Equipe" },
-  { href: "#contato", label: "Contato" },
-  { href: "#blog", label: "Blog" },
-];
-
-const languages = [
+const languages: { code: Language; label: string }[] = [
   { code: "PT", label: "Português" },
   { code: "ES", label: "Español" },
   { code: "EN", label: "English" },
@@ -31,7 +24,16 @@ const languages = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("PT");
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { href: "#inicio", label: t("nav.home") },
+    { href: "#sobre", label: t("nav.about") },
+    { href: "#areas", label: t("nav.practice_areas") },
+    { href: "#equipe", label: t("nav.team") },
+    { href: "#contato", label: t("nav.contact") },
+    { href: "#blog", label: t("nav.blog") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +86,7 @@ export const Header = () => {
               className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10"
             >
               <User className="w-4 h-4 mr-2" />
-              Acessos
+              {t("header.access")}
             </Button>
             
             {/* Language Dropdown */}
@@ -95,7 +97,7 @@ export const Header = () => {
                   className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10 gap-1"
                 >
                   <Globe className="w-4 h-4" />
-                  {currentLanguage}
+                  {language}
                   <ChevronDown className="w-3 h-3" />
                 </Button>
               </DropdownMenuTrigger>
@@ -106,15 +108,15 @@ export const Header = () => {
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => setCurrentLanguage(lang.code)}
+                    onClick={() => setLanguage(lang.code)}
                     className={`cursor-pointer px-4 py-2 hover:bg-gray-100 ${
-                      currentLanguage === lang.code 
+                      language === lang.code 
                         ? "text-orange-500 font-semibold" 
                         : "text-gray-700"
                     }`}
                   >
                     <span className={`font-bold mr-2 ${
-                      currentLanguage === lang.code ? "text-orange-500" : "text-navy"
+                      language === lang.code ? "text-orange-500" : "text-navy"
                     }`}>
                       {lang.code}
                     </span>
@@ -125,7 +127,7 @@ export const Header = () => {
             </DropdownMenu>
             
             <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
-              Fale Conosco
+              {t("header.contact_us")}
             </Button>
           </div>
 
@@ -155,14 +157,14 @@ export const Header = () => {
               
               {/* Mobile Language Selector */}
               <div className="border-t border-primary-foreground/20 pt-4 mt-2">
-                <p className="text-primary-foreground/60 text-sm mb-2">Idioma</p>
+                <p className="text-primary-foreground/60 text-sm mb-2">{t("header.language")}</p>
                 <div className="flex flex-wrap gap-2">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
-                      onClick={() => setCurrentLanguage(lang.code)}
+                      onClick={() => setLanguage(lang.code)}
                       className={`px-3 py-1 rounded text-sm transition-colors ${
-                        currentLanguage === lang.code
+                        language === lang.code
                           ? "bg-gold-light text-navy font-semibold"
                           : "bg-primary-foreground/10 text-primary-foreground/80 hover:bg-primary-foreground/20"
                       }`}
@@ -174,7 +176,7 @@ export const Header = () => {
               </div>
               
               <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
-                Fale Conosco
+                {t("header.contact_us")}
               </Button>
             </div>
           </nav>

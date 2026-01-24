@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { TrendingUp, Shield, Target, MapPin, X } from "lucide-react";
+import { TrendingUp, Shield, Target, MapPin } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,42 +7,53 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/i18n/translations";
 
-const cards = [
+interface CardData {
+  icon: typeof TrendingUp;
+  badgeKey: TranslationKey;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  fullDescriptionKey: TranslationKey;
+}
+
+const cardsData: CardData[] = [
   {
     icon: TrendingUp,
-    badge: "Desde 2000",
-    title: "Trajetória",
-    description: "Mais de 25 anos de excelência jurídica",
-    fullDescription: "Com mais de duas décadas de atuação no mercado jurídico, o escritório Mota & Advogados Associados construiu uma trajetória sólida baseada em resultados consistentes e relacionamentos duradouros com nossos clientes. Nossa experiência abrange desde casos complexos até questões cotidianas, sempre com o mesmo compromisso de excelência.",
+    badgeKey: "about.since",
+    titleKey: "about.trajectory.title",
+    descriptionKey: "about.trajectory.description",
+    fullDescriptionKey: "about.trajectory.full",
   },
   {
     icon: Shield,
-    badge: "Ética | Comprometimento",
-    title: "Pilares Consolidados",
-    description: "Os pilares de uma advocacia que une ética, excelência e resultados",
-    fullDescription: "Nossos pilares fundamentais são a ética profissional, o comprometimento com cada cliente e a busca incessante por resultados. Acreditamos que a advocacia de excelência se constrói com transparência, dedicação e conhecimento técnico aprofundado. Cada caso é tratado com a atenção e o cuidado que merece.",
+    badgeKey: "about.pillars.badge",
+    titleKey: "about.pillars.title",
+    descriptionKey: "about.pillars.description",
+    fullDescriptionKey: "about.pillars.full",
   },
   {
     icon: Target,
-    badge: "Excelência",
-    title: "Nossa Missão",
-    description: "Relacionamento de qualidade e serviços jurídicos eficazes",
-    fullDescription: "Nossa missão é proporcionar serviços jurídicos de alta qualidade, construindo relacionamentos baseados na confiança e na transparência. Buscamos sempre a melhor solução para cada cliente, combinando conhecimento técnico com uma abordagem humanizada e personalizada.",
+    badgeKey: "about.mission.badge",
+    titleKey: "about.mission.title",
+    descriptionKey: "about.mission.description",
+    fullDescriptionKey: "about.mission.full",
   },
   {
     icon: MapPin,
-    badge: "Atuação Nacional",
-    title: "Escritório",
-    description: "Sede em Brasília com cobertura nacional",
-    fullDescription: "Com sede em Brasília, o escritório Mota & Advogados Associados possui atuação em todo o território nacional. Nossa estrutura permite atender clientes de qualquer estado brasileiro, com a mesma qualidade e eficiência que nos caracteriza. Contamos com uma rede de correspondentes e parceiros estratégicos em diversas localidades.",
+    badgeKey: "about.office.badge",
+    titleKey: "about.office.title",
+    descriptionKey: "about.office.description",
+    fullDescriptionKey: "about.office.full",
   },
 ];
 
 export const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<typeof cards[0] | null>(null);
+  const [selectedCard, setSelectedCard] = useState<CardData | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,20 +96,20 @@ export const AboutSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Escritório
+            {t("about.title")}
           </h2>
           <p
             className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.
+            {t("about.subtitle")}
           </p>
         </div>
 
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {cards.map((card, index) => (
+          {cardsData.map((card, index) => (
             <div
               key={index}
               className={`group cursor-pointer transition-all duration-700 ${
@@ -113,19 +124,19 @@ export const AboutSection = () => {
                 </div>
                 
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gold-light/10 border border-gold-light/20">
-                  <span className="text-xs font-semibold text-gold-light">{card.badge}</span>
+                  <span className="text-xs font-semibold text-gold-light">{t(card.badgeKey)}</span>
                 </div>
                 
                 <h3 className="text-2xl md:text-3xl font-semibold text-navy mb-3 tracking-tight font-serif">
-                  {card.title}
+                  {t(card.titleKey)}
                 </h3>
                 
                 <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                  {card.description}
+                  {t(card.descriptionKey)}
                 </p>
                 
                 <div className="flex items-center gap-2 text-gold-light font-semibold group-hover:gap-3 transition-all duration-300">
-                  <span>Explorar</span>
+                  <span>{t("about.explore")}</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
               </div>
@@ -146,15 +157,15 @@ export const AboutSection = () => {
               )}
               <div>
                 <div className="inline-block px-3 py-1 mb-2 rounded-full bg-gold-light/10 border border-gold-light/20">
-                  <span className="text-xs font-semibold text-gold-light">{selectedCard?.badge}</span>
+                  <span className="text-xs font-semibold text-gold-light">{selectedCard && t(selectedCard.badgeKey)}</span>
                 </div>
                 <DialogTitle className="text-2xl font-serif text-navy">
-                  {selectedCard?.title}
+                  {selectedCard && t(selectedCard.titleKey)}
                 </DialogTitle>
               </div>
             </div>
             <DialogDescription className="text-base text-muted-foreground leading-relaxed">
-              {selectedCard?.fullDescription}
+              {selectedCard && t(selectedCard.fullDescriptionKey)}
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
