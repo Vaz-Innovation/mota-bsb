@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Search, Globe, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoGold from "@/assets/logo-gold.png";
-import logoWhite from "@/assets/logo-white.png";
+import logoHeader from "@/assets/logo-header.png";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -36,15 +35,12 @@ export const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3">
+          <a href="#inicio" className="flex items-center">
             <img
-              src={logoGold}
-              alt="Mota & Advogados"
-              className="h-10 w-auto"
+              src={logoHeader}
+              alt="Mota & Advogados Associados"
+              className="h-12 w-auto"
             />
-            <span className="text-primary-foreground font-serif font-bold text-lg hidden sm:block">
-              Mota & Advogados
-            </span>
           </a>
 
           {/* Desktop Navigation */}
