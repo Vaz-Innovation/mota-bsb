@@ -1,18 +1,29 @@
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const NewsletterSection = () => {
-  const [email, setEmail] = useState("");
   const { t } = useLanguage();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success(t("newsletter.success"));
-    setEmail("");
-  };
+  useEffect(() => {
+    // Load Beehiiv embed script
+    const script = document.createElement("script");
+    script.src = "https://subscribe-forms.beehiiv.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Load Beehiiv attribution script
+    const attributionScript = document.createElement("script");
+    attributionScript.src = "https://subscribe-forms.beehiiv.com/attribution.js";
+    attributionScript.type = "text/javascript";
+    attributionScript.async = true;
+    document.body.appendChild(attributionScript);
+
+    return () => {
+      // Cleanup scripts on unmount
+      document.body.removeChild(script);
+      document.body.removeChild(attributionScript);
+    };
+  }, []);
 
   return (
     <section className="py-20 bg-navy-deep">
@@ -25,22 +36,24 @@ export const NewsletterSection = () => {
             {t("newsletter.subtitle")}
           </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder={t("newsletter.placeholder")}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 h-12 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+          <div className="flex justify-center">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/ab9d5704-ee39-4879-8564-1bad699ec4fa"
+              className="beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameBorder="0"
+              scrolling="no"
+              style={{
+                width: "560px",
+                height: "207px",
+                margin: 0,
+                borderRadius: "0px",
+                backgroundColor: "transparent",
+                boxShadow: "none",
+                maxWidth: "100%",
+              }}
             />
-            <Button
-              type="submit"
-              className="h-12 px-8 bg-gradient-gold hover:opacity-90 text-navy font-semibold"
-            >
-              {t("newsletter.button")}
-            </Button>
-          </form>
+          </div>
         </div>
       </div>
     </section>
