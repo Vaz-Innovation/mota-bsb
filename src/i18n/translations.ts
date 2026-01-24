@@ -168,7 +168,7 @@ export const translations: Translations = {
     "about.office.badge": "Atuação Nacional",
     "about.office.title": "Escritório",
     "about.office.description": "Sede em Brasília com cobertura nacional",
-    "about.office.full": "Com sede em Brasília, o escritório Mota & Advogados Associados possui atuação em todo o território nacional. Nossa estrutura permite atender clientes de qualquer estado brasileiro, com a mesma qualidade e eficiência que nos caracteriza. Contamos com uma rede de correspondentes e parceiros estratégicos em diversas localidades.",
+    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Brasília, e Natal.",
     "about.explore": "Explorar",
     
     // Practice Areas
@@ -301,7 +301,7 @@ export const translations: Translations = {
     "about.office.badge": "Actuación Nacional",
     "about.office.title": "Oficina",
     "about.office.description": "Sede en Brasilia con cobertura nacional",
-    "about.office.full": "Con sede en Brasilia, la firma Mota & Advogados Associados tiene actuación en todo el territorio nacional. Nuestra estructura permite atender clientes de cualquier estado brasileño.",
+    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Brasília y Natal.",
     "about.explore": "Explorar",
     
     // Practice Areas
@@ -434,7 +434,7 @@ export const translations: Translations = {
     "about.office.badge": "Nationwide Coverage",
     "about.office.title": "Office",
     "about.office.description": "Headquarters in Brasília with nationwide coverage",
-    "about.office.full": "Headquartered in Brasília, Mota & Advogados Associados operates throughout the national territory. Our structure allows us to serve clients from any Brazilian state.",
+    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Brasília, and Natal.",
     "about.explore": "Explore",
     
     // Practice Areas
@@ -567,7 +567,7 @@ export const translations: Translations = {
     "about.office.badge": "Landesweite Abdeckung",
     "about.office.title": "Kanzlei",
     "about.office.description": "Hauptsitz in Brasília mit landesweiter Abdeckung",
-    "about.office.full": "Mit Hauptsitz in Brasília ist Mota & Advogados Associados im gesamten nationalen Territorium tätig.",
+    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Brasília und Natal.",
     "about.explore": "Erkunden",
     
     // Practice Areas
@@ -700,7 +700,7 @@ export const translations: Translations = {
     "about.office.badge": "Copertura Nazionale",
     "about.office.title": "Studio",
     "about.office.description": "Sede a Brasília con copertura nazionale",
-    "about.office.full": "Con sede a Brasília, Mota & Advogados Associados opera in tutto il territorio nazionale.",
+    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Brasília e Natal.",
     "about.explore": "Esplora",
     
     // Practice Areas
@@ -833,7 +833,7 @@ export const translations: Translations = {
     "about.office.badge": "Couverture Nationale",
     "about.office.title": "Cabinet",
     "about.office.description": "Siège à Brasília avec couverture nationale",
-    "about.office.full": "Avec son siège à Brasília, Mota & Advogados Associados opère sur tout le territoire national.",
+    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Brasília et Natal.",
     "about.explore": "Explorer",
     
     // Practice Areas
@@ -966,7 +966,7 @@ export const translations: Translations = {
     "about.office.badge": "全国覆盖",
     "about.office.title": "办公室",
     "about.office.description": "总部位于巴西利亚，覆盖全国",
-    "about.office.full": "总部位于巴西利亚，Mota & Advogados Associados在全国范围内运营。",
+    "about.office.full": "技术、敏捷性和全国覆盖。\n\n遍布全国，每个细节都有解决方案。\n\n在圣保罗、巴西利亚和纳塔尔也设有办事处。",
     "about.explore": "探索",
     
     // Practice Areas
