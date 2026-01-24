@@ -18,7 +18,7 @@ export const HeroSection = () => {
           <img
             src={logoHero}
             alt="Mota & Advogados Associados"
-            className="w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] max-w-2xl h-auto drop-shadow-2xl animate-fade-in"
+            className="w-full max-w-5xl h-auto drop-shadow-2xl animate-fade-in"
           />
         </div>
       </div>
