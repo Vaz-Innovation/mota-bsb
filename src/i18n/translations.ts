@@ -107,6 +107,7 @@ export const translationKeys = [
   "footer.description",
   "footer.quick_links",
   "footer.contact",
+  "footer.social",
   "footer.hours",
   "footer.rights",
   
@@ -245,6 +246,7 @@ export const translations: Translations = {
     "footer.description": "Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados, atuando em todo o território nacional.",
     "footer.quick_links": "Links Rápidos",
     "footer.contact": "Contato",
+    "footer.social": "Redes Sociais",
     "footer.hours": "Seg - Sex: 9h às 18h",
     "footer.rights": "Todos os direitos reservados.",
     
@@ -378,6 +380,7 @@ export const translations: Translations = {
     "footer.description": "Desde 2000, ofrecemos soluciones jurídicas con excelencia, ética y resultados, actuando en todo el territorio nacional.",
     "footer.quick_links": "Enlaces Rápidos",
     "footer.contact": "Contacto",
+    "footer.social": "Redes Sociales",
     "footer.hours": "Lun - Vie: 9h a 18h",
     "footer.rights": "Todos los derechos reservados.",
     
@@ -511,6 +514,7 @@ export const translations: Translations = {
     "footer.description": "Since 2000, we offer legal solutions with excellence, ethics and results, operating throughout the national territory.",
     "footer.quick_links": "Quick Links",
     "footer.contact": "Contact",
+    "footer.social": "Social Media",
     "footer.hours": "Mon - Fri: 9am to 6pm",
     "footer.rights": "All rights reserved.",
     
@@ -644,6 +648,7 @@ export const translations: Translations = {
     "footer.description": "Seit 2000 bieten wir juristische Lösungen mit Exzellenz, Ethik und Ergebnissen im gesamten nationalen Territorium.",
     "footer.quick_links": "Schnelllinks",
     "footer.contact": "Kontakt",
+    "footer.social": "Soziale Netzwerke",
     "footer.hours": "Mo - Fr: 9 bis 18 Uhr",
     "footer.rights": "Alle Rechte vorbehalten.",
     
@@ -777,6 +782,7 @@ export const translations: Translations = {
     "footer.description": "Dal 2000, offriamo soluzioni legali con eccellenza, etica e risultati, operando in tutto il territorio nazionale.",
     "footer.quick_links": "Link Rapidi",
     "footer.contact": "Contatto",
+    "footer.social": "Social Network",
     "footer.hours": "Lun - Ven: 9 alle 18",
     "footer.rights": "Tutti i diritti riservati.",
     
@@ -910,6 +916,7 @@ export const translations: Translations = {
     "footer.description": "Depuis 2000, nous offrons des solutions juridiques avec excellence, éthique et résultats, opérant sur tout le territoire national.",
     "footer.quick_links": "Liens Rapides",
     "footer.contact": "Contact",
+    "footer.social": "Réseaux Sociaux",
     "footer.hours": "Lun - Ven: 9h à 18h",
     "footer.rights": "Tous droits réservés.",
     
@@ -1043,6 +1050,7 @@ export const translations: Translations = {
     "footer.description": "自2000年以来，我们在全国范围内提供卓越、道德和成果的法律解决方案。",
     "footer.quick_links": "快速链接",
     "footer.contact": "联系",
+    "footer.social": "社交媒体",
     "footer.hours": "周一至周五: 9点至18点",
     "footer.rights": "版权所有。",
     
