@@ -3,6 +3,9 @@ import { Mail } from "lucide-react";
 import joseMota from "@/assets/jose-mota.jpg";
 import maristelaMota from "@/assets/maristela-mota.jpg";
 import rafaelMota from "@/assets/rafael-mota.jpg";
+import kamillaBarbosa from "@/assets/kamilla-barbosa.jpg";
+import priscilaAbritta from "@/assets/priscila-abritta.jpg";
+import marianaVelho from "@/assets/mariana-velho.jpg";
 
 const team = [
   {
@@ -22,6 +25,24 @@ const team = [
     name: "Dr. Rafael Augusto Mota",
     oab: "OAB/DF 72.907",
     email: "rafael@mota.adv.br",
+  },
+  {
+    image: kamillaBarbosa,
+    name: "Dra. Kamilla Flávila e Léles Barbosa",
+    oab: "OAB/DF 19.512",
+    email: "kamilla@mota.adv.br",
+  },
+  {
+    image: priscilaAbritta,
+    name: "Dra. Priscila Souza Abritta",
+    oab: "OAB/DF 54.644",
+    email: "priscila@mota.adv.br",
+  },
+  {
+    image: marianaVelho,
+    name: "Dra. Mariana Prado Garcia de Queiroz Velho",
+    oab: "OAB/DF 16.362",
+    email: "mariana@mota.adv.br",
   },
 ];
 
