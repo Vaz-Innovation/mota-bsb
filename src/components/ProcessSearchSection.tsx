@@ -17,8 +17,8 @@ export const ProcessSearchSection = () => {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-bronze/10">
-                  <Search className="w-8 h-8 text-bronze" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold-light/10">
+                  <Search className="w-8 h-8 text-gold-light" />
                 </div>
                 <div className="text-left">
                   <h2 className="text-2xl md:text-3xl font-bold text-navy font-serif">
@@ -30,7 +30,7 @@ export const ProcessSearchSection = () => {
                 </div>
               </div>
               <ChevronDown
-                className={`w-8 h-8 text-bronze transition-transform duration-300 ${
+                className={`w-8 h-8 text-gold-light transition-transform duration-300 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />
@@ -47,7 +47,7 @@ export const ProcessSearchSection = () => {
                   onChange={(e) => setProcessNumber(e.target.value)}
                   className="h-12 text-lg"
                 />
-                <Button className="w-full h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                <Button className="w-full h-12 bg-gradient-gold hover:opacity-90 text-navy font-semibold">
                   Consultar Processo
                 </Button>
               </div>

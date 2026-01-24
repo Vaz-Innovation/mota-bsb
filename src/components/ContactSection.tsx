@@ -48,7 +48,7 @@ export const ContactSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className="h-1 w-20 bg-accent mx-auto mb-6 rounded-full"></div>
+          <div className="h-1 w-20 bg-gradient-gold mx-auto mb-6 rounded-full"></div>
           <h2
             className={`text-4xl md:text-6xl font-bold text-navy mb-6 tracking-tight font-serif transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -69,7 +69,7 @@ export const ContactSection = () => {
               href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:underline"
+              className="text-gold-light hover:underline"
             >
               mapa do estacionamento
             </a>
@@ -200,7 +200,7 @@ export const ContactSection = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold h-12"
+                  className="w-full bg-gradient-gold hover:opacity-90 text-navy font-semibold h-12"
                 >
                   Enviar Mensagem
                 </Button>

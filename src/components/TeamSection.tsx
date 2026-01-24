@@ -55,7 +55,7 @@ export const TeamSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className="h-1 w-20 bg-accent mx-auto mb-6 rounded-full"></div>
+          <div className="h-1 w-20 bg-gradient-gold mx-auto mb-6 rounded-full"></div>
           <h2
             className={`text-4xl md:text-6xl font-bold text-navy mb-6 tracking-tight font-serif transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -99,7 +99,7 @@ export const TeamSection = () => {
                   </p>
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium"
+                    className="inline-flex items-center gap-2 text-gold-light hover:text-gold transition-colors text-sm font-medium"
                   >
                     <Mail className="w-4 h-4" />
                     {member.email}

@@ -114,7 +114,7 @@ export const PracticeAreasSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className="h-1 w-20 bg-accent mx-auto mb-6 rounded-full"></div>
+          <div className="h-1 w-20 bg-gradient-gold mx-auto mb-6 rounded-full"></div>
           <h2
             className={`text-4xl md:text-6xl font-bold text-navy mb-6 tracking-tight font-serif transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -147,8 +147,8 @@ export const PracticeAreasSection = () => {
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <div className="h-full p-6 rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group cursor-pointer">
-                  <div className="w-14 h-14 mb-4 bg-accent/10 border border-accent/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent/20">
-                    <area.icon className="w-7 h-7 text-accent" />
+                  <div className="w-14 h-14 mb-4 bg-gold-light/10 border border-gold-light/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gold-light/20">
+                    <area.icon className="w-7 h-7 text-gold-light" />
                   </div>
                   
                   <h3 className="text-lg font-semibold text-navy mb-2 font-serif">
@@ -159,7 +159,7 @@ export const PracticeAreasSection = () => {
                     {area.description}
                   </p>
                   
-                  <div className="flex items-center gap-2 text-accent font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                  <div className="flex items-center gap-2 text-gold-light font-semibold text-sm group-hover:gap-3 transition-all duration-300">
                     <span>Saiba mais</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </div>

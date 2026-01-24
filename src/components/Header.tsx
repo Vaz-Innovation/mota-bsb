@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Search, Globe, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoMota from "@/assets/logo-mota.png";
+import logoGold from "@/assets/logo-gold.png";
+import logoWhite from "@/assets/logo-white.png";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -35,12 +36,15 @@ export const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center">
+          <a href="#inicio" className="flex items-center gap-3">
             <img
-              src={logoMota}
+              src={logoGold}
               alt="Mota & Advogados"
               className="h-10 w-auto"
             />
+            <span className="text-primary-foreground font-serif font-bold text-lg hidden sm:block">
+              Mota & Advogados
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -49,7 +53,7 @@ export const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium text-sm"
+                className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
               >
                 {link.label}
               </a>
@@ -58,13 +62,13 @@ export const Header = () => {
 
           {/* Right Side Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <button className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+            <button className="text-primary-foreground/80 hover:text-gold-light transition-colors">
               <Search className="w-5 h-5" />
             </button>
             
             <Button
               variant="ghost"
-              className="text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10"
             >
               <User className="w-4 h-4 mr-2" />
               Acessos
@@ -72,13 +76,13 @@ export const Header = () => {
             
             <Button
               variant="ghost"
-              className="text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10"
             >
               <Globe className="w-4 h-4 mr-2" />
               PT
             </Button>
             
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6">
+            <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
               Fale Conosco
             </Button>
           </div>
@@ -100,13 +104,13 @@ export const Header = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
+                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold mt-4">
+              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
                 Fale Conosco
               </Button>
             </div>
