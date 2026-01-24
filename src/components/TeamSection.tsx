@@ -105,24 +105,26 @@ export const TeamSection = () => {
               }`}
               style={{ transitionDelay: `${(index + 2) * 100}ms` }}
             >
-              <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group">
-                <div className="aspect-[3/4] overflow-hidden">
+              <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group h-full flex flex-col">
+                <div className="aspect-[3/4] overflow-hidden flex-shrink-0">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold text-navy mb-1 font-serif">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {member.oab}
-                  </p>
+                <div className="p-6 text-center flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="text-xl font-semibold text-navy mb-1 font-serif min-h-[3.5rem] flex items-center justify-center">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {member.oab}
+                    </p>
+                  </div>
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 text-gold-light hover:text-gold transition-colors text-sm font-medium"
+                    className="inline-flex items-center gap-2 text-gold-light hover:text-gold transition-colors text-sm font-medium justify-center"
                   >
                     <Mail className="w-4 h-4" />
                     {member.email}
