@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent");
@@ -37,10 +39,10 @@ export const CookieBanner = () => {
           
           <div className="flex-1">
             <h3 className="font-semibold text-foreground mb-1">
-              Política de Cookies
+              {t("cookie.title")}
             </h3>
             <p className="text-sm text-muted-foreground">
-              Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.
+              {t("cookie.description")}
             </p>
           </div>
           
@@ -50,13 +52,13 @@ export const CookieBanner = () => {
               onClick={handleReject}
               className="flex-1 md:flex-none"
             >
-              Recusar
+              {t("cookie.reject")}
             </Button>
             <Button
               onClick={handleAccept}
               className="flex-1 md:flex-none bg-accent hover:bg-accent/90 text-accent-foreground"
             >
-              Aceitar
+              {t("cookie.accept")}
             </Button>
           </div>
         </div>

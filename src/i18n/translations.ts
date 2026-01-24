@@ -109,6 +109,25 @@ export const translationKeys = [
   "footer.contact",
   "footer.hours",
   "footer.rights",
+  
+  // Newsletter
+  "newsletter.title",
+  "newsletter.subtitle",
+  "newsletter.placeholder",
+  "newsletter.button",
+  "newsletter.success",
+  
+  // Process Search
+  "process.title",
+  "process.subtitle",
+  "process.placeholder",
+  "process.button",
+  
+  // Cookie Banner
+  "cookie.title",
+  "cookie.description",
+  "cookie.reject",
+  "cookie.accept",
 ] as const;
 
 export type TranslationKey = typeof translationKeys[number];
@@ -225,6 +244,25 @@ export const translations: Translations = {
     "footer.contact": "Contato",
     "footer.hours": "Seg - Sex: 9h às 18h",
     "footer.rights": "Todos os direitos reservados.",
+    
+    // Newsletter
+    "newsletter.title": "Fique por Dentro",
+    "newsletter.subtitle": "Cadastre-se na newsletter e receba dicas jurídicas e novidades do escritório.",
+    "newsletter.placeholder": "Seu melhor e-mail",
+    "newsletter.button": "Inscrever",
+    "newsletter.success": "Sucesso! Agora verifique seu e-mail para confirmar sua inscrição.",
+    
+    // Process Search
+    "process.title": "Consulte Seu Processo",
+    "process.subtitle": "Digite o número do processo e receba atualizações em poucos minutos.",
+    "process.placeholder": "Digite o número do processo",
+    "process.button": "Consultar Processo",
+    
+    // Cookie Banner
+    "cookie.title": "Política de Cookies",
+    "cookie.description": "Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.",
+    "cookie.reject": "Recusar",
+    "cookie.accept": "Aceitar",
   },
   
   ES: {
@@ -336,6 +374,25 @@ export const translations: Translations = {
     "footer.contact": "Contacto",
     "footer.hours": "Lun - Vie: 9h a 18h",
     "footer.rights": "Todos los derechos reservados.",
+    
+    // Newsletter
+    "newsletter.title": "Mantente Informado",
+    "newsletter.subtitle": "Suscríbete al newsletter y recibe consejos legales y novedades del despacho.",
+    "newsletter.placeholder": "Tu mejor correo electrónico",
+    "newsletter.button": "Suscribirse",
+    "newsletter.success": "¡Éxito! Ahora revisa tu correo electrónico para confirmar tu suscripción.",
+    
+    // Process Search
+    "process.title": "Consulta tu Proceso",
+    "process.subtitle": "Ingresa el número del proceso y recibe actualizaciones en pocos minutos.",
+    "process.placeholder": "Ingresa el número del proceso",
+    "process.button": "Consultar Proceso",
+    
+    // Cookie Banner
+    "cookie.title": "Política de Cookies",
+    "cookie.description": "Utilizamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra política de privacidad.",
+    "cookie.reject": "Rechazar",
+    "cookie.accept": "Aceptar",
   },
   
   EN: {
@@ -447,6 +504,25 @@ export const translations: Translations = {
     "footer.contact": "Contact",
     "footer.hours": "Mon - Fri: 9am to 6pm",
     "footer.rights": "All rights reserved.",
+    
+    // Newsletter
+    "newsletter.title": "Stay Updated",
+    "newsletter.subtitle": "Subscribe to our newsletter and receive legal tips and news from the office.",
+    "newsletter.placeholder": "Your best email",
+    "newsletter.button": "Subscribe",
+    "newsletter.success": "Success! Now check your email to confirm your subscription.",
+    
+    // Process Search
+    "process.title": "Check Your Case",
+    "process.subtitle": "Enter the case number and receive updates in a few minutes.",
+    "process.placeholder": "Enter the case number",
+    "process.button": "Check Case",
+    
+    // Cookie Banner
+    "cookie.title": "Cookie Policy",
+    "cookie.description": "We use cookies to improve your experience on our site. By continuing to browse, you agree to our privacy policy.",
+    "cookie.reject": "Reject",
+    "cookie.accept": "Accept",
   },
   
   DE: {
@@ -558,6 +634,25 @@ export const translations: Translations = {
     "footer.contact": "Kontakt",
     "footer.hours": "Mo - Fr: 9 bis 18 Uhr",
     "footer.rights": "Alle Rechte vorbehalten.",
+    
+    // Newsletter
+    "newsletter.title": "Bleiben Sie Informiert",
+    "newsletter.subtitle": "Abonnieren Sie unseren Newsletter und erhalten Sie juristische Tipps und Neuigkeiten.",
+    "newsletter.placeholder": "Ihre beste E-Mail",
+    "newsletter.button": "Abonnieren",
+    "newsletter.success": "Erfolg! Überprüfen Sie jetzt Ihre E-Mail, um Ihr Abonnement zu bestätigen.",
+    
+    // Process Search
+    "process.title": "Überprüfen Sie Ihren Fall",
+    "process.subtitle": "Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.",
+    "process.placeholder": "Fallnummer eingeben",
+    "process.button": "Fall Prüfen",
+    
+    // Cookie Banner
+    "cookie.title": "Cookie-Richtlinie",
+    "cookie.description": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch das Weitersurfen stimmen Sie unserer Datenschutzrichtlinie zu.",
+    "cookie.reject": "Ablehnen",
+    "cookie.accept": "Akzeptieren",
   },
   
   IT: {
@@ -669,6 +764,25 @@ export const translations: Translations = {
     "footer.contact": "Contatto",
     "footer.hours": "Lun - Ven: 9 alle 18",
     "footer.rights": "Tutti i diritti riservati.",
+    
+    // Newsletter
+    "newsletter.title": "Resta Aggiornato",
+    "newsletter.subtitle": "Iscriviti alla newsletter e ricevi consigli legali e novità dallo studio.",
+    "newsletter.placeholder": "La tua migliore email",
+    "newsletter.button": "Iscriviti",
+    "newsletter.success": "Successo! Controlla ora la tua email per confermare l'iscrizione.",
+    
+    // Process Search
+    "process.title": "Controlla il Tuo Caso",
+    "process.subtitle": "Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.",
+    "process.placeholder": "Inserisci il numero del caso",
+    "process.button": "Verifica Caso",
+    
+    // Cookie Banner
+    "cookie.title": "Politica dei Cookie",
+    "cookie.description": "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Continuando a navigare, accetti la nostra politica sulla privacy.",
+    "cookie.reject": "Rifiuta",
+    "cookie.accept": "Accetta",
   },
   
   FR: {
@@ -780,6 +894,25 @@ export const translations: Translations = {
     "footer.contact": "Contact",
     "footer.hours": "Lun - Ven: 9h à 18h",
     "footer.rights": "Tous droits réservés.",
+    
+    // Newsletter
+    "newsletter.title": "Restez Informé",
+    "newsletter.subtitle": "Abonnez-vous à la newsletter et recevez des conseils juridiques et des nouvelles du cabinet.",
+    "newsletter.placeholder": "Votre meilleur email",
+    "newsletter.button": "S'abonner",
+    "newsletter.success": "Succès! Vérifiez maintenant votre email pour confirmer votre inscription.",
+    
+    // Process Search
+    "process.title": "Consultez Votre Dossier",
+    "process.subtitle": "Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.",
+    "process.placeholder": "Entrez le numéro du dossier",
+    "process.button": "Consulter le Dossier",
+    
+    // Cookie Banner
+    "cookie.title": "Politique de Cookies",
+    "cookie.description": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.",
+    "cookie.reject": "Refuser",
+    "cookie.accept": "Accepter",
   },
   
   ZH: {
@@ -891,5 +1024,24 @@ export const translations: Translations = {
     "footer.contact": "联系",
     "footer.hours": "周一至周五: 9点至18点",
     "footer.rights": "版权所有。",
+    
+    // Newsletter
+    "newsletter.title": "保持更新",
+    "newsletter.subtitle": "订阅我们的通讯，获取法律建议和事务所新闻。",
+    "newsletter.placeholder": "您的最佳邮箱",
+    "newsletter.button": "订阅",
+    "newsletter.success": "成功！请检查您的邮箱以确认订阅。",
+    
+    // Process Search
+    "process.title": "查询您的案件",
+    "process.subtitle": "输入案件编号，几分钟内即可收到更新。",
+    "process.placeholder": "输入案件编号",
+    "process.button": "查询案件",
+    
+    // Cookie Banner
+    "cookie.title": "Cookie政策",
+    "cookie.description": "我们使用Cookie来改善您在网站上的体验。继续浏览即表示您同意我们的隐私政策。",
+    "cookie.reject": "拒绝",
+    "cookie.accept": "接受",
   },
 };
