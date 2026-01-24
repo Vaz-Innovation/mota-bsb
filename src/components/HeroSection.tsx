@@ -1,4 +1,4 @@
-import logoWhite from "@/assets/logo-white.png";
+import logoHero from "@/assets/logo-hero.png";
 
 export const HeroSection = () => {
   return (
@@ -16,16 +16,10 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center text-center">
           <img
-            src={logoWhite}
+            src={logoHero}
             alt="Mota & Advogados Associados"
-            className="h-[16rem] md:h-[22rem] lg:h-[28rem] xl:h-[34rem] w-auto drop-shadow-2xl animate-fade-in animate-float animate-glow mb-8"
+            className="w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] max-w-2xl h-auto drop-shadow-2xl animate-fade-in"
           />
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mb-4 animate-fade-in">
-            Mota & Advogados Associados
-          </h1>
-          <p className="text-lg md:text-xl text-beige/80 max-w-2xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Excelência jurídica com ética e resultados
-          </p>
         </div>
       </div>
     </section>
