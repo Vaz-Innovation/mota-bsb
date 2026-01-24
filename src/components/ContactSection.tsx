@@ -61,18 +61,10 @@ export const ContactSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Visite nosso escritório em Porto Alegre.
+            Visite nosso escritório em Brasília.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            Opção de estacionamento para acesso ao escritório -{" "}
-            <a
-              href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold-light hover:underline"
-            >
-              mapa do estacionamento
-            </a>
+            SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edifício Athenas - Brasília - DF - CEP 70390-020
           </p>
         </div>
 
@@ -86,7 +78,7 @@ export const ContactSection = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d-51.2177!3d-30.0346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzA0LjYiUyA1McKwMTMnMDMuNyJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.8661234567!2d-47.9219!3d-15.8458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3b4a5c6d7e8f%3A0x1234567890abcdef!2sSGAS%20902%2C%20Bras%C3%ADlia%20-%20DF%2C%2070390-020!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "400px" }}
