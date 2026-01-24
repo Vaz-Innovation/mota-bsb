@@ -37,7 +37,7 @@ export default function Auth() {
           description: "Redirecionando...",
         });
         // Navigate after a small delay to ensure auth state updates
-        setTimeout(() => navigate("/"), 100);
+        setTimeout(() => navigate("/admin"), 100);
       } else {
         const { error } = await signUp(email, password);
         if (error) throw error;
@@ -45,7 +45,7 @@ export default function Auth() {
           title: "Conta criada com sucesso!",
           description: "Bem-vindo ao site!",
         });
-        setTimeout(() => navigate("/"), 100);
+        setTimeout(() => navigate("/admin"), 100);
       }
     } catch (error: any) {
       toast({
