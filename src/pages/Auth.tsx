@@ -32,7 +32,12 @@ export default function Auth() {
       if (isLogin) {
         const { error } = await signIn(email, password);
         if (error) throw error;
-        navigate("/");
+        toast({
+          title: "Login realizado com sucesso!",
+          description: "Redirecionando...",
+        });
+        // Navigate after a small delay to ensure auth state updates
+        setTimeout(() => navigate("/"), 100);
       } else {
         const { error } = await signUp(email, password);
         if (error) throw error;
@@ -40,7 +45,7 @@ export default function Auth() {
           title: "Conta criada com sucesso!",
           description: "Bem-vindo ao site!",
         });
-        navigate("/");
+        setTimeout(() => navigate("/"), 100);
       }
     } catch (error: any) {
       toast({
@@ -48,7 +53,6 @@ export default function Auth() {
         description: error.message || "Ocorreu um erro. Tente novamente.",
         variant: "destructive",
       });
-    } finally {
       setLoading(false);
     }
   };
