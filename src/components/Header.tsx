@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Search, Globe, User, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -32,7 +33,7 @@ export const Header = () => {
     { href: "#areas", label: t("nav.practice_areas") },
     { href: "#equipe", label: t("nav.team") },
     { href: "#contato", label: t("nav.contact") },
-    { href: "#blog", label: t("nav.blog") },
+    { href: "/blog", label: t("nav.blog"), isRoute: true },
   ];
 
   useEffect(() => {
@@ -65,13 +66,23 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
 
@@ -145,14 +156,25 @@ export const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t border-primary-foreground/20">
             <div className="flex flex-col gap-4 pt-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               
               {/* Mobile Language Selector */}
