@@ -48,10 +48,14 @@ export default function Admin() {
   const [loadingData, setLoadingData] = useState(true);
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/auth");
+    if (!loading) {
+      if (!user) {
+        navigate("/auth");
+      } else if (!isAdmin) {
+        navigate("/");
+      }
     }
-  }, [user, loading, navigate]);
+  }, [user, isAdmin, loading, navigate]);
 
   useEffect(() => {
     if (user) {

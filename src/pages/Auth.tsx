@@ -14,8 +14,14 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, isAdmin } = useAuth();
   const navigate = useNavigate();
+  
+  // Redirect based on admin status after login/signup
+  const handleRedirect = () => {
+    // After auth, redirect to home - admin will be verified there
+    navigate("/");
+  };
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,15 +32,15 @@ export default function Auth() {
       if (isLogin) {
         const { error } = await signIn(email, password);
         if (error) throw error;
-        navigate("/admin");
+        navigate("/");
       } else {
         const { error } = await signUp(email, password);
         if (error) throw error;
         toast({
           title: "Conta criada com sucesso!",
-          description: "Você já pode acessar o painel administrativo.",
+          description: "Bem-vindo ao site!",
         });
-        navigate("/admin");
+        navigate("/");
       }
     } catch (error: any) {
       toast({

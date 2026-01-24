@@ -23,7 +23,7 @@ interface Category {
 }
 
 export default function AdminNewPost() {
-  const { user, loading } = useAuth();
+  const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -42,10 +42,14 @@ export default function AdminNewPost() {
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/auth");
+    if (!loading) {
+      if (!user) {
+        navigate("/auth");
+      } else if (!isAdmin) {
+        navigate("/");
+      }
     }
-  }, [user, loading, navigate]);
+  }, [user, isAdmin, loading, navigate]);
 
   useEffect(() => {
     fetchCategories();

@@ -9,7 +9,7 @@ import { ArrowLeft, Save } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function AdminNewCategory() {
-  const { user, loading } = useAuth();
+  const { user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -18,10 +18,14 @@ export default function AdminNewCategory() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/auth");
+    if (!loading) {
+      if (!user) {
+        navigate("/auth");
+      } else if (!isAdmin) {
+        navigate("/");
+      }
     }
-  }, [user, loading, navigate]);
+  }, [user, isAdmin, loading, navigate]);
 
   useEffect(() => {
     const generatedSlug = name
