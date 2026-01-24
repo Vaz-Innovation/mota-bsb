@@ -8,19 +8,19 @@ const team = [
   {
     image: joseMota,
     name: "Dr. José Mota",
-    oab: "OAB/RS 22.378",
+    oab: "OAB/DF 1413-A",
     email: "josemota@mota.adv.br",
   },
   {
     image: maristelaMota,
     name: "Dra. Maristela Mota",
-    oab: "OAB/RS 40.523",
+    oab: "OAB/DF 1.691-A",
     email: "maristela@mota.adv.br",
   },
   {
     image: rafaelMota,
     name: "Dr. Rafael Augusto Mota",
-    oab: "OAB/RS 138.765",
+    oab: "OAB/DF 72.907",
     email: "rafael@mota.adv.br",
   },
 ];
