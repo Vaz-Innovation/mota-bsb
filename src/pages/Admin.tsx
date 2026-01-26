@@ -53,11 +53,8 @@ export default function Admin() {
         navigate("/auth");
         return;
       }
-      // Only redirect if explicitly not admin (loading complete and checked)
-      if (!isAdmin) {
-        console.log("User is not admin, redirecting to home");
-        navigate("/");
-      }
+      // Importante: não redirecionar silenciosamente.
+      // Se não for admin, mostramos uma tela clara (abaixo) para facilitar diagnóstico.
     }
   }, [user, isAdmin, loading, navigate]);
 
@@ -114,6 +111,51 @@ export default function Admin() {
     return (
       <div className="min-h-screen bg-beige-light flex items-center justify-center">
         <div className="text-navy">Carregando...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    // Segurança extra caso o redirect falhe por algum motivo.
+    return (
+      <div className="min-h-screen bg-beige-light flex items-center justify-center p-6">
+        <div className="bg-white rounded-2xl shadow-sm p-6 max-w-md w-full">
+          <h1 className="text-lg font-bold text-navy">Acesso restrito</h1>
+          <p className="text-sm text-muted-foreground mt-2">
+            Você precisa estar autenticado para acessar o painel.
+          </p>
+          <div className="mt-4 flex gap-2">
+            <Button className="bg-navy hover:bg-navy-deep" onClick={() => navigate("/auth")}>
+              Ir para login
+            </Button>
+            <Button variant="outline" onClick={() => navigate("/")}>Voltar ao site</Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-beige-light flex items-center justify-center p-6">
+        <div className="bg-white rounded-2xl shadow-sm p-6 max-w-md w-full">
+          <h1 className="text-lg font-bold text-navy">Sem permissão</h1>
+          <p className="text-sm text-muted-foreground mt-2">
+            Seu login foi realizado, mas este usuário não tem permissão de administrador.
+          </p>
+          <div className="mt-4 flex gap-2">
+            <Button
+              className="bg-navy hover:bg-navy-deep"
+              onClick={async () => {
+                await signOut();
+                navigate("/auth");
+              }}
+            >
+              Sair e trocar usuário
+            </Button>
+            <Button variant="outline" onClick={() => navigate("/")}>Voltar ao site</Button>
+          </div>
+        </div>
       </div>
     );
   }
