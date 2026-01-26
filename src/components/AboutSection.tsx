@@ -76,16 +76,10 @@ export const AboutSection = () => {
     <section
       id="sobre"
       ref={sectionRef}
-      className="relative py-24 overflow-hidden"
-      style={{
-        background: `linear-gradient(135deg, hsl(var(--navy-deep)) 0%, hsl(var(--background)) 40%, hsl(var(--background)) 60%, hsl(var(--navy-deep) / 0.05) 100%)`,
-      }}
+      className="py-24 bg-gradient-to-b from-background to-muted/30"
     >
-      {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-light/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="inline-block mb-4">
