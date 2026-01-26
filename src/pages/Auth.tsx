@@ -24,32 +24,41 @@ export default function Auth() {
   };
   const { toast } = useToast();
 
+  const withTimeout = async <T,>(promise: Promise<T>, ms: number): Promise<T> => {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) =>
+        setTimeout(() => reject(new Error("Tempo limite ao autenticar. Tente novamente.")), ms),
+      ),
+    ]);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       if (isLogin) {
-        const { error } = await signIn(email, password);
+        const { error } = await withTimeout(signIn(email, password), 15000);
         if (error) throw error;
         toast({
           title: "Login realizado com sucesso!",
           description: "Redirecionando...",
         });
         // Navigate after a small delay to ensure auth state updates
+        setLoading(false);
         setTimeout(() => {
-          setLoading(false);
           navigate("/admin");
         }, 100);
       } else {
-        const { error } = await signUp(email, password);
+        const { error } = await withTimeout(signUp(email, password), 15000);
         if (error) throw error;
         toast({
           title: "Conta criada com sucesso!",
           description: "Bem-vindo ao site!",
         });
+        setLoading(false);
         setTimeout(() => {
-          setLoading(false);
           navigate("/admin");
         }, 100);
       }
