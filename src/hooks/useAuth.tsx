@@ -53,10 +53,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const checkAdminRole = async (userId: string) => {
       try {
         // Use backend function to avoid RLS edge cases and keep logic consistent.
-        const { data } = await supabase.rpc("has_role", {
+        const { data, error } = await supabase.rpc("has_role", {
           _user_id: userId,
           _role: "admin",
         });
+
+        if (error) {
+          throw error;
+        }
 
         if (isMounted) {
           setIsAdmin(!!data);
@@ -71,6 +75,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const applySession = async (nextSession: Session | null) => {
       if (!isMounted) return;
+
+      console.debug("[auth] applySession", {
+        hasSession: !!nextSession,
+        userId: nextSession?.user?.id,
+        email: nextSession?.user?.email,
+      });
 
       setSession(nextSession);
       setUser(nextSession?.user ?? null);
@@ -87,6 +97,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       async (event, session) => {
         if (!isMounted) return;
 
+        console.debug("[auth] onAuthStateChange", {
+          event,
+          hasSession: !!session,
+          userId: session?.user?.id,
+          email: session?.user?.email,
+        });
+
         setLoading(true);
         await applySession(session);
         if (isMounted) setLoading(false);
@@ -98,6 +115,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .getSession()
       .then(async ({ data: { session } }) => {
         if (!isMounted) return;
+        console.debug("[auth] getSession", {
+          hasSession: !!session,
+          userId: session?.user?.id,
+          email: session?.user?.email,
+        });
         setLoading(true);
         await applySession(session);
       })
