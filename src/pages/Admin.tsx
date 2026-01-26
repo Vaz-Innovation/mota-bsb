@@ -51,7 +51,11 @@ export default function Admin() {
     if (!loading) {
       if (!user) {
         navigate("/auth");
-      } else if (!isAdmin) {
+        return;
+      }
+      // Only redirect if explicitly not admin (loading complete and checked)
+      if (!isAdmin) {
+        console.log("User is not admin, redirecting to home");
         navigate("/");
       }
     }
