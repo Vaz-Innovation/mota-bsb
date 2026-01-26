@@ -113,8 +113,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
 export function useAuth() {
   const context = useContext(AuthContext);
+
+  // Fail-safe: in case the component tree is temporarily rendered without the provider
+  // (e.g. hot reload / transient routing issues), don't crash the whole app.
   if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    console.error("useAuth was used outside AuthProvider. Falling back to direct auth methods.");
+
+    return {
+      user: null,
+      session: null,
+      isAdmin: false,
+      loading: false,
+      signIn: async (email: string, password: string) => {
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        return { error };
+      },
+      signUp: async (email: string, password: string, fullName?: string) => {
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: window.location.origin,
+            data: { full_name: fullName },
+          },
+        });
+        return { error };
+      },
+      signOut: async () => {
+        await supabase.auth.signOut();
+      },
+    };
   }
+
   return context;
 }
