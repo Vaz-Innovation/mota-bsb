@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, ArrowLeft, Tag, Loader2 } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -8,6 +8,7 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "sonner";
 
 interface BlogPost {
   id: string;
@@ -23,12 +24,21 @@ interface BlogPost {
   meta_description: string | null;
 }
 
+interface TranslatedContent {
+  title: string;
+  excerpt: string;
+  content: string;
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-  const { t, locale } = useLanguage();
+  const [translating, setTranslating] = useState(false);
+  const [translatedContent, setTranslatedContent] = useState<TranslatedContent | null>(null);
+  const { t, locale, language } = useLanguage();
+  const translationCache = useRef<Record<string, TranslatedContent>>({});
 
   useEffect(() => {
     if (slug) {
@@ -36,10 +46,22 @@ export default function BlogPost() {
     }
   }, [slug]);
 
+  // Translate content when language changes
+  useEffect(() => {
+    if (post && language !== "PT") {
+      translateContent();
+    } else {
+      setTranslatedContent(null);
+    }
+  }, [language, post]);
+
   useEffect(() => {
     // Update page title and meta tags
-    if (post) {
-      document.title = post.meta_title || post.title;
+    const displayTitle = translatedContent?.title || post?.title;
+    const displayExcerpt = translatedContent?.excerpt || post?.excerpt;
+    
+    if (displayTitle) {
+      document.title = post?.meta_title || displayTitle;
       
       // Update meta description
       let metaDescription = document.querySelector('meta[name="description"]');
@@ -48,9 +70,9 @@ export default function BlogPost() {
         metaDescription.setAttribute('name', 'description');
         document.head.appendChild(metaDescription);
       }
-      metaDescription.setAttribute('content', post.meta_description || post.excerpt || '');
+      metaDescription.setAttribute('content', post?.meta_description || displayExcerpt || '');
     }
-  }, [post]);
+  }, [post, translatedContent]);
 
   const fetchPost = async () => {
     setLoading(true);
@@ -77,6 +99,45 @@ export default function BlogPost() {
     }
   };
 
+  const translateContent = async () => {
+    if (!post) return;
+
+    const cacheKey = `${post.id}-${language}`;
+    
+    // Check cache first
+    if (translationCache.current[cacheKey]) {
+      setTranslatedContent(translationCache.current[cacheKey]);
+      return;
+    }
+
+    setTranslating(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("translate-content", {
+        body: {
+          title: post.title,
+          excerpt: post.excerpt || "",
+          content: post.content,
+          targetLanguage: language,
+          sourceLanguage: "PT",
+        },
+      });
+
+      if (error) throw error;
+
+      if (data?.success && data.data) {
+        translationCache.current[cacheKey] = data.data;
+        setTranslatedContent(data.data);
+      } else {
+        toast.error(t("blog.translation_error"));
+      }
+    } catch (error) {
+      console.error("Translation error:", error);
+      toast.error(t("blog.translation_error"));
+    } finally {
+      setTranslating(false);
+    }
+  };
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString(locale, {
       day: "numeric",
@@ -84,6 +145,11 @@ export default function BlogPost() {
       year: "numeric",
     });
   };
+
+  // Get display content (translated or original)
+  const displayTitle = translatedContent?.title || post?.title || "";
+  const displayExcerpt = translatedContent?.excerpt || post?.excerpt || "";
+  const displayContent = translatedContent?.content || post?.content || "";
 
   if (loading) {
     return (
@@ -144,9 +210,17 @@ export default function BlogPost() {
             </Link>
 
             {/* Article Header */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
-              {post?.title}
-            </h1>
+            <div className="relative">
+              {translating && (
+                <div className="absolute -top-2 right-0 flex items-center gap-2 text-sm text-muted-foreground bg-muted/80 px-3 py-1 rounded-full">
+                  <Loader2 className="h-3 w-3 animate-spin" />
+                  {t("blog.translating")}
+                </div>
+              )}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
+                {displayTitle}
+              </h1>
+            </div>
 
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8">
@@ -154,13 +228,13 @@ export default function BlogPost() {
                 <Calendar className="w-4 h-4 text-navy" />
                 {post && formatDate(post.created_at)}
               </span>
-              {post?.content && (
+              {displayContent && (
                 <span className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" strokeWidth="2"/>
                     <path strokeWidth="2" d="M12 6v6l4 2"/>
                   </svg>
-                  {estimateReadingTime(post.content)}
+                  {estimateReadingTime(displayContent)}
                 </span>
               )}
             </div>
@@ -170,16 +244,16 @@ export default function BlogPost() {
               <div className="w-full aspect-video rounded-lg overflow-hidden mb-12">
                 <img
                   src={post.image_url}
-                  alt={post.title}
+                  alt={displayTitle}
                   className="w-full h-full object-cover"
                 />
               </div>
             )}
 
             {/* Lead/Excerpt */}
-            {post?.excerpt && (
+            {displayExcerpt && (
               <p className="text-lg md:text-xl font-medium text-navy/80 leading-relaxed mb-10 pb-8 border-b border-border">
-                {post.excerpt}
+                {displayExcerpt}
               </p>
             )}
 
@@ -239,7 +313,7 @@ export default function BlogPost() {
                 [&>img]:my-8 [&>img]:rounded-lg [&>img]:w-full
                 [&_img]:my-8 [&_img]:rounded-lg [&_img]:max-w-full
               "
-              dangerouslySetInnerHTML={{ __html: post?.content || '' }}
+              dangerouslySetInnerHTML={{ __html: displayContent }}
             />
 
             {/* Tags */}
