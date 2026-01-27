@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Search, Globe, User, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -97,18 +97,6 @@ export const Header = () => {
 
           {/* Right Side Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <button className="text-primary-foreground/80 hover:text-gold-light transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            
-            <Button
-              variant="ghost"
-              className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10"
-            >
-              <User className="w-4 h-4 mr-2" />
-              {t("header.access")}
-            </Button>
-            
             {/* Language Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
