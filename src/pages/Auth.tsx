@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import logoNavy from "@/assets/logo-navy.png";
 
 export default function Auth() {
@@ -14,23 +15,18 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { signIn, signUp, isAdmin } = useAuth();
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
-  
-  // Redirect based on admin status after login/signup
-  const handleRedirect = () => {
-    // After auth, redirect to home - admin will be verified there
-    navigate("/");
-  };
   const { toast } = useToast();
 
-  const withTimeout = async <T,>(promise: Promise<T>, ms: number): Promise<T> => {
-    return await Promise.race([
-      promise,
-      new Promise<T>((_, reject) =>
-        setTimeout(() => reject(new Error("Tempo limite ao autenticar. Tente novamente.")), ms),
-      ),
-    ]);
+  const waitForSession = async (maxWait = 5000): Promise<boolean> => {
+    const start = Date.now();
+    while (Date.now() - start < maxWait) {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) return true;
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    return false;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,28 +35,35 @@ export default function Auth() {
 
     try {
       if (isLogin) {
-        const { error } = await withTimeout(signIn(email, password), 15000);
+        const { error } = await signIn(email, password);
         if (error) throw error;
+        
+        const hasSession = await waitForSession();
+        if (!hasSession) {
+          throw new Error("Sessão não foi iniciada. Tente novamente.");
+        }
+        
         toast({
           title: "Login realizado com sucesso!",
           description: "Redirecionando...",
         });
-        // Navigate after a small delay to ensure auth state updates
         setLoading(false);
-        setTimeout(() => {
-          navigate("/admin");
-        }, 100);
+        navigate("/admin", { replace: true });
       } else {
-        const { error } = await withTimeout(signUp(email, password), 15000);
+        const { error } = await signUp(email, password);
         if (error) throw error;
+        
+        const hasSession = await waitForSession();
+        if (!hasSession) {
+          throw new Error("Sessão não foi iniciada. Tente novamente.");
+        }
+        
         toast({
           title: "Conta criada com sucesso!",
           description: "Bem-vindo ao site!",
         });
         setLoading(false);
-        setTimeout(() => {
-          navigate("/admin");
-        }, 100);
+        navigate("/admin", { replace: true });
       }
     } catch (error: any) {
       toast({
