@@ -132,6 +132,22 @@ export const translationKeys = [
   "cookie.description",
   "cookie.reject",
   "cookie.accept",
+
+  // Blog Page
+  "blog.title",
+  "blog.subtitle",
+  "blog.search_placeholder",
+  "blog.all_tags",
+  "blog.all",
+  "blog.read_more",
+  "blog.no_image",
+  "blog.no_posts",
+  "blog.no_results",
+  "blog.back_to_blog",
+  "blog.reading_time",
+  "blog.see_more_articles",
+  "blog.article_not_found",
+  "blog.article_not_found_description",
 ] as const;
 
 export type TranslationKey = typeof translationKeys[number];
@@ -271,6 +287,22 @@ export const translations: Translations = {
     "cookie.description": "Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.",
     "cookie.reject": "Recusar",
     "cookie.accept": "Aceitar",
+    
+    // Blog Page
+    "blog.title": "Blog Jurídico",
+    "blog.subtitle": "Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.",
+    "blog.search_placeholder": "Buscar artigos...",
+    "blog.all_tags": "Todas as tags",
+    "blog.all": "Todos",
+    "blog.read_more": "Ler mais",
+    "blog.no_image": "Sem imagem",
+    "blog.no_posts": "Nenhum artigo publicado ainda.",
+    "blog.no_results": "Nenhum artigo encontrado com os filtros selecionados.",
+    "blog.back_to_blog": "Voltar ao Blog",
+    "blog.reading_time": "min de leitura",
+    "blog.see_more_articles": "Ver mais artigos",
+    "blog.article_not_found": "Artigo não encontrado",
+    "blog.article_not_found_description": "O artigo que você está procurando não existe ou foi removido.",
   },
   
   ES: {
@@ -405,6 +437,22 @@ export const translations: Translations = {
     "cookie.description": "Utilizamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra política de privacidad.",
     "cookie.reject": "Rechazar",
     "cookie.accept": "Aceptar",
+    
+    // Blog Page
+    "blog.title": "Blog Jurídico",
+    "blog.subtitle": "Artículos, noticias y análisis sobre los cambios más recientes en la legislación y jurisprudencia brasileña.",
+    "blog.search_placeholder": "Buscar artículos...",
+    "blog.all_tags": "Todas las etiquetas",
+    "blog.all": "Todos",
+    "blog.read_more": "Leer más",
+    "blog.no_image": "Sin imagen",
+    "blog.no_posts": "Aún no hay artículos publicados.",
+    "blog.no_results": "No se encontraron artículos con los filtros seleccionados.",
+    "blog.back_to_blog": "Volver al Blog",
+    "blog.reading_time": "min de lectura",
+    "blog.see_more_articles": "Ver más artículos",
+    "blog.article_not_found": "Artículo no encontrado",
+    "blog.article_not_found_description": "El artículo que buscas no existe o ha sido eliminado.",
   },
   
   EN: {
@@ -539,6 +587,22 @@ export const translations: Translations = {
     "cookie.description": "We use cookies to improve your experience on our site. By continuing to browse, you agree to our privacy policy.",
     "cookie.reject": "Reject",
     "cookie.accept": "Accept",
+    
+    // Blog Page
+    "blog.title": "Legal Blog",
+    "blog.subtitle": "Articles, news and analysis on the latest changes in Brazilian legislation and jurisprudence.",
+    "blog.search_placeholder": "Search articles...",
+    "blog.all_tags": "All tags",
+    "blog.all": "All",
+    "blog.read_more": "Read more",
+    "blog.no_image": "No image",
+    "blog.no_posts": "No articles published yet.",
+    "blog.no_results": "No articles found with the selected filters.",
+    "blog.back_to_blog": "Back to Blog",
+    "blog.reading_time": "min read",
+    "blog.see_more_articles": "See more articles",
+    "blog.article_not_found": "Article not found",
+    "blog.article_not_found_description": "The article you are looking for does not exist or has been removed.",
   },
   
   DE: {
@@ -673,6 +737,22 @@ export const translations: Translations = {
     "cookie.description": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch das Weitersurfen stimmen Sie unserer Datenschutzrichtlinie zu.",
     "cookie.reject": "Ablehnen",
     "cookie.accept": "Akzeptieren",
+    
+    // Blog Page
+    "blog.title": "Rechtsblog",
+    "blog.subtitle": "Artikel, Nachrichten und Analysen zu den neuesten Änderungen in der brasilianischen Gesetzgebung und Rechtsprechung.",
+    "blog.search_placeholder": "Artikel suchen...",
+    "blog.all_tags": "Alle Tags",
+    "blog.all": "Alle",
+    "blog.read_more": "Mehr lesen",
+    "blog.no_image": "Kein Bild",
+    "blog.no_posts": "Noch keine Artikel veröffentlicht.",
+    "blog.no_results": "Keine Artikel mit den ausgewählten Filtern gefunden.",
+    "blog.back_to_blog": "Zurück zum Blog",
+    "blog.reading_time": "Min. Lesezeit",
+    "blog.see_more_articles": "Mehr Artikel anzeigen",
+    "blog.article_not_found": "Artikel nicht gefunden",
+    "blog.article_not_found_description": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
   },
   
   IT: {
@@ -807,6 +887,22 @@ export const translations: Translations = {
     "cookie.description": "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Continuando a navigare, accetti la nostra politica sulla privacy.",
     "cookie.reject": "Rifiuta",
     "cookie.accept": "Accetta",
+    
+    // Blog Page
+    "blog.title": "Blog Giuridico",
+    "blog.subtitle": "Articoli, notizie e analisi sui cambiamenti più recenti nella legislazione e giurisprudenza brasiliana.",
+    "blog.search_placeholder": "Cerca articoli...",
+    "blog.all_tags": "Tutti i tag",
+    "blog.all": "Tutti",
+    "blog.read_more": "Leggi di più",
+    "blog.no_image": "Nessuna immagine",
+    "blog.no_posts": "Nessun articolo ancora pubblicato.",
+    "blog.no_results": "Nessun articolo trovato con i filtri selezionati.",
+    "blog.back_to_blog": "Torna al Blog",
+    "blog.reading_time": "min di lettura",
+    "blog.see_more_articles": "Vedi altri articoli",
+    "blog.article_not_found": "Articolo non trovato",
+    "blog.article_not_found_description": "L'articolo che stai cercando non esiste o è stato rimosso.",
   },
   
   FR: {
@@ -941,6 +1037,22 @@ export const translations: Translations = {
     "cookie.description": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.",
     "cookie.reject": "Refuser",
     "cookie.accept": "Accepter",
+    
+    // Blog Page
+    "blog.title": "Blog Juridique",
+    "blog.subtitle": "Articles, actualités et analyses sur les derniers changements dans la législation et la jurisprudence brésilienne.",
+    "blog.search_placeholder": "Rechercher des articles...",
+    "blog.all_tags": "Tous les tags",
+    "blog.all": "Tous",
+    "blog.read_more": "Lire la suite",
+    "blog.no_image": "Pas d'image",
+    "blog.no_posts": "Aucun article publié pour le moment.",
+    "blog.no_results": "Aucun article trouvé avec les filtres sélectionnés.",
+    "blog.back_to_blog": "Retour au Blog",
+    "blog.reading_time": "min de lecture",
+    "blog.see_more_articles": "Voir plus d'articles",
+    "blog.article_not_found": "Article non trouvé",
+    "blog.article_not_found_description": "L'article que vous recherchez n'existe pas ou a été supprimé.",
   },
   
   ZH: {
@@ -1075,5 +1187,21 @@ export const translations: Translations = {
     "cookie.description": "我们使用Cookie来改善您在网站上的体验。继续浏览即表示您同意我们的隐私政策。",
     "cookie.reject": "拒绝",
     "cookie.accept": "接受",
+    
+    // Blog Page
+    "blog.title": "法律博客",
+    "blog.subtitle": "关于巴西立法和判例最新变化的文章、新闻和分析。",
+    "blog.search_placeholder": "搜索文章...",
+    "blog.all_tags": "所有标签",
+    "blog.all": "全部",
+    "blog.read_more": "阅读更多",
+    "blog.no_image": "无图片",
+    "blog.no_posts": "尚未发布任何文章。",
+    "blog.no_results": "未找到符合所选筛选条件的文章。",
+    "blog.back_to_blog": "返回博客",
+    "blog.reading_time": "分钟阅读",
+    "blog.see_more_articles": "查看更多文章",
+    "blog.article_not_found": "文章未找到",
+    "blog.article_not_found_description": "您查找的文章不存在或已被删除。",
   },
 };

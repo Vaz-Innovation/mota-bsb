@@ -89,10 +89,10 @@ export default function Blog() {
       <section className="pt-32 pb-12 bg-background">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-serif">
-            Blog Jurídico
+            {t("blog.title")}
           </h1>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.
+            {t("blog.subtitle")}
           </p>
         </div>
       </section>
@@ -108,7 +108,7 @@ export default function Blog() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   type="text"
-                  placeholder="Buscar artigos..."
+                  placeholder={t("blog.search_placeholder")}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-9 bg-background border-border h-10 text-sm"
@@ -121,7 +121,7 @@ export default function Blog() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="gap-2 h-10 text-sm font-normal">
                       <Tag className="w-4 h-4 text-muted-foreground" />
-                      {selectedTag || "Todas as tags"}
+                      {selectedTag || t("blog.all_tags")}
                       <ChevronDown className="w-4 h-4 text-muted-foreground" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -130,7 +130,7 @@ export default function Blog() {
                       onClick={() => setSelectedTag(null)}
                       className={!selectedTag ? "bg-muted" : ""}
                     >
-                      Todas as tags
+                      {t("blog.all_tags")}
                     </DropdownMenuItem>
                     {allTags.map((tag) => (
                       <DropdownMenuItem
@@ -155,7 +155,7 @@ export default function Blog() {
                 setSearchTerm("");
               }}
             >
-              Todos
+              {t("blog.all")}
             </Button>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function Blog() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                          <span className="text-sm">Sem imagem</span>
+                          <span className="text-sm">{t("blog.no_image")}</span>
                         </div>
                       )}
                     </div>
@@ -214,7 +214,7 @@ export default function Blog() {
 
                       {/* Read More */}
                       <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-auto">
-                        Ler mais
+                        {t("blog.read_more")}
                         <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -226,8 +226,8 @@ export default function Blog() {
             <div className="text-center py-16">
               <p className="text-muted-foreground text-lg">
                 {posts.length === 0 
-                  ? "Nenhum artigo publicado ainda." 
-                  : "Nenhum artigo encontrado com os filtros selecionados."}
+                  ? t("blog.no_posts")
+                  : t("blog.no_results")}
               </p>
             </div>
           )}
