@@ -19,6 +19,13 @@ export default function Auth() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const withTimeout = async <T,>(promise: Promise<T>, ms: number, message: string): Promise<T> => {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) => setTimeout(() => reject(new Error(message)), ms)),
+    ]);
+  };
+
   const waitForSession = async (maxWait = 5000): Promise<boolean> => {
     const start = Date.now();
     while (Date.now() - start < maxWait) {
@@ -35,10 +42,18 @@ export default function Auth() {
 
     try {
       if (isLogin) {
-        const { error } = await signIn(email, password);
+        const { error } = await withTimeout(
+          signIn(email, password),
+          15000,
+          "Tempo limite ao autenticar. Tente novamente."
+        );
         if (error) throw error;
         
-        const hasSession = await waitForSession();
+        const hasSession = await withTimeout(
+          waitForSession(5000),
+          15000,
+          "Tempo limite ao iniciar sessão. Tente novamente."
+        );
         if (!hasSession) {
           throw new Error("Sessão não foi iniciada. Tente novamente.");
         }
@@ -47,13 +62,20 @@ export default function Auth() {
           title: "Login realizado com sucesso!",
           description: "Redirecionando...",
         });
-        setLoading(false);
         navigate("/admin", { replace: true });
       } else {
-        const { error } = await signUp(email, password);
+        const { error } = await withTimeout(
+          signUp(email, password),
+          15000,
+          "Tempo limite ao criar conta. Tente novamente."
+        );
         if (error) throw error;
         
-        const hasSession = await waitForSession();
+        const hasSession = await withTimeout(
+          waitForSession(5000),
+          15000,
+          "Tempo limite ao iniciar sessão. Tente novamente."
+        );
         if (!hasSession) {
           throw new Error("Sessão não foi iniciada. Tente novamente.");
         }
@@ -62,7 +84,6 @@ export default function Auth() {
           title: "Conta criada com sucesso!",
           description: "Bem-vindo ao site!",
         });
-        setLoading(false);
         navigate("/admin", { replace: true });
       }
     } catch (error: any) {
@@ -71,6 +92,7 @@ export default function Auth() {
         description: error.message || "Ocorreu um erro. Tente novamente.",
         variant: "destructive",
       });
+    } finally {
       setLoading(false);
     }
   };
