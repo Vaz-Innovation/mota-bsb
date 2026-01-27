@@ -34,8 +34,8 @@ CPF: ${cpf}`;
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100">
-                  <Search className="w-8 h-8 text-orange-500" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-navy/10">
+                  <Search className="w-8 h-8 text-[#0a1639]" />
                 </div>
                 <div className="text-left">
                   <h2 className="text-2xl md:text-3xl font-bold text-navy font-serif">
@@ -47,7 +47,7 @@ CPF: ${cpf}`;
                 </div>
               </div>
               <ChevronUp
-                className={`w-8 h-8 text-orange-500 transition-transform duration-300 ${
+                className={`w-8 h-8 text-[#0a1639] transition-transform duration-300 ${
                   isOpen ? "" : "rotate-180"
                 }`}
               />
