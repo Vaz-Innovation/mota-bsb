@@ -11,7 +11,7 @@ export const ProcessSearchSection = () => {
   const [cpf, setCpf] = useState("");
   const { t } = useLanguage();
 
-  const handleWhatsAppConsult = () => {
+  const getWhatsAppUrl = () => {
     const message = `Olá, queria consultar o meu processo
 
 Número do processo: ${processNumber}
@@ -20,7 +20,7 @@ Nome Completo: ${fullName}
 
 CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5564995362668?text=${encodedMessage}`, "_blank");
+    return `https://wa.me/5564995362668?text=${encodedMessage}`;
   };
 
   return (
@@ -77,13 +77,15 @@ CPF: ${cpf}`;
                   onChange={(e) => setCpf(e.target.value)}
                   className="h-12 text-base"
                 />
-                <Button 
-                  onClick={handleWhatsAppConsult}
-                  className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold flex items-center justify-center gap-2"
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold flex items-center justify-center gap-2 rounded-md transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t("process.button")}
-                </Button>
+                </a>
               </div>
             </div>
           )}
