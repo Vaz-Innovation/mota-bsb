@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Save, Link2, Upload, Loader2 } from "lucide-react";
+import { ArrowLeft, Save, Link2, Upload, Loader2, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -39,6 +39,7 @@ export default function AdminEditPost() {
   const [importing, setImporting] = useState(false);
   const [importUrl, setImportUrl] = useState("");
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [generatingTranslations, setGeneratingTranslations] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -269,6 +270,36 @@ export default function AdminEditPost() {
     }
   };
 
+  const handleGenerateTranslations = async () => {
+    if (!id) return;
+    
+    setGeneratingTranslations(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("generate-translations", {
+        body: { postId: id },
+      });
+
+      if (error) throw error;
+
+      if (data?.success) {
+        toast({
+          title: "Traduções geradas!",
+          description: `${data.translatedLanguages} idiomas traduzidos com sucesso.`,
+        });
+      } else {
+        throw new Error(data?.error || "Erro ao gerar traduções");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Erro ao gerar traduções",
+        description: error.message || "Não foi possível gerar as traduções.",
+        variant: "destructive",
+      });
+    } finally {
+      setGeneratingTranslations(false);
+    }
+  };
+
   if (loadingPost) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
@@ -355,7 +386,34 @@ export default function AdminEditPost() {
               </div>
             </div>
 
-            {/* Content Section */}
+            {/* Generate Translations Section */}
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-emerald-500">
+              <div className="flex items-center gap-2 text-emerald-600 mb-2">
+                <Languages className="h-5 w-5" />
+                <h3 className="font-semibold">Traduções Automáticas</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                Gere traduções do conteúdo para EN, ES, DE, IT, FR e ZH usando IA
+              </p>
+              <Button
+                type="button"
+                onClick={handleGenerateTranslations}
+                disabled={generatingTranslations}
+                className="bg-emerald-600 hover:bg-emerald-700"
+              >
+                {generatingTranslations ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Gerando traduções...
+                  </>
+                ) : (
+                  <>
+                    <Languages className="h-4 w-4 mr-2" />
+                    Gerar Traduções
+                  </>
+                )}
+              </Button>
+            </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-xl font-bold text-navy mb-6">Conteúdo</h3>
               

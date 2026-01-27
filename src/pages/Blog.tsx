@@ -24,6 +24,19 @@ interface BlogPost {
   image_url: string | null;
   tags: string[] | null;
   slug: string;
+  // Translation fields
+  title_en: string | null;
+  title_es: string | null;
+  title_de: string | null;
+  title_it: string | null;
+  title_fr: string | null;
+  title_zh: string | null;
+  excerpt_en: string | null;
+  excerpt_es: string | null;
+  excerpt_de: string | null;
+  excerpt_it: string | null;
+  excerpt_fr: string | null;
+  excerpt_zh: string | null;
 }
 
 export default function Blog() {
@@ -32,7 +45,17 @@ export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
-  const { t, locale } = useLanguage();
+  const { t, locale, language } = useLanguage();
+
+  // Helper function to get translated field
+  const getTranslatedField = (post: BlogPost, field: 'title' | 'excerpt') => {
+    if (language === 'PT') return field === 'title' ? post.title : post.excerpt;
+    
+    const langKey = language.toLowerCase() as 'en' | 'es' | 'de' | 'it' | 'fr' | 'zh';
+    const translatedField = post[`${field}_${langKey}` as keyof BlogPost] as string | null;
+    
+    return translatedField || (field === 'title' ? post.title : post.excerpt);
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -43,14 +66,14 @@ export default function Blog() {
     try {
       const { data, error } = await supabase
         .from("blog_posts")
-        .select("id, title, excerpt, created_at, image_url, tags, slug")
+        .select("id, title, excerpt, created_at, image_url, tags, slug, title_en, title_es, title_de, title_it, title_fr, title_zh, excerpt_en, excerpt_es, excerpt_de, excerpt_it, excerpt_fr, excerpt_zh")
         .eq("status", "published")
         .order("created_at", { ascending: false });
 
       if (error) throw error;
 
       if (data) {
-        setPosts(data);
+        setPosts(data as BlogPost[]);
         
         // Extract all unique tags
         const tags = new Set<string>();
@@ -182,7 +205,7 @@ export default function Blog() {
                       {post.image_url ? (
                         <img
                           src={post.image_url}
-                          alt={post.title}
+                          alt={getTranslatedField(post, 'title') || post.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
@@ -195,7 +218,7 @@ export default function Blog() {
                     {/* Content */}
                     <div className="p-5 flex flex-col flex-1">
                       <h2 className="text-lg font-semibold text-navy mb-3 font-serif line-clamp-2 group-hover:text-gold transition-colors leading-snug">
-                        {post.title}
+                        {getTranslatedField(post, 'title')}
                       </h2>
 
                       {/* Meta */}
@@ -206,9 +229,9 @@ export default function Blog() {
                         </span>
                       </div>
 
-                      {post.excerpt && (
+                      {(getTranslatedField(post, 'excerpt')) && (
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                          {post.excerpt}
+                          {getTranslatedField(post, 'excerpt')}
                         </p>
                       )}
 

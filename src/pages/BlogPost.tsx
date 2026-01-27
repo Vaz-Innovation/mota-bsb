@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, ArrowLeft, Tag, Loader2 } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -8,7 +8,6 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { toast } from "sonner";
 
 interface BlogPost {
   id: string;
@@ -22,12 +21,25 @@ interface BlogPost {
   slug: string;
   meta_title: string | null;
   meta_description: string | null;
-}
-
-interface TranslatedContent {
-  title: string;
-  excerpt: string;
-  content: string;
+  // Translation fields
+  title_en: string | null;
+  title_es: string | null;
+  title_de: string | null;
+  title_it: string | null;
+  title_fr: string | null;
+  title_zh: string | null;
+  excerpt_en: string | null;
+  excerpt_es: string | null;
+  excerpt_de: string | null;
+  excerpt_it: string | null;
+  excerpt_fr: string | null;
+  excerpt_zh: string | null;
+  content_en: string | null;
+  content_es: string | null;
+  content_de: string | null;
+  content_it: string | null;
+  content_fr: string | null;
+  content_zh: string | null;
 }
 
 export default function BlogPost() {
@@ -35,10 +47,22 @@ export default function BlogPost() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-  const [translating, setTranslating] = useState(false);
-  const [translatedContent, setTranslatedContent] = useState<TranslatedContent | null>(null);
   const { t, locale, language } = useLanguage();
-  const translationCache = useRef<Record<string, TranslatedContent>>({});
+
+  // Helper function to get translated field
+  const getTranslatedField = (field: 'title' | 'excerpt' | 'content') => {
+    if (!post) return '';
+    if (language === 'PT') {
+      return field === 'title' ? post.title : field === 'excerpt' ? (post.excerpt || '') : post.content;
+    }
+    
+    const langKey = language.toLowerCase() as 'en' | 'es' | 'de' | 'it' | 'fr' | 'zh';
+    const translatedField = post[`${field}_${langKey}` as keyof BlogPost] as string | null;
+    
+    // Return translated if available, otherwise fallback to original
+    if (translatedField) return translatedField;
+    return field === 'title' ? post.title : field === 'excerpt' ? (post.excerpt || '') : post.content;
+  };
 
   useEffect(() => {
     if (slug) {
@@ -46,19 +70,10 @@ export default function BlogPost() {
     }
   }, [slug]);
 
-  // Translate content when language changes
-  useEffect(() => {
-    if (post && language !== "PT") {
-      translateContent();
-    } else {
-      setTranslatedContent(null);
-    }
-  }, [language, post]);
-
   useEffect(() => {
     // Update page title and meta tags
-    const displayTitle = translatedContent?.title || post?.title;
-    const displayExcerpt = translatedContent?.excerpt || post?.excerpt;
+    const displayTitle = getTranslatedField('title');
+    const displayExcerpt = getTranslatedField('excerpt');
     
     if (displayTitle) {
       document.title = post?.meta_title || displayTitle;
@@ -72,7 +87,7 @@ export default function BlogPost() {
       }
       metaDescription.setAttribute('content', post?.meta_description || displayExcerpt || '');
     }
-  }, [post, translatedContent]);
+  }, [post, language]);
 
   const fetchPost = async () => {
     setLoading(true);
@@ -89,52 +104,13 @@ export default function BlogPost() {
       if (!data) {
         setNotFound(true);
       } else {
-        setPost(data);
+        setPost(data as BlogPost);
       }
     } catch (error) {
       console.error("Error fetching post:", error);
       setNotFound(true);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const translateContent = async () => {
-    if (!post) return;
-
-    const cacheKey = `${post.id}-${language}`;
-    
-    // Check cache first
-    if (translationCache.current[cacheKey]) {
-      setTranslatedContent(translationCache.current[cacheKey]);
-      return;
-    }
-
-    setTranslating(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("translate-content", {
-        body: {
-          title: post.title,
-          excerpt: post.excerpt || "",
-          content: post.content,
-          targetLanguage: language,
-          sourceLanguage: "PT",
-        },
-      });
-
-      if (error) throw error;
-
-      if (data?.success && data.data) {
-        translationCache.current[cacheKey] = data.data;
-        setTranslatedContent(data.data);
-      } else {
-        toast.error(t("blog.translation_error"));
-      }
-    } catch (error) {
-      console.error("Translation error:", error);
-      toast.error(t("blog.translation_error"));
-    } finally {
-      setTranslating(false);
     }
   };
 
@@ -146,10 +122,10 @@ export default function BlogPost() {
     });
   };
 
-  // Get display content (translated or original)
-  const displayTitle = translatedContent?.title || post?.title || "";
-  const displayExcerpt = translatedContent?.excerpt || post?.excerpt || "";
-  const displayContent = translatedContent?.content || post?.content || "";
+  // Get display content (using helper function)
+  const displayTitle = getTranslatedField('title');
+  const displayExcerpt = getTranslatedField('excerpt');
+  const displayContent = getTranslatedField('content');
 
   if (loading) {
     return (
@@ -210,17 +186,9 @@ export default function BlogPost() {
             </Link>
 
             {/* Article Header */}
-            <div className="relative">
-              {translating && (
-                <div className="absolute -top-2 right-0 flex items-center gap-2 text-sm text-muted-foreground bg-muted/80 px-3 py-1 rounded-full">
-                  <Loader2 className="h-3 w-3 animate-spin" />
-                  {t("blog.translating")}
-                </div>
-              )}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
-                {displayTitle}
-              </h1>
-            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
+              {displayTitle}
+            </h1>
 
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8">
