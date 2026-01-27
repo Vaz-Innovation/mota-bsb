@@ -148,6 +148,8 @@ export const translationKeys = [
   "blog.see_more_articles",
   "blog.article_not_found",
   "blog.article_not_found_description",
+  "blog.translation_error",
+  "blog.translating",
 ] as const;
 
 export type TranslationKey = typeof translationKeys[number];
@@ -303,6 +305,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "Ver mais artigos",
     "blog.article_not_found": "Artigo não encontrado",
     "blog.article_not_found_description": "O artigo que você está procurando não existe ou foi removido.",
+    "blog.translation_error": "Erro ao traduzir conteúdo",
+    "blog.translating": "Traduzindo...",
   },
   
   ES: {
@@ -453,6 +457,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "Ver más artículos",
     "blog.article_not_found": "Artículo no encontrado",
     "blog.article_not_found_description": "El artículo que buscas no existe o ha sido eliminado.",
+    "blog.translation_error": "Error al traducir el contenido",
+    "blog.translating": "Traduciendo...",
   },
   
   EN: {
@@ -603,6 +609,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "See more articles",
     "blog.article_not_found": "Article not found",
     "blog.article_not_found_description": "The article you are looking for does not exist or has been removed.",
+    "blog.translation_error": "Error translating content",
+    "blog.translating": "Translating...",
   },
   
   DE: {
@@ -753,6 +761,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "Mehr Artikel anzeigen",
     "blog.article_not_found": "Artikel nicht gefunden",
     "blog.article_not_found_description": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
+    "blog.translation_error": "Fehler beim Übersetzen des Inhalts",
+    "blog.translating": "Übersetzung...",
   },
   
   IT: {
@@ -903,6 +913,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "Vedi altri articoli",
     "blog.article_not_found": "Articolo non trovato",
     "blog.article_not_found_description": "L'articolo che stai cercando non esiste o è stato rimosso.",
+    "blog.translation_error": "Errore nella traduzione del contenuto",
+    "blog.translating": "Traduzione in corso...",
   },
   
   FR: {
@@ -1053,6 +1065,8 @@ export const translations: Translations = {
     "blog.see_more_articles": "Voir plus d'articles",
     "blog.article_not_found": "Article non trouvé",
     "blog.article_not_found_description": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+    "blog.translation_error": "Erreur lors de la traduction du contenu",
+    "blog.translating": "Traduction en cours...",
   },
   
   ZH: {
@@ -1203,5 +1217,7 @@ export const translations: Translations = {
     "blog.see_more_articles": "查看更多文章",
     "blog.article_not_found": "文章未找到",
     "blog.article_not_found_description": "您查找的文章不存在或已被删除。",
+    "blog.translation_error": "翻译内容时出错",
+    "blog.translating": "翻译中...",
   },
 };

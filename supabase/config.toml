@@ -1,1 +1,7 @@
 project_id = "gopzlkojjvhlluwrbmoi"
+
+[functions.translate-content]
+verify_jwt = false
+
+[functions.import-article]
+verify_jwt = false
