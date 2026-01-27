@@ -165,7 +165,7 @@ export default function BlogPost() {
 
             {/* Featured Image */}
             {post?.image_url && (
-              <div className="w-full aspect-video rounded-lg overflow-hidden mb-10">
+              <div className="w-full aspect-video rounded-lg overflow-hidden mb-12">
                 <img
                   src={post.image_url}
                   alt={post.title}
@@ -174,18 +174,68 @@ export default function BlogPost() {
               </div>
             )}
 
-            {/* Content */}
+            {/* Lead/Excerpt */}
+            {post?.excerpt && (
+              <p className="text-lg md:text-xl font-medium text-navy/80 leading-relaxed mb-10 pb-8 border-b border-border">
+                {post.excerpt}
+              </p>
+            )}
+
+            {/* Content - Optimized for reading */}
             <div 
-              className="prose prose-lg max-w-none
-                prose-headings:text-navy prose-headings:font-serif
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-6
-                prose-li:text-foreground prose-li:leading-relaxed
-                prose-ul:mb-6 prose-ol:mb-6
-                prose-strong:text-navy
-                prose-a:text-gold prose-a:no-underline hover:prose-a:underline
-                prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
+              className="
+                max-w-[680px] mx-auto
+                text-[17px] md:text-[18px]
+                leading-[1.8]
+                text-foreground
+                
+                [&>p]:mb-7
+                [&>p]:leading-[1.8]
+                
+                [&>h2]:text-2xl [&>h2]:md:text-[28px]
+                [&>h2]:font-serif [&>h2]:font-bold
+                [&>h2]:text-navy
+                [&>h2]:mt-14 [&>h2]:mb-6
+                [&>h2]:leading-tight
+                
+                [&>h3]:text-xl [&>h3]:md:text-[22px]
+                [&>h3]:font-serif [&>h3]:font-semibold
+                [&>h3]:text-navy
+                [&>h3]:mt-10 [&>h3]:mb-5
+                [&>h3]:leading-tight
+                
+                [&>h4]:text-lg [&>h4]:md:text-xl
+                [&>h4]:font-serif [&>h4]:font-semibold
+                [&>h4]:text-navy
+                [&>h4]:mt-8 [&>h4]:mb-4
+                
+                [&>ul]:my-6 [&>ul]:pl-6
+                [&>ul>li]:mb-3 [&>ul>li]:leading-[1.7]
+                [&>ul>li]:relative [&>ul>li]:pl-2
+                
+                [&>ol]:my-6 [&>ol]:pl-6
+                [&>ol>li]:mb-3 [&>ol>li]:leading-[1.7]
+                [&>ol>li]:pl-2
+                
+                [&>blockquote]:my-8 [&>blockquote]:py-4
+                [&>blockquote]:pl-6 [&>blockquote]:pr-4
+                [&>blockquote]:border-l-4 [&>blockquote]:border-gold
+                [&>blockquote]:bg-muted/30 [&>blockquote]:rounded-r-lg
+                [&>blockquote]:italic [&>blockquote]:text-muted-foreground
+                [&>blockquote>p]:mb-0
+                
+                [&>strong]:text-navy [&>strong]:font-semibold
+                [&_strong]:text-navy [&_strong]:font-semibold
+                
+                [&>a]:text-gold [&>a]:underline [&>a]:underline-offset-2
+                [&>a:hover]:text-gold-dark
+                [&_a]:text-gold [&_a]:underline [&_a]:underline-offset-2
+                [&_a:hover]:text-gold-dark
+                
+                [&>hr]:my-10 [&>hr]:border-border
+                
+                [&>img]:my-8 [&>img]:rounded-lg [&>img]:w-full
+                [&_img]:my-8 [&_img]:rounded-lg [&_img]:max-w-full
               "
               dangerouslySetInnerHTML={{ __html: post?.content || '' }}
             />
