@@ -61,8 +61,8 @@ export const StatsSection = () => {
     <section ref={sectionRef} className="py-16 md:py-20 bg-navy-deep relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gold-light rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-light rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-beige rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-beige rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -95,7 +95,7 @@ const StatItem = ({
       <div className="mb-3">
         <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground block">
           {count.toLocaleString()}
-          <span className="text-gold-light">{suffix}</span>
+          <span className="text-beige">{suffix}</span>
         </span>
       </div>
       <p className="text-primary-foreground/80 text-sm md:text-base font-medium">

@@ -124,7 +124,7 @@ export const TeamSection = () => {
                   </div>
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 text-gold-light hover:text-gold transition-colors text-sm font-medium justify-center"
+                    className="inline-flex items-center gap-2 text-[#0a1639] hover:text-navy-deep transition-colors text-sm font-medium justify-center"
                   >
                     <Mail className="w-4 h-4" />
                     {member.email}

@@ -180,8 +180,8 @@ export const PracticeAreasSection = () => {
                 onClick={() => setSelectedArea(area)}
               >
                 <div className="h-full p-6 rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group cursor-pointer">
-                  <div className="w-14 h-14 mb-4 bg-gold-light/10 border border-gold-light/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gold-light/20">
-                    <area.icon className="w-7 h-7 text-gold-light" />
+                  <div className="w-14 h-14 mb-4 bg-navy/10 border border-navy/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-navy/20">
+                    <area.icon className="w-7 h-7 text-[#0a1639]" />
                   </div>
                   
                   <h3 className="text-lg font-semibold text-navy mb-2 font-serif">
@@ -192,7 +192,7 @@ export const PracticeAreasSection = () => {
                     {t(area.descriptionKey)}
                   </p>
                   
-                  <div className="flex items-center gap-2 text-gold-light font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                  <div className="flex items-center gap-2 text-[#0a1639] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
                     <span>{t("areas.learn_more")}</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </div>
@@ -214,8 +214,8 @@ export const PracticeAreasSection = () => {
           <DialogHeader>
             <div className="flex items-center gap-4 mb-4">
               {selectedArea && (
-                <div className="w-14 h-14 bg-gold-light/10 border border-gold-light/20 rounded-full flex items-center justify-center">
-                  <selectedArea.icon className="w-7 h-7 text-gold-light" />
+                <div className="w-14 h-14 bg-navy/10 border border-navy/20 rounded-full flex items-center justify-center">
+                  <selectedArea.icon className="w-7 h-7 text-[#0a1639]" />
                 </div>
               )}
               <DialogTitle className="text-xl font-serif text-navy">

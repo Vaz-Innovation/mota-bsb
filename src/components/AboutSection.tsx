@@ -117,8 +117,8 @@ export const AboutSection = () => {
                   <card.icon className="w-10 h-10 text-[#0a1639] transition-all duration-300" />
                 </div>
                 
-                <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gold-light/10 border border-gold-light/20">
-                  <span className="text-xs font-semibold text-gold-light">{t(card.badgeKey)}</span>
+                <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy/10 border border-navy/20">
+                  <span className="text-xs font-semibold text-[#0a1639]">{t(card.badgeKey)}</span>
                 </div>
                 
                 <h3 className="text-2xl md:text-3xl font-semibold text-navy mb-3 tracking-tight font-serif">
@@ -129,7 +129,7 @@ export const AboutSection = () => {
                   {t(card.descriptionKey)}
                 </p>
                 
-                <div className="flex items-center gap-2 text-gold-light font-semibold group-hover:gap-3 transition-all duration-300">
+                <div className="flex items-center gap-2 text-[#0a1639] font-semibold group-hover:gap-3 transition-all duration-300">
                   <span>{t("about.explore")}</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
@@ -150,8 +150,8 @@ export const AboutSection = () => {
                 </div>
               )}
               <div>
-                <div className="inline-block px-3 py-1 mb-2 rounded-full bg-gold-light/10 border border-gold-light/20">
-                  <span className="text-xs font-semibold text-gold-light">{selectedCard && t(selectedCard.badgeKey)}</span>
+                <div className="inline-block px-3 py-1 mb-2 rounded-full bg-navy/10 border border-navy/20">
+                  <span className="text-xs font-semibold text-[#0a1639]">{selectedCard && t(selectedCard.badgeKey)}</span>
                 </div>
                 <DialogTitle className="text-2xl font-serif text-navy">
                   {selectedCard && t(selectedCard.titleKey)}
