@@ -19,8 +19,20 @@ export type Database = {
           author_id: string
           category_id: string | null
           content: string
+          content_de: string | null
+          content_en: string | null
+          content_es: string | null
+          content_fr: string | null
+          content_it: string | null
+          content_zh: string | null
           created_at: string
           excerpt: string | null
+          excerpt_de: string | null
+          excerpt_en: string | null
+          excerpt_es: string | null
+          excerpt_fr: string | null
+          excerpt_it: string | null
+          excerpt_zh: string | null
           id: string
           image_url: string | null
           meta_description: string | null
@@ -29,14 +41,32 @@ export type Database = {
           status: string
           tags: string[] | null
           title: string
+          title_de: string | null
+          title_en: string | null
+          title_es: string | null
+          title_fr: string | null
+          title_it: string | null
+          title_zh: string | null
           updated_at: string
         }
         Insert: {
           author_id: string
           category_id?: string | null
           content: string
+          content_de?: string | null
+          content_en?: string | null
+          content_es?: string | null
+          content_fr?: string | null
+          content_it?: string | null
+          content_zh?: string | null
           created_at?: string
           excerpt?: string | null
+          excerpt_de?: string | null
+          excerpt_en?: string | null
+          excerpt_es?: string | null
+          excerpt_fr?: string | null
+          excerpt_it?: string | null
+          excerpt_zh?: string | null
           id?: string
           image_url?: string | null
           meta_description?: string | null
@@ -45,14 +75,32 @@ export type Database = {
           status?: string
           tags?: string[] | null
           title: string
+          title_de?: string | null
+          title_en?: string | null
+          title_es?: string | null
+          title_fr?: string | null
+          title_it?: string | null
+          title_zh?: string | null
           updated_at?: string
         }
         Update: {
           author_id?: string
           category_id?: string | null
           content?: string
+          content_de?: string | null
+          content_en?: string | null
+          content_es?: string | null
+          content_fr?: string | null
+          content_it?: string | null
+          content_zh?: string | null
           created_at?: string
           excerpt?: string | null
+          excerpt_de?: string | null
+          excerpt_en?: string | null
+          excerpt_es?: string | null
+          excerpt_fr?: string | null
+          excerpt_it?: string | null
+          excerpt_zh?: string | null
           id?: string
           image_url?: string | null
           meta_description?: string | null
@@ -61,6 +109,12 @@ export type Database = {
           status?: string
           tags?: string[] | null
           title?: string
+          title_de?: string | null
+          title_en?: string | null
+          title_es?: string | null
+          title_fr?: string | null
+          title_it?: string | null
+          title_zh?: string | null
           updated_at?: string
         }
         Relationships: [
