@@ -143,7 +143,7 @@ export const Header = () => {
             </DropdownMenu>
             
             <a
-              href="https://wa.me/5564995362668"
+              href="https://api.whatsapp.com/send?phone=5564995362668"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -209,7 +209,7 @@ export const Header = () => {
               </div>
               
               <a
-                href="https://wa.me/5564995362668"
+                href="https://api.whatsapp.com/send?phone=5564995362668"
                 target="_blank"
                 rel="noopener noreferrer"
               >
