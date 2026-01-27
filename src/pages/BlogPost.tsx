@@ -7,6 +7,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
@@ -27,6 +28,7 @@ export default function BlogPost() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (slug) {
@@ -100,16 +102,16 @@ export default function BlogPost() {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-          <h1 className="text-4xl font-bold text-navy mb-4">Artigo não encontrado</h1>
+          <h1 className="text-4xl font-bold text-navy mb-4">{t("blog.article_not_found")}</h1>
           <p className="text-muted-foreground mb-8">
-            O artigo que você está procurando não existe ou foi removido.
+            {t("blog.article_not_found_description")}
           </p>
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all"
           >
             <ArrowLeft className="w-4 h-4" />
-            Voltar para o Blog
+            {t("blog.back_to_blog")}
           </Link>
         </div>
         <Footer />
@@ -122,7 +124,7 @@ export default function BlogPost() {
     const text = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
     const words = text.split(/\s+/).length;
     const minutes = Math.ceil(words / 200);
-    return `${minutes} min de leitura`;
+    return `${minutes} ${t("blog.reading_time")}`;
   };
 
   return (
@@ -138,7 +140,7 @@ export default function BlogPost() {
               className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Voltar ao Blog
+              {t("blog.back_to_blog")}
             </Link>
 
             {/* Article Header */}
@@ -263,7 +265,7 @@ export default function BlogPost() {
                 className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy-deep transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Ver mais artigos
+                {t("blog.see_more_articles")}
               </Link>
             </div>
           </div>
