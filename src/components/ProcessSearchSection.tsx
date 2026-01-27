@@ -12,9 +12,15 @@ export const ProcessSearchSection = () => {
   const { t } = useLanguage();
 
   const handleWhatsAppConsult = () => {
-    const message = `${t("process.whatsapp_message")}\n\n${t("process.placeholder")}: ${processNumber}\n${t("process.name")}: ${fullName}\n${t("process.cpf")}: ${cpf}`;
+    const message = `Olá, queria consultar o meu processo
+
+Número do processo: ${processNumber}
+
+Nome Completo: ${fullName}
+
+CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5561999999999?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/5564995362668?text=${encodedMessage}`, "_blank");
   };
 
   return (
