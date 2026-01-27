@@ -113,8 +113,8 @@ export const AboutSection = () => {
               onClick={() => setSelectedCard(card)}
             >
               <div className="h-full p-8 rounded-2xl bg-white border border-border/50 shadow-lg transition-all duration-500 hover:shadow-xl hover:scale-[1.02]">
-                <div className="w-20 h-20 mb-6 bg-gold-light/10 border border-gold-light/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gold-light/20">
-                  <card.icon className="w-10 h-10 text-gold-light transition-all duration-300" />
+                <div className="w-20 h-20 mb-6 bg-navy/10 border border-navy/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-navy/20">
+                  <card.icon className="w-10 h-10 text-[#0a1639] transition-all duration-300" />
                 </div>
                 
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-gold-light/10 border border-gold-light/20">
@@ -145,8 +145,8 @@ export const AboutSection = () => {
           <DialogHeader>
             <div className="flex items-center gap-4 mb-4">
               {selectedCard && (
-                <div className="w-16 h-16 bg-gold-light/10 border border-gold-light/20 rounded-full flex items-center justify-center">
-                  <selectedCard.icon className="w-8 h-8 text-gold-light" />
+                <div className="w-16 h-16 bg-navy/10 border border-navy/20 rounded-full flex items-center justify-center">
+                  <selectedCard.icon className="w-8 h-8 text-[#0a1639]" />
                 </div>
               )}
               <div>
