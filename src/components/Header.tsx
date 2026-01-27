@@ -33,13 +33,26 @@ export const Header = () => {
   const showSolidHeader = !isHomePage || isScrolled;
 
   const navLinks = [
-    { href: "#inicio", label: t("nav.home") },
-    { href: "#sobre", label: t("nav.about") },
-    { href: "#areas", label: t("nav.practice_areas") },
-    { href: "#equipe", label: t("nav.team") },
-    { href: "#contato", label: t("nav.contact") },
+    { href: "/", label: t("nav.home"), isRoute: true },
+    { href: "/#sobre", label: t("nav.about"), isRoute: true },
+    { href: "/#areas", label: t("nav.practice_areas"), isRoute: true },
+    { href: "/#equipe", label: t("nav.team"), isRoute: true },
+    { href: "/#contato", label: t("nav.contact"), isRoute: true },
     { href: "/blog", label: t("nav.blog"), isRoute: true },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If we're on homepage and clicking a section link
+    if (isHomePage && href.startsWith("/#")) {
+      e.preventDefault();
+      const sectionId = href.substring(2); // Remove "/#"
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,34 +73,25 @@ export const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src={logoHeader}
               alt="Mota & Advogados Associados"
               className="h-12 w-auto"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              link.isRoute ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
-                >
-                  {link.label}
-                </a>
-              )
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
+              >
+                {link.label}
+              </Link>
             ))}
           </nav>
 
@@ -167,25 +171,14 @@ export const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t border-primary-foreground/20">
             <div className="flex flex-col gap-4 pt-4">
               {navLinks.map((link) => (
-                link.isRoute ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                )
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.label}
+                </Link>
               ))}
               
               {/* Mobile Language Selector */}
