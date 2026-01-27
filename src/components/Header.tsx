@@ -88,7 +88,7 @@ export const Header = () => {
                 key={link.href}
                 to={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium text-sm"
+                className="text-primary-foreground/90 hover:text-beige transition-colors font-medium text-sm"
               >
                 {link.label}
               </Link>
@@ -102,7 +102,7 @@ export const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="text-primary-foreground/90 hover:text-gold-light hover:bg-primary-foreground/10 gap-1"
+                  className="text-primary-foreground/90 hover:text-beige hover:bg-primary-foreground/10 gap-1"
                 >
                   <Globe className="w-4 h-4" />
                   {language}
@@ -119,12 +119,12 @@ export const Header = () => {
                     onClick={() => setLanguage(lang.code)}
                     className={`cursor-pointer px-4 py-2 hover:bg-gray-100 ${
                       language === lang.code 
-                        ? "text-orange-500 font-semibold" 
+                        ? "text-[#0a1639] font-semibold" 
                         : "text-gray-700"
                     }`}
                   >
                     <span className={`font-bold mr-2 ${
-                      language === lang.code ? "text-orange-500" : "text-navy"
+                      language === lang.code ? "text-[#0a1639]" : "text-navy"
                     }`}>
                       {lang.code}
                     </span>
@@ -139,7 +139,7 @@ export const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
+              <Button className="bg-navy-deep hover:bg-navy text-white font-semibold px-6">
                 {t("header.contact_us")}
               </Button>
             </a>
@@ -162,7 +162,7 @@ export const Header = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-primary-foreground/90 hover:text-gold-light transition-colors font-medium"
+                  className="text-primary-foreground/90 hover:text-beige transition-colors font-medium"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.label}
@@ -179,7 +179,7 @@ export const Header = () => {
                       onClick={() => setLanguage(lang.code)}
                       className={`px-3 py-1 rounded text-sm transition-colors ${
                         language === lang.code
-                          ? "bg-gold-light text-navy font-semibold"
+                          ? "bg-navy text-white font-semibold"
                           : "bg-primary-foreground/10 text-primary-foreground/80 hover:bg-primary-foreground/20"
                       }`}
                     >
@@ -194,7 +194,7 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
+                <Button className="bg-navy-deep hover:bg-navy text-white font-semibold mt-4">
                   {t("header.contact_us")}
                 </Button>
               </a>

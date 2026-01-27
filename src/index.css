@@ -14,16 +14,16 @@
     --beige: 36 12% 81%;           /* #D7D2C8 */
     --beige-light: 216 20% 92%;    /* #E6EBF0 */
     
-    /* Gradiente dourado */
-    --gold: 42 39% 41%;            /* #8C7846 */
-    --gold-light: 42 85% 67%;      /* #F5C35F */
-    --gold-bright: 47 100% 81%;    /* #FFEBA0 */
-    --gold-medium: 46 88% 73%;     /* #F5D77D */
-    --gold-dark: 36 45% 53%;       /* #C89B50 */
+    /* Accent colors - Navy Blue */
+    --gold: 225 70% 13%;           /* #0a1639 */
+    --gold-light: 225 70% 13%;     /* #0a1639 */
+    --gold-bright: 225 70% 20%;    /* Lighter navy */
+    --gold-medium: 225 70% 16%;    /* Medium navy */
+    --gold-dark: 225 70% 10%;      /* Darker navy */
     
-    /* Cores de acento (dourado) */
-    --accent: 42 85% 67%;
-    --accent-foreground: 225 80% 10%;
+    /* Cores de acento (navy) */
+    --accent: 225 70% 13%;
+    --accent-foreground: 0 0% 100%;
     
     /* Semantic colors */
     --background: 216 20% 92%;     /* Cinza claro */
@@ -112,11 +112,11 @@
 @layer components {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold-bright)) 100%);
+    background-image: linear-gradient(135deg, hsl(225 70% 13%) 0%, hsl(225 70% 20%) 50%, hsl(225 70% 25%) 100%);
   }
   
   .bg-gradient-gold {
-    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold-medium)) 100%);
+    background: linear-gradient(135deg, hsl(225 70% 13%) 0%, hsl(225 70% 18%) 50%, hsl(225 70% 22%) 100%);
   }
   
   .bg-hero {
@@ -136,15 +136,15 @@
   }
   
   .text-gold {
-    color: hsl(var(--gold-light));
+    color: hsl(225 70% 13%);
   }
   
   .bg-gold {
-    background-color: hsl(var(--gold-light));
+    background-color: hsl(225 70% 13%);
   }
   
   .border-gold {
-    border-color: hsl(var(--gold-light));
+    border-color: hsl(225 70% 13%);
   }
   
   .bg-beige {

@@ -18,7 +18,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Quick Links */}
           <div>
-            <h3 className="text-gold-light font-semibold mb-6">
+            <h3 className="text-beige font-semibold mb-6">
               {t("footer.quick_links")}
             </h3>
             <ul className="space-y-3">
@@ -26,7 +26,7 @@ export const Footer = () => {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/80 hover:text-gold-light transition-colors text-sm"
+                    className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
                     {t(link.key)}
                   </a>
@@ -37,7 +37,7 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-gold-light font-semibold mb-6">
+            <h3 className="text-beige font-semibold mb-6">
               {t("footer.contact")}
             </h3>
             <ul className="space-y-3 text-primary-foreground/80 text-sm">
@@ -62,7 +62,7 @@ export const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h3 className="text-gold-light font-semibold mb-6">
+            <h3 className="text-beige font-semibold mb-6">
               {t("footer.social")}
             </h3>
             <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ export const Footer = () => {
                 href="https://www.linkedin.com/company/mota-&-advogados-associados/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-gold-light transition-colors"
+                className="text-primary-foreground/80 hover:text-beige transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export const Footer = () => {
                 href="https://web.facebook.com/Mota.Advogados.Poa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-gold-light transition-colors"
+                className="text-primary-foreground/80 hover:text-beige transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
