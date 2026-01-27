@@ -117,94 +117,100 @@ export default function BlogPost() {
     );
   }
 
+  // Estimate reading time (average 200 words per minute)
+  const estimateReadingTime = (content: string) => {
+    const text = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    const words = text.split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    return `${minutes} min de leitura`;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Image */}
-      {post?.image_url && (
-        <div className="w-full h-64 md:h-96 relative mt-20">
-          <img
-            src={post.image_url}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
-        </div>
-      )}
-
-      {/* Article Content */}
-      <article className={`${post?.image_url ? '-mt-20 relative z-10' : 'pt-32'}`}>
+      <article className="pt-24 pb-16">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {/* Back Link */}
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-navy transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Voltar para o Blog
+              Voltar ao Blog
             </Link>
 
             {/* Article Header */}
-            <div className="bg-background rounded-lg p-6 md:p-10 shadow-lg mb-8">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
-                {post?.title}
-              </h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6 font-serif leading-tight">
+              {post?.title}
+            </h1>
 
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6 pb-6 border-b">
+            {/* Meta Info */}
+            <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8">
+              <span className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-navy" />
+                {post && formatDate(post.created_at)}
+              </span>
+              {post?.content && (
                 <span className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-gold" />
-                  {post && formatDate(post.created_at)}
+                  <svg className="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                    <path strokeWidth="2" d="M12 6v6l4 2"/>
+                  </svg>
+                  {estimateReadingTime(post.content)}
                 </span>
-              </div>
-
-              {/* Tags */}
-              {post?.tags && post.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {post.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="bg-slate-100 text-navy hover:bg-slate-200"
-                    >
-                      <Tag className="w-3 h-3 mr-1" />
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
               )}
-
-              {/* Lead/Excerpt */}
-              {post?.excerpt && (
-                <p className="text-lg md:text-xl font-medium text-navy/80 mb-8 leading-relaxed">
-                  {post.excerpt}
-                </p>
-              )}
-
-              {/* Content */}
-              <div 
-                className="prose prose-lg max-w-none
-                  prose-headings:text-navy prose-headings:font-serif
-                  prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5
-                  prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                  prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-6
-                  prose-li:text-foreground prose-li:leading-relaxed
-                  prose-ul:mb-6 prose-ol:mb-6
-                  prose-strong:text-navy
-                  prose-a:text-gold prose-a:no-underline hover:prose-a:underline
-                  prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
-                "
-                dangerouslySetInnerHTML={{ __html: post?.content || '' }}
-              />
             </div>
 
-            {/* Related Posts / Navigation */}
-            <div className="flex justify-center mb-12">
+            {/* Featured Image */}
+            {post?.image_url && (
+              <div className="w-full aspect-video rounded-lg overflow-hidden mb-10">
+                <img
+                  src={post.image_url}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
+            {/* Content */}
+            <div 
+              className="prose prose-lg max-w-none
+                prose-headings:text-navy prose-headings:font-serif
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
+                prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-6
+                prose-li:text-foreground prose-li:leading-relaxed
+                prose-ul:mb-6 prose-ol:mb-6
+                prose-strong:text-navy
+                prose-a:text-gold prose-a:no-underline hover:prose-a:underline
+                prose-blockquote:border-l-4 prose-blockquote:border-gold prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
+              "
+              dangerouslySetInnerHTML={{ __html: post?.content || '' }}
+            />
+
+            {/* Tags */}
+            {post?.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-border">
+                {post.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className="bg-slate-100 text-navy hover:bg-slate-200"
+                  >
+                    <Tag className="w-3 h-3 mr-1" />
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
+
+            {/* Back to Blog Button */}
+            <div className="flex justify-center mt-12">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy-deep transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Ver mais artigos
