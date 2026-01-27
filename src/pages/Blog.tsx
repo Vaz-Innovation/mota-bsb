@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Search, Calendar, User, ArrowRight, Tag, ChevronDown, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Search, Calendar, ArrowRight, Tag, ChevronDown, Loader2 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -168,57 +169,57 @@ export default function Blog() {
               <Loader2 className="h-8 w-8 animate-spin text-navy" />
             </div>
           ) : filteredPosts.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.map((post) => (
-                <article
+                <Link
                   key={post.id}
-                  className="bg-background group"
+                  to={`/blog/${post.slug}`}
+                  className="group block"
                 >
-                  {/* Image */}
-                  <div className="relative h-52 overflow-hidden rounded-lg mb-4 bg-slate-200">
-                    {post.image_url ? (
-                      <img
-                        src={post.image_url}
-                        alt={post.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                        <span className="text-sm">Sem imagem</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <h2 className="text-lg font-semibold text-navy mb-3 font-serif line-clamp-2 group-hover:text-navy-deep transition-colors leading-snug">
-                      {post.title}
-                    </h2>
-
-                    {/* Meta */}
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4 text-gold" />
-                        {formatDate(post.created_at)}
-                      </span>
+                  <article className="bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col border border-border/50">
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden bg-slate-100">
+                      {post.image_url ? (
+                        <img
+                          src={post.image_url}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                          <span className="text-sm">Sem imagem</span>
+                        </div>
+                      )}
                     </div>
 
-                    {post.excerpt && (
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    )}
+                    {/* Content */}
+                    <div className="p-5 flex flex-col flex-1">
+                      <h2 className="text-lg font-semibold text-navy mb-3 font-serif line-clamp-2 group-hover:text-gold transition-colors leading-snug">
+                        {post.title}
+                      </h2>
 
-                    {/* Read More */}
-                    <a
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-2 text-gold font-semibold text-sm hover:gap-3 transition-all duration-300"
-                    >
-                      Ler mais
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
-                </article>
+                      {/* Meta */}
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4 text-navy/60" />
+                          {formatDate(post.created_at)}
+                        </span>
+                      </div>
+
+                      {post.excerpt && (
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+                          {post.excerpt}
+                        </p>
+                      )}
+
+                      {/* Read More */}
+                      <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-auto">
+                        Ler mais
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           ) : (
