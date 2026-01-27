@@ -139,7 +139,7 @@ export const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-navy-deep hover:bg-navy text-white font-semibold px-6">
+              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
                 {t("header.contact_us")}
               </Button>
             </a>
@@ -194,7 +194,7 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="bg-navy-deep hover:bg-navy text-white font-semibold mt-4">
+                <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
                   {t("header.contact_us")}
                 </Button>
               </a>
