@@ -86,24 +86,53 @@ serve(async (req) => {
         messages: [
           {
             role: "system",
-            content: `Você é um assistente que extrai informações de artigos para criar posts de blog.
-Analise o conteúdo fornecido e extraia as seguintes informações em formato JSON:
-- title: título do artigo
-- excerpt: resumo do artigo em até 300 caracteres
-- content: conteúdo principal do artigo formatado em HTML (use tags h2, h3, p, ul, li, strong, em)
-- tags: array com 3-5 tags relevantes separadas
-- metaTitle: título otimizado para SEO (máximo 60 caracteres)
-- metaDescription: descrição para SEO (máximo 160 caracteres)
+            content: `Você é um redator jurídico especializado em criar conteúdo para blogs de escritórios de advocacia. Sua tarefa é extrair e REESCREVER artigos de forma completa, profissional e bem formatada.
 
-Responda APENAS com o JSON, sem markdown ou explicações adicionais.`
+REGRAS CRÍTICAS PARA O CONTEÚDO:
+
+1. EXTENSÃO E PROFUNDIDADE:
+   - O conteúdo deve ser COMPLETO e EXTENSO, nunca resumido
+   - Mínimo de 800-1500 palavras no conteúdo final
+   - Expanda cada ponto com explicações detalhadas, exemplos práticos e contexto legal
+   - Se o artigo original for curto, desenvolva os tópicos com mais profundidade
+
+2. ESTRUTURA HTML COM BOA LEGIBILIDADE:
+   - Use <h2> para títulos principais de seção (com classe "mt-8 mb-4")
+   - Use <h3> para subtítulos (com classe "mt-6 mb-3")
+   - Cada parágrafo <p> deve ter classe "mb-6 leading-relaxed"
+   - O primeiro parágrafo deve ser um LEAD destacado com classe "text-lg font-medium mb-8 leading-relaxed"
+   - Use <ul> e <ol> com classe "mb-6 space-y-2 ml-6" para listas
+   - Use <li> com classe "leading-relaxed" para itens de lista
+   - Use <blockquote> com classe "border-l-4 border-gold pl-4 my-6 italic" para citações importantes
+   - Use <strong> para termos jurídicos importantes
+
+3. HIERARQUIA VISUAL:
+   - Sempre comece com um parágrafo introdutório forte (lead)
+   - Divida o conteúdo em seções claras com títulos H2
+   - Use subtítulos H3 quando necessário para organização
+   - Inclua uma seção de conclusão ao final
+
+4. FORMATAÇÃO DE PARÁGRAFOS:
+   - Parágrafos de 3-5 linhas (não muito longos)
+   - Espaçamento generoso entre parágrafos (mb-6)
+   - Line-height confortável (leading-relaxed)
+
+5. ELEMENTOS ESPECIAIS:
+   - Destaque informações importantes em <strong>
+   - Use listas para enumerar requisitos, etapas ou benefícios
+   - Inclua citações de leis quando relevante
+
+Responda APENAS com o JSON estruturado, sem markdown ou explicações.`
           },
           {
             role: "user",
             content: `Título da página: ${metadata.title || "Não disponível"}
 Descrição: ${metadata.description || "Não disponível"}
 
-Conteúdo do artigo:
-${markdown.substring(0, 15000)}`
+IMPORTANTE: Reescreva e EXPANDA este conteúdo de forma completa e profissional, seguindo todas as regras de formatação e legibilidade. O resultado deve ser um artigo jurídico completo, bem estruturado e fácil de ler.
+
+Conteúdo original:
+${markdown.substring(0, 20000)}`
           }
         ],
         tools: [
@@ -111,16 +140,16 @@ ${markdown.substring(0, 15000)}`
             type: "function",
             function: {
               name: "extract_blog_post",
-              description: "Extract blog post data from article content",
+              description: "Extract and rewrite blog post data with proper formatting",
               parameters: {
                 type: "object",
                 properties: {
-                  title: { type: "string", description: "Article title" },
-                  excerpt: { type: "string", description: "Short summary up to 300 chars" },
-                  content: { type: "string", description: "Main content in HTML format" },
-                  tags: { type: "array", items: { type: "string" }, description: "3-5 relevant tags" },
-                  metaTitle: { type: "string", description: "SEO title max 60 chars" },
-                  metaDescription: { type: "string", description: "SEO description max 160 chars" }
+                  title: { type: "string", description: "Título claro e profissional do artigo" },
+                  excerpt: { type: "string", description: "Resumo envolvente de 200-300 caracteres que capture a essência do artigo" },
+                  content: { type: "string", description: "Conteúdo COMPLETO e EXTENSO em HTML bem formatado com classes de espaçamento. Mínimo 800 palavras." },
+                  tags: { type: "array", items: { type: "string" }, description: "4-6 tags relevantes para categorização" },
+                  metaTitle: { type: "string", description: "Título SEO otimizado (máximo 60 caracteres)" },
+                  metaDescription: { type: "string", description: "Descrição SEO persuasiva (máximo 160 caracteres)" }
                 },
                 required: ["title", "excerpt", "content", "tags", "metaTitle", "metaDescription"],
                 additionalProperties: false
