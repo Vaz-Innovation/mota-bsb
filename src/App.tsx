@@ -9,6 +9,7 @@ import Blog from "./pages/Blog";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import AdminNewPost from "./pages/AdminNewPost";
+import AdminEditPost from "./pages/AdminEditPost";
 import AdminNewCategory from "./pages/AdminNewCategory";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/posts/new" element={<AdminNewPost />} />
+            <Route path="/admin/posts/edit/:id" element={<AdminEditPost />} />
             <Route path="/admin/categories/new" element={<AdminNewCategory />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
