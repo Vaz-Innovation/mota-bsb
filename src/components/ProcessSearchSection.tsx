@@ -20,7 +20,8 @@ Nome Completo: ${fullName}
 
 CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/5564995362668?text=${encodedMessage}`;
+    // Using WhatsApp's official share URL format
+    return `https://api.whatsapp.com/send?phone=5564995362668&text=${encodedMessage}`;
   };
 
   return (
