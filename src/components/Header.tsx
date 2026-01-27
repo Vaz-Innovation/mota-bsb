@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Search, Globe, User, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -26,6 +26,11 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
+  
+  // Always show solid header on non-home pages
+  const isHomePage = location.pathname === "/";
+  const showSolidHeader = !isHomePage || isScrolled;
 
   const navLinks = [
     { href: "#inicio", label: t("nav.home") },
@@ -47,7 +52,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        showSolidHeader
           ? "bg-navy py-2 shadow-lg"
           : "bg-transparent py-4"
       }`}
