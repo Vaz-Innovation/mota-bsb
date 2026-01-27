@@ -193,7 +193,7 @@ export const ContactSection = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-navy hover:bg-navy-deep text-white font-semibold h-12"
+                  className="w-full bg-gradient-gold hover:opacity-90 text-navy font-semibold h-12"
                 >
                   {t("contact.send")}
                 </Button>
