@@ -142,9 +142,15 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
-              {t("header.contact_us")}
-            </Button>
+            <a
+              href="https://wa.me/5564995362668"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
+                {t("header.contact_us")}
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -202,9 +208,15 @@ export const Header = () => {
                 </div>
               </div>
               
-              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
-                {t("header.contact_us")}
-              </Button>
+              <a
+                href="https://wa.me/5564995362668"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
+                  {t("header.contact_us")}
+                </Button>
+              </a>
             </div>
           </nav>
         )}
