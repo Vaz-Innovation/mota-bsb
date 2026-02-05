@@ -43,7 +43,7 @@ export const ScamAlertPopup = () => {
         <DialogHeader className="space-y-2">
           <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl text-destructive">
             <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-            <span>Atenção: mensagem falsa em circulação</span>
+            <span>Mensagem falsa em circulação</span>
           </DialogTitle>
         </DialogHeader>
 
