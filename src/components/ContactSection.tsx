@@ -36,8 +36,20 @@ export const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission
+    
+    const message = `Nome completo: ${formData.name}
+CPF: ${formData.cpf}
+Telefone: ${formData.phone}
+E-mail: ${formData.email}
+Número do processo: ${formData.processNumber || "Não informado"}
+
+Mensagem: ${formData.message}`;
+
+    const whatsappNumber = "5561995362668";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
