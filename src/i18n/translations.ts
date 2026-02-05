@@ -280,7 +280,7 @@ export const translations: Translations = {
     "process.subtitle": "Digite o número do processo e receba atualizações em poucos minutos.",
     "process.placeholder": "Número do processo (ex: 0000000-00.0000.0.00.0000)",
     "process.name": "Nome completo",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Consultar via WhatsApp",
     "process.whatsapp_message": "Olá! Gostaria de consultar meu processo.",
     
@@ -432,7 +432,7 @@ export const translations: Translations = {
     "process.subtitle": "Ingresa el número del proceso y recibe actualizaciones en pocos minutos.",
     "process.placeholder": "Número del proceso (ej: 0000000-00.0000.0.00.0000)",
     "process.name": "Nombre completo",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Consultar vía WhatsApp",
     "process.whatsapp_message": "¡Hola! Me gustaría consultar mi proceso.",
     
@@ -584,7 +584,7 @@ export const translations: Translations = {
     "process.subtitle": "Enter the case number and receive updates in a few minutes.",
     "process.placeholder": "Case number (e.g.: 0000000-00.0000.0.00.0000)",
     "process.name": "Full name",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Consult via WhatsApp",
     "process.whatsapp_message": "Hello! I would like to check my case.",
     
@@ -736,7 +736,7 @@ export const translations: Translations = {
     "process.subtitle": "Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.",
     "process.placeholder": "Fallnummer (z.B.: 0000000-00.0000.0.00.0000)",
     "process.name": "Vollständiger Name",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Über WhatsApp anfragen",
     "process.whatsapp_message": "Hallo! Ich möchte meinen Fall überprüfen.",
     
@@ -888,7 +888,7 @@ export const translations: Translations = {
     "process.subtitle": "Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.",
     "process.placeholder": "Numero del caso (es.: 0000000-00.0000.0.00.0000)",
     "process.name": "Nome completo",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Consulta tramite WhatsApp",
     "process.whatsapp_message": "Ciao! Vorrei consultare il mio caso.",
     
@@ -1040,7 +1040,7 @@ export const translations: Translations = {
     "process.subtitle": "Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.",
     "process.placeholder": "Numéro du dossier (ex: 0000000-00.0000.0.00.0000)",
     "process.name": "Nom complet",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "Consulter via WhatsApp",
     "process.whatsapp_message": "Bonjour! Je voudrais consulter mon dossier.",
     
@@ -1192,7 +1192,7 @@ export const translations: Translations = {
     "process.subtitle": "输入案件编号，几分钟内即可收到更新。",
     "process.placeholder": "案件编号 (例: 0000000-00.0000.0.00.0000)",
     "process.name": "全名",
-    "process.cpf": "CPF (000.000.000-00)",
+    "process.cpf": "CPF/CNPJ",
     "process.button": "通过WhatsApp咨询",
     "process.whatsapp_message": "您好！我想查询我的案件。",
     
