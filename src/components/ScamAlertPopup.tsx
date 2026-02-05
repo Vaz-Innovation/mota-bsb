@@ -43,21 +43,25 @@ export const ScamAlertPopup = () => {
         <DialogHeader className="space-y-2">
           <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl text-destructive">
             <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-            <span>Mensagem falsa em circulação</span>
+            <span>Golpe em nome do SINDIFISCO NACIONAL</span>
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4 text-sm sm:text-base">
           <p className="text-foreground leading-relaxed">
-            Estão sendo enviadas mensagens em nome do{" "}
-            <strong>SINDIFISCO NACIONAL</strong> informando sobre suposta
+            Mensagens fraudulentas estão sendo enviadas em nome do{" "}
+            <strong>SINDIFISCO NACIONAL</strong>, informando falsamente sobre a
             liberação de valores judiciais.
+          </p>
+
+          <p className="text-foreground leading-relaxed">
+            Os criminosos também utilizam indevidamente o nome de nossos
+            advogados para dar credibilidade ao golpe.
           </p>
 
           <div className="space-y-2">
             <p className="text-foreground font-medium">
-              Para ajudar você a identificar, veja abaixo um exemplo da mensagem
-              falsa que está sendo enviada:
+              Confira abaixo um exemplo da mensagem falsa em circulação:
             </p>
 
             <div className="rounded-lg overflow-hidden border border-border">
