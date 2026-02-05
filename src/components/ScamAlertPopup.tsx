@@ -54,15 +54,6 @@ export const ScamAlertPopup = () => {
             liberação de valores judiciais.
           </p>
 
-          <p className="text-destructive font-semibold text-base sm:text-lg">
-            👉 Essa mensagem é um golpe.
-          </p>
-
-          <p className="text-muted-foreground">
-            Se você recebeu algo parecido, ignore e não entre em contato com o
-            número informado.
-          </p>
-
           <div className="space-y-2">
             <p className="text-foreground font-medium">
               Para ajudar você a identificar, veja abaixo um exemplo da mensagem
