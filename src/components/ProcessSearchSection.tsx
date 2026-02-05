@@ -7,7 +7,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export const ProcessSearchSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [processNumber, setProcessNumber] = useState("");
-  const [fullName, setFullName] = useState("");
   const [cpf, setCpf] = useState("");
   const { t } = useLanguage();
 
@@ -15,8 +14,6 @@ export const ProcessSearchSection = () => {
     const message = `Olá, queria consultar o meu processo
 
 Número do processo: ${processNumber}
-
-Nome Completo: ${fullName}
 
 CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
@@ -62,13 +59,6 @@ CPF: ${cpf}`;
                   placeholder={t("process.placeholder")}
                   value={processNumber}
                   onChange={(e) => setProcessNumber(e.target.value)}
-                  className="h-12 text-base"
-                />
-                <Input
-                  type="text"
-                  placeholder={t("process.name")}
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
                   className="h-12 text-base"
                 />
                 <Input
