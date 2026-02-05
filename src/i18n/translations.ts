@@ -150,6 +150,11 @@ export const translationKeys = [
   "blog.article_not_found_description",
   "blog.translation_error",
   "blog.translating",
+  
+  // Latest News Section
+  "news.title",
+  "news.subtitle",
+  "news.view_all",
 ] as const;
 
 export type TranslationKey = typeof translationKeys[number];
@@ -307,6 +312,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "O artigo que você está procurando não existe ou foi removido.",
     "blog.translation_error": "Erro ao traduzir conteúdo",
     "blog.translating": "Traduzindo...",
+    
+    // Latest News Section
+    "news.title": "Últimas Notícias",
+    "news.subtitle": "Acompanhe as últimas publicações do nosso blog jurídico.",
+    "news.view_all": "Ver todas as notícias",
   },
   
   ES: {
@@ -459,6 +469,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "El artículo que buscas no existe o ha sido eliminado.",
     "blog.translation_error": "Error al traducir el contenido",
     "blog.translating": "Traduciendo...",
+    
+    // Latest News Section
+    "news.title": "Últimas Noticias",
+    "news.subtitle": "Siga las últimas publicaciones de nuestro blog jurídico.",
+    "news.view_all": "Ver todas las noticias",
   },
   
   EN: {
@@ -611,6 +626,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "The article you are looking for does not exist or has been removed.",
     "blog.translation_error": "Error translating content",
     "blog.translating": "Translating...",
+    
+    // Latest News Section
+    "news.title": "Latest News",
+    "news.subtitle": "Follow the latest publications from our legal blog.",
+    "news.view_all": "View all news",
   },
   
   DE: {
@@ -763,6 +783,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
     "blog.translation_error": "Fehler beim Übersetzen des Inhalts",
     "blog.translating": "Übersetzung...",
+    
+    // Latest News Section
+    "news.title": "Neueste Nachrichten",
+    "news.subtitle": "Verfolgen Sie die neuesten Veröffentlichungen unseres Rechtsblogs.",
+    "news.view_all": "Alle Nachrichten anzeigen",
   },
   
   IT: {
@@ -915,6 +940,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "L'articolo che stai cercando non esiste o è stato rimosso.",
     "blog.translation_error": "Errore nella traduzione del contenuto",
     "blog.translating": "Traduzione in corso...",
+    
+    // Latest News Section
+    "news.title": "Ultime Notizie",
+    "news.subtitle": "Segui le ultime pubblicazioni del nostro blog giuridico.",
+    "news.view_all": "Vedi tutte le notizie",
   },
   
   FR: {
@@ -1067,6 +1097,11 @@ export const translations: Translations = {
     "blog.article_not_found_description": "L'article que vous recherchez n'existe pas ou a été supprimé.",
     "blog.translation_error": "Erreur lors de la traduction du contenu",
     "blog.translating": "Traduction en cours...",
+    
+    // Latest News Section
+    "news.title": "Dernières Actualités",
+    "news.subtitle": "Suivez les dernières publications de notre blog juridique.",
+    "news.view_all": "Voir toutes les actualités",
   },
   
   ZH: {
@@ -1219,5 +1254,10 @@ export const translations: Translations = {
     "blog.article_not_found_description": "您查找的文章不存在或已被删除。",
     "blog.translation_error": "翻译内容时出错",
     "blog.translating": "翻译中...",
+    
+    // Latest News Section
+    "news.title": "最新新闻",
+    "news.subtitle": "关注我们法律博客的最新发布。",
+    "news.view_all": "查看所有新闻",
   },
 };
