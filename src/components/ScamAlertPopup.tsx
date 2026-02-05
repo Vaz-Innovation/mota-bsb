@@ -68,19 +68,6 @@ export const ScamAlertPopup = () => {
               />
             </div>
           </div>
-
-          <p className="text-muted-foreground">
-            Caso queira entender melhor como funciona esse golpe ou tirar
-            qualquer dúvida, fale com nossa equipe pelo WhatsApp.
-          </p>
-
-          <Button
-            onClick={handleWhatsApp}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 text-sm sm:text-base"
-          >
-            <MessageCircle className="w-5 h-5 mr-2" />
-            👉 Quero entender melhor no WhatsApp
-          </Button>
         </div>
       </DialogContent>
     </Dialog>
