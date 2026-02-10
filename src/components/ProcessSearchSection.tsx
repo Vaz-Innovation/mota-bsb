@@ -68,15 +68,13 @@ CPF: ${cpf}`;
                   onChange={(e) => setCpf(e.target.value)}
                   className="h-12 text-base"
                 />
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold flex items-center justify-center gap-2 rounded-md transition-colors"
+                <button
+                  disabled
+                  className="w-full h-12 bg-[#25D366] text-white font-semibold flex items-center justify-center gap-2 rounded-md opacity-60 cursor-default"
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t("process.button")}
-                </a>
+                </button>
               </div>
             </div>
           )}
