@@ -30,7 +30,10 @@ export const ScamAlertPopup = () => {
   };
 
   const handleWhatsApp = () => {
-    // WhatsApp redirection temporarily disabled
+    window.open(
+      "https://api.whatsapp.com/send?phone=5561995362668&text=Ol%C3%A1!%20Gostaria%20de%20entender%20melhor%20sobre%20o%20golpe%20em%20circula%C3%A7%C3%A3o.",
+      "_blank"
+    );
     handleClose();
   };
 
