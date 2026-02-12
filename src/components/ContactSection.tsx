@@ -47,9 +47,8 @@ Mensagem: ${formData.message}`;
 
     const whatsappNumber = "5561995362668";
     const encodedMessage = encodeURIComponent(message);
-    // WhatsApp redirection temporarily disabled
-    // const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-    // window.open(whatsappUrl, "_blank");
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (

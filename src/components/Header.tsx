@@ -134,9 +134,11 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button disabled className="bg-gradient-gold text-navy font-semibold px-6 opacity-60 cursor-default">
-              {t("header.contact_us")}
-            </Button>
+            <a href="https://api.whatsapp.com/send?phone=5561995362668" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
+                {t("header.contact_us")}
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -183,9 +185,11 @@ export const Header = () => {
                 </div>
               </div>
               
-              <Button disabled className="bg-gradient-gold text-navy font-semibold mt-4 opacity-60 cursor-default">
-                {t("header.contact_us")}
-              </Button>
+              <a href="https://api.whatsapp.com/send?phone=5561995362668" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold mt-4">
+                  {t("header.contact_us")}
+                </Button>
+              </a>
             </div>
           </nav>
         )}
