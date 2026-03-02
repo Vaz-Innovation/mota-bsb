@@ -21,6 +21,7 @@ interface BlogPost {
   slug: string;
   meta_title: string | null;
   meta_description: string | null;
+  source_url: string | null;
   // Translation fields
   title_en: string | null;
   title_es: string | null;
@@ -283,6 +284,23 @@ export default function BlogPost() {
               "
               dangerouslySetInnerHTML={{ __html: displayContent }}
             />
+
+            {/* Source Reference */}
+            {post?.source_url && (
+              <div className="mt-10 pt-6 border-t border-border">
+                <h3 className="text-sm font-semibold text-navy uppercase tracking-wider mb-2">
+                  Referência
+                </h3>
+                <a
+                  href={post.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold hover:text-gold/80 underline underline-offset-2 text-sm break-all"
+                >
+                  {post.source_url}
+                </a>
+              </div>
+            )}
 
             {/* Tags */}
             {post?.tags && post.tags.length > 0 && (

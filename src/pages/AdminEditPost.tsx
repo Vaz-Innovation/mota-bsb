@@ -97,6 +97,7 @@ export default function AdminEditPost() {
       setMetaDescription(data.meta_description || "");
       setImageUrl(data.image_url || "");
       setIsDraft(data.status === "draft");
+      setImportUrl((data as any).source_url || "");
     } catch (error: any) {
       toast({
         title: "Erro ao carregar",
@@ -248,7 +249,8 @@ export default function AdminEditPost() {
           meta_description: metaDescription || null,
           image_url: imageUrl || null,
           status: isDraft ? "draft" : "published",
-        })
+          source_url: importUrl.trim() || null,
+        } as any)
         .eq("id", id);
 
       if (error) throw error;
