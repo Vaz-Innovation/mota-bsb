@@ -206,6 +206,7 @@ export default function AdminNewPost() {
         image_url: imageUrl || null,
         status: isDraft ? "draft" : "published",
         author_id: user.id,
+        source_url: importUrl.trim() || null,
       });
 
       if (error) throw error;
