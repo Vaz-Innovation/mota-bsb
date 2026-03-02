@@ -296,7 +296,7 @@ export const translations: Translations = {
     "cookie.accept": "Aceitar",
     
     // Blog Page
-    "blog.title": "Blog Jurídico",
+    "blog.title": "Blog",
     "blog.subtitle": "Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.",
     "blog.search_placeholder": "Buscar artigos...",
     "blog.all_tags": "Todas as tags",
@@ -453,7 +453,7 @@ export const translations: Translations = {
     "cookie.accept": "Aceptar",
     
     // Blog Page
-    "blog.title": "Blog Jurídico",
+    "blog.title": "Blog",
     "blog.subtitle": "Artículos, noticias y análisis sobre los cambios más recientes en la legislación y jurisprudencia brasileña.",
     "blog.search_placeholder": "Buscar artículos...",
     "blog.all_tags": "Todas las etiquetas",
@@ -610,7 +610,7 @@ export const translations: Translations = {
     "cookie.accept": "Accept",
     
     // Blog Page
-    "blog.title": "Legal Blog",
+    "blog.title": "Blog",
     "blog.subtitle": "Articles, news and analysis on the latest changes in Brazilian legislation and jurisprudence.",
     "blog.search_placeholder": "Search articles...",
     "blog.all_tags": "All tags",
@@ -767,7 +767,7 @@ export const translations: Translations = {
     "cookie.accept": "Akzeptieren",
     
     // Blog Page
-    "blog.title": "Rechtsblog",
+    "blog.title": "Blog",
     "blog.subtitle": "Artikel, Nachrichten und Analysen zu den neuesten Änderungen in der brasilianischen Gesetzgebung und Rechtsprechung.",
     "blog.search_placeholder": "Artikel suchen...",
     "blog.all_tags": "Alle Tags",
@@ -924,7 +924,7 @@ export const translations: Translations = {
     "cookie.accept": "Accetta",
     
     // Blog Page
-    "blog.title": "Blog Giuridico",
+    "blog.title": "Blog",
     "blog.subtitle": "Articoli, notizie e analisi sui cambiamenti più recenti nella legislazione e giurisprudenza brasiliana.",
     "blog.search_placeholder": "Cerca articoli...",
     "blog.all_tags": "Tutti i tag",
@@ -1081,7 +1081,7 @@ export const translations: Translations = {
     "cookie.accept": "Accepter",
     
     // Blog Page
-    "blog.title": "Blog Juridique",
+    "blog.title": "Blog",
     "blog.subtitle": "Articles, actualités et analyses sur les derniers changements dans la législation et la jurisprudence brésilienne.",
     "blog.search_placeholder": "Rechercher des articles...",
     "blog.all_tags": "Tous les tags",
@@ -1238,7 +1238,7 @@ export const translations: Translations = {
     "cookie.accept": "接受",
     
     // Blog Page
-    "blog.title": "法律博客",
+    "blog.title": "Blog",
     "blog.subtitle": "关于巴西立法和判例最新变化的文章、新闻和分析。",
     "blog.search_placeholder": "搜索文章...",
     "blog.all_tags": "所有标签",
