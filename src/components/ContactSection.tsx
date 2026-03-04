@@ -45,10 +45,11 @@ Número do processo: ${formData.processNumber || "Não informado"}
 
 Mensagem: ${formData.message}`;
 
-    const whatsappNumber = "5561995362668";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
+    // WhatsApp temporariamente desabilitado
+    // const whatsappNumber = "5561995362668";
+    // const encodedMessage = encodeURIComponent(message);
+    // const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    // window.open(whatsappUrl, "_blank");
   };
 
   return (
