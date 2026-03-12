@@ -18,7 +18,7 @@ Número do processo: ${processNumber}
 CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
     // Using WhatsApp's official share URL format
-    return `https://api.whatsapp.com/send?phone=5561995362668&text=${encodedMessage}`;
+    return `https://api.whatsapp.com/send?phone=5561984393925&text=${encodedMessage}`;
   };
 
   return (
