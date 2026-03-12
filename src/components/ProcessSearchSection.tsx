@@ -18,7 +18,7 @@ Número do processo: ${processNumber}
 CPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
     // Using WhatsApp's official share URL format
-    return `https://api.whatsapp.com/send?phone=5561995362668&text=${encodedMessage}`;
+    return `https://api.whatsapp.com/send?phone=5561984393925&text=${encodedMessage}`;
   };
 
   return (
@@ -68,13 +68,15 @@ CPF: ${cpf}`;
                   onChange={(e) => setCpf(e.target.value)}
                   className="h-12 text-base"
                 />
-                <button
-                  disabled
-                  className="w-full h-12 bg-[#25D366] text-white font-semibold flex items-center justify-center gap-2 rounded-md opacity-60 cursor-not-allowed"
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-12 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold flex items-center justify-center gap-2 rounded-md transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t("process.button")}
-                </button>
+                </a>
               </div>
             </div>
           )}
