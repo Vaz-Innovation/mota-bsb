@@ -134,9 +134,11 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6 cursor-not-allowed opacity-60" disabled>
-              {t("header.contact_us")}
-            </Button>
+            <a href="https://api.whatsapp.com/send?phone=5561984393925" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-gold hover:opacity-90 text-navy font-semibold px-6">
+                {t("header.contact_us")}
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
