@@ -2,28 +2,15 @@
 
 ## Problema
 
-Quando o usuário navega para o Blog, sai da página, e depois volta ao Blog, a página aparece rolada para baixo. Isso acontece porque o React Router nao reseta a posicao de scroll ao trocar de rota -- o navegador mantém a posicao anterior.
+O mapa do Google Maps embutido na seção de contato está apontando para o local errado. As coordenadas usadas no iframe são genéricas e não correspondem ao endereço real do escritório (SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Ed. Athenas, Brasília - DF).
 
-Nao é um problema de cookies ou armazenamento local.
+## Solução
 
-## Solucao
+Atualizar a URL do iframe do Google Maps no arquivo `src/components/ContactSection.tsx` (linha 93) com o embed correto que aponta exatamente para o endereço **SGAS 902, Bloco B, Ed. Athenas, Brasília - DF, CEP 70390-020**.
 
-Criar um componente `ScrollToTop` que escuta mudancas de rota e automaticamente rola a pagina para o topo (posicao 0,0) toda vez que o usuario navega para uma nova pagina.
+### Detalhes Técnicos
 
-## Detalhes Tecnicos
-
-### 1. Criar componente `src/components/ScrollToTop.tsx`
-
-- Usa o hook `useLocation()` do React Router para detectar mudancas de rota
-- Dentro de um `useEffect`, chama `window.scrollTo(0, 0)` sempre que `location.pathname` mudar
-- O componente nao renderiza nada visualmente (retorna `null`)
-
-### 2. Adicionar o componente em `src/App.tsx`
-
-- Importar `ScrollToTop` e colocá-lo dentro do `<BrowserRouter>`, antes do `<Routes>`
-- Isso garante que o scroll seja resetado em TODAS as navegacoes do site (Blog, Home, artigos, etc.)
-
-## Resultado
-
-Toda vez que o usuario clicar em qualquer link de navegacao, a pagina vai abrir no topo automaticamente, resolvendo o problema do Blog e de qualquer outra pagina.
+- **Arquivo**: `src/components/ContactSection.tsx`, linha 93
+- **Ação**: Substituir a URL do `src` do iframe por uma URL de embed do Google Maps que busca pelo endereço correto: `SGAS 902, lote 74, Bloco B, Ed. Athenas, Brasília - DF, 70390-020`
+- Usar o formato `https://www.google.com/maps/embed/v1/place?key=...&q=...` ou o formato de embed padrão com a query correta para garantir que o pin apareça no local certo
 
