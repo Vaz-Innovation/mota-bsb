@@ -964,7 +964,7 @@ export const translations: Translations = {
     "about.subtitle": "Construisant des solutions juridiques avec excellence, éthique et résultats depuis 2000, avec une couverture nationale.",
     "about.since": "Depuis 2000",
     "about.trajectory.title": "Trajectoire",
-    "about.trajectory.description": "Plus de 25 ans d'excellence juridique",
+    "about.trajectory.description": "Plus de 26 ans d'excellence juridique",
     "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS est un cabinet d'avocats depuis 2000, avec une couverture nationale.\n\nFournir des services juridiques d'excellence est notre objectif et se reflète dans les résultats obtenus et la satisfaction de nos clients.",
     "about.pillars.badge": "Éthique | Engagement",
     "about.pillars.title": "Piliers Consolidés",
