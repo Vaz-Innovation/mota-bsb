@@ -807,7 +807,7 @@ export const translations: Translations = {
     "about.subtitle": "Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000, con copertura nazionale.",
     "about.since": "Dal 2000",
     "about.trajectory.title": "Traiettoria",
-    "about.trajectory.description": "Oltre 25 anni di eccellenza legale",
+    "about.trajectory.description": "Oltre 26 anni di eccellenza legale",
     "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS è uno studio legale dal 2000, con copertura nazionale.\n\nFornire servizi legali di eccellenza è il nostro obiettivo e si riflette nei risultati raggiunti e nella soddisfazione dei nostri clienti.",
     "about.pillars.badge": "Etica | Impegno",
     "about.pillars.title": "Pilastri Consolidati",
