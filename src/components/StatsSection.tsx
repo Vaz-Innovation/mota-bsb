@@ -9,10 +9,10 @@ interface StatData {
 }
 
 const statsData: StatData[] = [
-  { value: 25, suffix: "+", labelKey: "stats.years" },
-  { value: 22500, suffix: "+", labelKey: "stats.clients" },
+  { value: 26, suffix: "+", labelKey: "stats.years" },
+  { value: 223000, suffix: "+", labelKey: "stats.clients" },
   { value: 95, suffix: "%", labelKey: "stats.success_rate" },
-  { value: 15000, suffix: "+", labelKey: "stats.cases" },
+  { value: 125000, suffix: "+", labelKey: "stats.cases" },
 ];
 
 const useCountUp = (end: number, duration: number = 2000, start: boolean = false) => {
