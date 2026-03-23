@@ -1121,7 +1121,7 @@ export const translations: Translations = {
     "about.subtitle": "自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国。",
     "about.since": "自2000年",
     "about.trajectory.title": "发展历程",
-    "about.trajectory.description": "超过25年的法律卓越",
+    "about.trajectory.description": "超过26年的法律卓越",
     "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS 是一家自2000年成立的律师事务所，业务覆盖全国。\n\n提供卓越的法律服务是我们的目标，这体现在我们取得的成果和客户的满意度上。",
     "about.pillars.badge": "道德 | 承诺",
     "about.pillars.title": "巩固的支柱",
