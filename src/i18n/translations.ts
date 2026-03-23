@@ -179,7 +179,7 @@ export const translations: Translations = {
     "about.subtitle": "Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.",
     "about.since": "Desde 2000",
     "about.trajectory.title": "Trajetória",
-    "about.trajectory.description": "Mais de 25 anos de excelência jurídica",
+    "about.trajectory.description": "Mais de 26 anos de excelência jurídica",
     "about.trajectory.full": "A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.\n\nA prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.",
     "about.pillars.badge": "Ética | Comprometimento",
     "about.pillars.title": "Pilares Consolidados",
