@@ -493,7 +493,7 @@ export const translations: Translations = {
     "about.subtitle": "Building legal solutions with excellence, ethics and results since 2000, with nationwide coverage.",
     "about.since": "Since 2000",
     "about.trajectory.title": "Trajectory",
-    "about.trajectory.description": "Over 25 years of legal excellence",
+    "about.trajectory.description": "Over 26 years of legal excellence",
     "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS is a law firm since 2000, with nationwide coverage.\n\nProviding excellent legal services is our goal and is reflected in the results achieved and the satisfaction of our clients.",
     "about.pillars.badge": "Ethics | Commitment",
     "about.pillars.title": "Consolidated Pillars",
