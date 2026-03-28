@@ -506,7 +506,7 @@ export const translations: Translations = {
     "about.office.badge": "Nationwide Coverage",
     "about.office.title": "Office",
     "about.office.description": "Headquarters in Brasília with nationwide coverage",
-    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Brasília, and Natal.",
+    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Porto Alegre, and Natal.",",
     "about.explore": "Explore",
     
     // Practice Areas
