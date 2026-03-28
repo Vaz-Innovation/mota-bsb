@@ -820,7 +820,7 @@ export const translations: Translations = {
     "about.office.badge": "Copertura Nazionale",
     "about.office.title": "Studio",
     "about.office.description": "Sede a Brasília con copertura nazionale",
-    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Brasília e Natal.",
+    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Porto Alegre e Natal.",",
     "about.explore": "Esplora",
     
     // Practice Areas
