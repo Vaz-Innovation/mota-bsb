@@ -663,7 +663,7 @@ export const translations: Translations = {
     "about.office.badge": "Landesweite Abdeckung",
     "about.office.title": "Kanzlei",
     "about.office.description": "Hauptsitz in Brasília mit landesweiter Abdeckung",
-    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Brasília und Natal.",
+    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Porto Alegre und Natal.",",
     "about.explore": "Erkunden",
     
     // Practice Areas
