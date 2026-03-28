@@ -349,7 +349,7 @@ export const translations: Translations = {
     "about.office.badge": "Actuación Nacional",
     "about.office.title": "Oficina",
     "about.office.description": "Sede en Brasilia con cobertura nacional",
-    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",",
+    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",: "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",",
     "about.explore": "Explorar",
     
     // Practice Areas
