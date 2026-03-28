@@ -977,7 +977,7 @@ export const translations: Translations = {
     "about.office.badge": "Couverture Nationale",
     "about.office.title": "Cabinet",
     "about.office.description": "Siège à Brasília avec couverture nationale",
-    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",",
+    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",: "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",",
     "about.explore": "Explorer",
     
     // Practice Areas
