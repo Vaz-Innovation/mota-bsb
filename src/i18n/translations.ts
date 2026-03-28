@@ -192,7 +192,7 @@ export const translations: Translations = {
     "about.office.badge": "Atuação Nacional",
     "about.office.title": "Escritório",
     "about.office.description": "Sede em Brasília com cobertura nacional",
-    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Brasília, e Natal.",
+    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Porto Alegre e Natal.",
     "about.explore": "Explorar",
     
     // Practice Areas
@@ -349,7 +349,7 @@ export const translations: Translations = {
     "about.office.badge": "Actuación Nacional",
     "about.office.title": "Oficina",
     "about.office.description": "Sede en Brasilia con cobertura nacional",
-    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Brasília y Natal.",
+    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",
     "about.explore": "Explorar",
     
     // Practice Areas
@@ -506,7 +506,7 @@ export const translations: Translations = {
     "about.office.badge": "Nationwide Coverage",
     "about.office.title": "Office",
     "about.office.description": "Headquarters in Brasília with nationwide coverage",
-    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Brasília, and Natal.",
+    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Porto Alegre, and Natal.",
     "about.explore": "Explore",
     
     // Practice Areas
@@ -663,7 +663,7 @@ export const translations: Translations = {
     "about.office.badge": "Landesweite Abdeckung",
     "about.office.title": "Kanzlei",
     "about.office.description": "Hauptsitz in Brasília mit landesweiter Abdeckung",
-    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Brasília und Natal.",
+    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Porto Alegre und Natal.",
     "about.explore": "Erkunden",
     
     // Practice Areas
@@ -820,7 +820,7 @@ export const translations: Translations = {
     "about.office.badge": "Copertura Nazionale",
     "about.office.title": "Studio",
     "about.office.description": "Sede a Brasília con copertura nazionale",
-    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Brasília e Natal.",
+    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Porto Alegre e Natal.",
     "about.explore": "Esplora",
     
     // Practice Areas
@@ -977,7 +977,7 @@ export const translations: Translations = {
     "about.office.badge": "Couverture Nationale",
     "about.office.title": "Cabinet",
     "about.office.description": "Siège à Brasília avec couverture nationale",
-    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Brasília et Natal.",
+    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",
     "about.explore": "Explorer",
     
     // Practice Areas
