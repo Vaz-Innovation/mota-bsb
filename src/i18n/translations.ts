@@ -192,7 +192,7 @@ export const translations: Translations = {
     "about.office.badge": "Atuação Nacional",
     "about.office.title": "Escritório",
     "about.office.description": "Sede em Brasília com cobertura nacional",
-    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Porto Alegre e Natal.",",
+    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Porto Alegre e Natal.",
     "about.explore": "Explorar",
     
     // Practice Areas
