@@ -11,7 +11,7 @@ import { NewsletterSection } from "@/components/NewsletterSection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CookieBanner } from "@/components/CookieBanner";
-import { ScamAlertPopup } from "@/components/ScamAlertPopup";
+// import { ScamAlertPopup } from "@/components/ScamAlertPopup";
 
 const Index = () => {
   return (
@@ -31,7 +31,7 @@ const Index = () => {
       <Footer />
       <WhatsAppButton />
       <CookieBanner />
-      <ScamAlertPopup />
+      {/* <ScamAlertPopup /> */}
     </div>
   );
 };
