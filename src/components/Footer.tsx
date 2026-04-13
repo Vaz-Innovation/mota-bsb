@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Lock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Footer = () => {
@@ -11,7 +11,6 @@ export const Footer = () => {
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
     { key: "trabalhe_conosco" as any, href: "/trabalhe-conosco" },
-    
   ];
 
   return (
@@ -28,10 +27,9 @@ export const Footer = () => {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {link.key === "intranet" ? "Intranet" : link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : t(link.key)}
+                    {link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : t(link.key)}
                   </a>
                 </li>
               ))}
@@ -84,8 +82,23 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Intranet Link between two lines */}
+        <div className="border-t border-primary-foreground/10 mt-12 pt-6">
+          <div className="flex justify-center">
+            <a
+              href="https://dev.motaeadvogados.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-primary-foreground/70 hover:text-beige transition-colors text-sm"
+            >
+              <Lock className="w-4 h-4" />
+              <span>Intranet</span>
+            </a>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
+        <div className="border-t border-primary-foreground/10 mt-6 pt-6 text-center">
           <p className="text-primary-foreground/50 text-sm">
             © {new Date().getFullYear()} Mota & Advogados Associados. {t("footer.rights")}
           </p>
