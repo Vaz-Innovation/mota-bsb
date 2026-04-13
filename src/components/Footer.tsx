@@ -10,6 +10,7 @@ export const Footer = () => {
     { key: "nav.practice_areas", href: "#areas" },
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
+    { key: "trabalhe_conosco" as any, href: "/trabalhe-conosco" },
     { key: "intranet" as any, href: "https://dev.motaeadvogados.com.br", external: true },
   ];
 
@@ -30,7 +31,7 @@ export const Footer = () => {
                     {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {link.key === "intranet" ? "Intranet" : t(link.key)}
+                    {link.key === "intranet" ? "Intranet" : link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : t(link.key)}
                   </a>
                 </li>
               ))}
