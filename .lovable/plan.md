@@ -1,16 +1,20 @@
 
 
-## Problema
+## Plan: Create "/avalie" page and add footer link
 
-O mapa do Google Maps embutido na seção de contato está apontando para o local errado. As coordenadas usadas no iframe são genéricas e não correspondem ao endereço real do escritório (SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Ed. Athenas, Brasília - DF).
+### New page: `src/pages/Avalie.tsx`
+- Hero section with title "Sua opinião é importante" and subtitle about legal services
+- 5 orange stars (using lucide-react `Star` icon, filled orange)
+- "Avalie Nossa Experiência" heading
+- Subtitle about sharing experience on Google
+- Info card with emoji and text about how reviews help improve services
+- Navy blue CTA button "Deixar Avaliação" with star icon and external link icon, linking to `https://share.google/1EuNfdFzLLHbqCPWT` (opens in new tab)
+- Small text below: "Você será redirecionado para o Google Meu Negócio"
+- Includes Header and Footer
 
-## Solução
+### Route: `src/App.tsx`
+- Import `Avalie` and add `<Route path="/avalie" element={<Avalie />} />`
 
-Atualizar a URL do iframe do Google Maps no arquivo `src/components/ContactSection.tsx` (linha 93) com o embed correto que aponta exatamente para o endereço **SGAS 902, Bloco B, Ed. Athenas, Brasília - DF, CEP 70390-020**.
-
-### Detalhes Técnicos
-
-- **Arquivo**: `src/components/ContactSection.tsx`, linha 93
-- **Ação**: Substituir a URL do `src` do iframe por uma URL de embed do Google Maps que busca pelo endereço correto: `SGAS 902, lote 74, Bloco B, Ed. Athenas, Brasília - DF, 70390-020`
-- Usar o formato `https://www.google.com/maps/embed/v1/place?key=...&q=...` ou o formato de embed padrão com a query correta para garantir que o pin apareça no local certo
+### Footer link: `src/components/Footer.tsx`
+- Add "Avalie-nos" to `quickLinks` array pointing to `/avalie`
 
