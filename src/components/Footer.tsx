@@ -27,9 +27,10 @@ export const Footer = () => {
                 <li key={link.key}>
                   <a
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {t(link.key)}
+                    {link.key === "intranet" ? "Intranet" : t(link.key)}
                   </a>
                 </li>
               ))}
