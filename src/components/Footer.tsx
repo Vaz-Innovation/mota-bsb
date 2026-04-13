@@ -10,7 +10,8 @@ export const Footer = () => {
     { key: "nav.practice_areas", href: "#areas" },
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
-  ] as const;
+    { key: "intranet" as any, href: "https://dev.motaeadvogados.com.br", external: true },
+  ];
 
   return (
     <footer className="bg-navy py-16">
