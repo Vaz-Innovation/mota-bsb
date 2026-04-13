@@ -13,6 +13,7 @@ import AdminNewPost from "./pages/AdminNewPost";
 import AdminEditPost from "./pages/AdminEditPost";
 import AdminNewCategory from "./pages/AdminNewCategory";
 import TrabalheConosco from "./pages/TrabalheConosco";
+import Avalie from "./pages/Avalie";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/admin/posts/edit/:id" element={<AdminEditPost />} />
             <Route path="/admin/categories/new" element={<AdminNewCategory />} />
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
+            <Route path="/avalie" element={<Avalie />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

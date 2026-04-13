@@ -11,6 +11,7 @@ export const Footer = () => {
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
     { key: "trabalhe_conosco" as any, href: "/trabalhe-conosco" },
+    { key: "avalie_nos" as any, href: "/avalie" },
   ];
 
   return (
@@ -29,7 +30,7 @@ export const Footer = () => {
                     href={link.href}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : t(link.key)}
+                    {link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : link.key === "avalie_nos" ? "Avalie-nos" : t(link.key)}
                   </a>
                 </li>
               ))}
