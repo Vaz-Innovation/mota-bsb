@@ -11,7 +11,7 @@ export const Footer = () => {
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
     { key: "trabalhe_conosco" as any, href: "/trabalhe-conosco" },
-    { key: "intranet" as any, href: "https://dev.motaeadvogados.com.br", external: true },
+    
   ];
 
   return (
