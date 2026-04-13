@@ -10,7 +10,8 @@ export const Footer = () => {
     { key: "nav.practice_areas", href: "#areas" },
     { key: "nav.team", href: "#equipe" },
     { key: "nav.contact", href: "#contato" },
-  ] as const;
+    { key: "intranet" as any, href: "https://dev.motaeadvogados.com.br", external: true },
+  ];
 
   return (
     <footer className="bg-navy py-16">
@@ -26,9 +27,10 @@ export const Footer = () => {
                 <li key={link.key}>
                   <a
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {t(link.key)}
+                    {link.key === "intranet" ? "Intranet" : t(link.key)}
                   </a>
                 </li>
               ))}
