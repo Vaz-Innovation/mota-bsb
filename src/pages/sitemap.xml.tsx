@@ -6,23 +6,20 @@ import {
   resolveWpLanguage,
   type SupportedLocale,
 } from "@/graphql/locale-to-wp-language";
-import { BlogAuthorSlugsQuery } from "@/graphql/pages/blog-author.query";
-import { BlogPostSlugsQuery } from "@/graphql/pages/blog-post.query";
-
-
+import { BlogPostSlugsQuery } from "@/graphql/pages/blog";
 
 function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-const DEFAULT_SITE_URL = "https://vazinovacao.vercel.app";
+const DEFAULT_SITE_URL = "https://mota-bsb.vercel.app";
 
 function escapeXml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
+    .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
 }
 
@@ -56,7 +53,7 @@ async function fetchAllPostSlugs(locale: SupportedLocale): Promise<string[]> {
   let afterCursor: string | null = null;
 
   while (true) {
-    const data = await execute(BlogPostSlugsQuery, {
+    const data: any = await execute(BlogPostSlugsQuery, {
       language: resolveWpLanguage(locale),
       first: 100,
       after: afterCursor,
@@ -69,35 +66,7 @@ async function fetchAllPostSlugs(locale: SupportedLocale): Promise<string[]> {
       }
     }
 
-    const pageInfo = data.posts?.pageInfo;
-    if (!pageInfo?.hasNextPage || !pageInfo.endCursor) {
-      break;
-    }
-
-    afterCursor = pageInfo.endCursor;
-  }
-
-  return slugs;
-}
-
-async function fetchAllAuthorSlugs(): Promise<string[]> {
-  const slugs: string[] = [];
-  let afterCursor: string | null = null;
-
-  while (true) {
-    const data = await execute(BlogAuthorSlugsQuery, {
-      first: 100,
-      after: afterCursor,
-    });
-
-    const nodes = data.users?.nodes || [];
-    for (const node of nodes) {
-      if (node?.slug) {
-        slugs.push(node.slug);
-      }
-    }
-
-    const pageInfo = data.users?.pageInfo;
+    const pageInfo: any = data.posts?.pageInfo;
     if (!pageInfo?.hasNextPage || !pageInfo.endCursor) {
       break;
     }
@@ -112,21 +81,21 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const baseUrl = resolveBaseUrl(req);
   const locales = Object.keys(localeToWpLanguage) as SupportedLocale[];
 
-  const [postsByLocale, authorSlugs] = await Promise.all([
-    Promise.all(
-      locales.map(async (locale) => ({
-        locale,
-        slugs: await fetchAllPostSlugs(locale),
-      })),
-    ),
-    fetchAllAuthorSlugs(),
-  ]);
+  const postsByLocale = await Promise.all(
+    locales.map(async (locale) => ({
+      locale,
+      slugs: await fetchAllPostSlugs(locale),
+    })),
+  );
 
   const urls = new Set<string>();
   for (const locale of locales) {
     const prefix = localePrefix(locale);
     urls.add(`${baseUrl}${prefix}/`);
     urls.add(`${baseUrl}${prefix}/blog`);
+    // Add other static pages
+    urls.add(`${baseUrl}${prefix}/avalie`);
+    urls.add(`${baseUrl}${prefix}/trabalhe-conosco`);
   }
 
   for (const { locale, slugs } of postsByLocale) {
@@ -134,11 +103,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     for (const slug of slugs) {
       urls.add(`${baseUrl}${prefix}/blog/${slug}`);
     }
-  }
-
-  for (const authorSlug of authorSlugs) {
-    urls.add(`${baseUrl}/blog/author/${authorSlug}`);
-    urls.add(`${baseUrl}/en-US/blog/author/${authorSlug}`);
   }
 
   const urlEntries = Array.from(urls)

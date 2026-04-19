@@ -1,31 +1,25 @@
 import type { GetServerSideProps } from "next";
 
-import { useFragment as readFragment } from "@/graphql/__gen__";
-import { BlogPostCardFragment } from "@/features/blog/components/blog-post-card";
-import { TaxonomyChipFragment } from "@/features/blog/components/taxonomy-chip";
 import { execute } from "@/graphql/execute";
 import { resolveWpLanguage } from "@/graphql/locale-to-wp-language";
-import {
-  BlogListOnQueryFragment,
-  BlogListPageQuery,
-} from "@/graphql/pages/blog-list.query";
-import { BLOG_PAGE_SIZE } from "@/features/blog/constants";
+import { BlogListQuery } from "@/graphql/pages/blog";
 
 function Feed() {
   // getServerSideProps will do the heavy lifting
 }
 
-const DEFAULT_SITE_NAME = "Vaz Inovacao";
+const DEFAULT_SITE_NAME = "Mota & Advogados Associados";
 const DEFAULT_SITE_DESCRIPTION =
-  "Simplificando a tecnologia e ampliando a inteligencia humana.";
-const DEFAULT_SITE_URL = "https://vazinovacao.vercel.app";
+  "Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados.";
+const DEFAULT_SITE_URL = "https://mota-bsb.vercel.app";
+const BLOG_PAGE_SIZE = 100;
 
 function escapeXml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
+    .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
 }
 
@@ -106,28 +100,26 @@ export const getServerSideProps: GetServerSideProps = async ({
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION || DEFAULT_SITE_DESCRIPTION;
   const localePrefix = resolvedLocale === "pt-BR" ? "" : `/${resolvedLocale}`;
 
-  const data = await execute(BlogListPageQuery, {
+  const data = await execute(BlogListQuery, {
     first: BLOG_PAGE_SIZE,
     language: resolveWpLanguage(resolvedLocale),
   });
-  const queryData = readFragment(BlogListOnQueryFragment, data);
-  const posts = (queryData?.blogPosts?.nodes || []).filter(Boolean);
+  
+  const posts = (data?.posts?.nodes || []).filter(Boolean);
 
   const feedUrl = `${baseUrl}${localePrefix}/feed.xml`;
   const now = toBrasiliaRssDate();
 
   const itemsXml = posts
-    .map((postNode) => {
-      const post = readFragment(BlogPostCardFragment, postNode!);
-      const title = escapeXml(post.title || "Sem titulo");
+    .map((post) => {
+      const title = escapeXml(post.title || "Sem título");
       const slug = post.slug ? escapeXml(post.slug) : "";
       const link = `${baseUrl}${localePrefix}/blog/${slug}`;
-      const description = escapeXml(post.excerpt || "");
+      const description = escapeXml(post.excerpt?.replace(/<[^>]*>/g, "") || "");
       const categories = (post.categories?.nodes || [])
         .filter(Boolean)
         .map((category) => {
-          const term = readFragment(TaxonomyChipFragment, category!);
-          return `<category>${escapeXml(term.name || "")}</category>`;
+          return `<category>${escapeXml(category.name || "")}</category>`;
         })
         .join("\n      ");
 
