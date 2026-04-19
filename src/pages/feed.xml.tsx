@@ -11,7 +11,7 @@ function Feed() {
 const DEFAULT_SITE_NAME = "Mota & Advogados Associados";
 const DEFAULT_SITE_DESCRIPTION =
   "Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados.";
-const DEFAULT_SITE_URL = "https://mota-bsb.vercel.app";
+const DEFAULT_SITE_URL = "https://mota-poa.vercel.app";
 const BLOG_PAGE_SIZE = 100;
 
 function escapeXml(value: string): string {
@@ -43,7 +43,7 @@ function toBrasiliaRssDate(dateInput?: string | null): string {
   }).formatToParts(baseDate);
 
   const get = (type: Intl.DateTimeFormatPartTypes) =>
-    parts.find((part) => part.type === type)?.value;
+    parts.find(part => part.type === type)?.value;
 
   const weekday = get("weekday") || "Mon";
   const day = get("day") || "01";
@@ -55,12 +55,15 @@ function toBrasiliaRssDate(dateInput?: string | null): string {
   const tz = get("timeZoneName") || "GMT-3";
 
   const numericOffset = tz.replace("GMT", "").replace(":", "") || "-3";
-  const normalizedOffset = numericOffset.includes("+") || numericOffset.includes("-")
-    ? numericOffset
-    : `-${numericOffset}`;
+  const normalizedOffset =
+    numericOffset.includes("+") || numericOffset.includes("-")
+      ? numericOffset
+      : `-${numericOffset}`;
   const sign = normalizedOffset.startsWith("-") ? "-" : "+";
   const absolute = normalizedOffset.replace(/[+-]/g, "");
-  const [offsetHoursRaw, offsetMinutesRaw] = absolute.split(/(?<=^\d{1,2})(?=\d{2}$)/);
+  const [offsetHoursRaw, offsetMinutesRaw] = absolute.split(
+    /(?<=^\d{1,2})(?=\d{2}$)/,
+  );
   const offsetHours = (offsetHoursRaw || absolute || "0").padStart(2, "0");
   const offsetMinutes = (offsetMinutesRaw || "00").padStart(2, "0");
 
@@ -104,21 +107,23 @@ export const getServerSideProps: GetServerSideProps = async ({
     first: BLOG_PAGE_SIZE,
     language: resolveWpLanguage(resolvedLocale),
   });
-  
+
   const posts = (data?.posts?.nodes || []).filter(Boolean);
 
   const feedUrl = `${baseUrl}${localePrefix}/feed.xml`;
   const now = toBrasiliaRssDate();
 
   const itemsXml = posts
-    .map((post) => {
+    .map(post => {
       const title = escapeXml(post.title || "Sem título");
       const slug = post.slug ? escapeXml(post.slug) : "";
       const link = `${baseUrl}${localePrefix}/blog/${slug}`;
-      const description = escapeXml(post.excerpt?.replace(/<[^>]*>/g, "") || "");
+      const description = escapeXml(
+        post.excerpt?.replace(/<[^>]*>/g, "") || "",
+      );
       const categories = (post.categories?.nodes || [])
         .filter(Boolean)
-        .map((category) => {
+        .map(category => {
           return `<category>${escapeXml(category.name || "")}</category>`;
         })
         .join("\n      ");
