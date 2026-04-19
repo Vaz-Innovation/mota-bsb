@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Mail } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 import joseMota from "@/assets/jose-mota.jpg";
 import maristelaMota from "@/assets/maristela-mota.jpg";
 import rafaelMota from "@/assets/rafael-mota.jpg";
@@ -76,7 +77,6 @@ export const TeamSection = () => {
       className="py-24 bg-gradient-to-b from-muted/30 to-background"
     >
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="h-1 w-20 bg-gradient-gold mx-auto mb-6 rounded-full"></div>
           <h2
@@ -95,7 +95,6 @@ export const TeamSection = () => {
           </p>
         </div>
 
-        {/* Team Cards - Horizontal Scroll on Mobile */}
         <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible lg:gap-8 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <div
@@ -106,11 +105,12 @@ export const TeamSection = () => {
               style={{ transitionDelay: `${(index + 2) * 100}ms` }}
             >
               <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group h-full flex flex-col">
-                <div className="aspect-[3/4] overflow-hidden flex-shrink-0">
-                  <img
+                <div className="relative aspect-[3/4] overflow-hidden flex-shrink-0">
+                  <Image
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6 text-center flex flex-col flex-grow justify-between">
@@ -135,7 +135,6 @@ export const TeamSection = () => {
           ))}
         </div>
 
-        {/* Scroll Indicator - Mobile Only */}
         <div className="text-center mt-6 text-muted-foreground text-sm lg:hidden">
           {t("team.scroll_hint")}
         </div>

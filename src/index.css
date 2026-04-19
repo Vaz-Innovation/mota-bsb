@@ -154,6 +154,147 @@
   .text-beige {
     color: hsl(var(--beige));
   }
+
+  /* Enhanced Blog Content Typography */
+  .blog-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: hsl(var(--foreground));
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-content p {
+    margin-bottom: 1.75em;
+  }
+
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4 {
+    font-family: 'PT Serif', serif;
+    color: hsl(var(--primary));
+  }
+
+  .blog-content h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+  }
+
+  .blog-content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 2.2em;
+    margin-bottom: 0.75em;
+    padding-top: 1em;
+    border-top: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .blog-content h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    color: hsl(var(--primary));
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+  }
+
+  .blog-content ul {
+    list-style-type: disc;
+  }
+
+  .blog-content ol {
+    list-style-type: decimal;
+  }
+
+  .blog-content li {
+    margin-bottom: 0.75em;
+    line-height: 1.7;
+  }
+
+  .blog-content blockquote {
+    border-left: 4px solid hsl(var(--navy-deep));
+    margin: 2em 0;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    background: hsl(var(--muted) / 0.5);
+    padding: 1.5em;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .blog-content a {
+    color: hsl(var(--navy-deep));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s ease;
+  }
+
+  .blog-content a:hover {
+    opacity: 0.7;
+  }
+
+  .blog-content strong {
+    font-weight: 700;
+    color: hsl(var(--primary));
+  }
+
+  .blog-content img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    margin: 2em 0;
+  }
+
+  /* WordPress Block Helpers */
+  .has-text-align-left { text-align: left; }
+  .has-text-align-center { text-align: center; }
+  .has-text-align-right { text-align: right; }
+  
+  .alignfull {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .wp-block-image.aligncenter { text-align: center; }
+  .wp-block-image.alignright { float: right; margin-left: 2em; }
+  .wp-block-image.alignleft { float: left; margin-right: 2em; }
+  
+  .wp-block-button {
+    margin: 2em 0;
+  }
+
+  .wp-block-button__link {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium no-underline inline-block transition-transform hover:scale-105;
+  }
+
+  @media (max-width: 768px) {
+    .blog-content {
+      font-size: 1rem;
+    }
+    
+    .wp-block-image.alignright,
+    .wp-block-image.alignleft {
+      float: none;
+      margin: 2em 0;
+      text-align: center;
+    }
+  }
 }
 
 @layer utilities {

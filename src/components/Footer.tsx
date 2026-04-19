@@ -1,18 +1,19 @@
 import { MapPin, Phone, Mail, Lock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
 
 export const Footer = () => {
   const { t } = useLanguage();
   
   const quickLinks = [
-    { key: "nav.home", href: "#inicio" },
-    { key: "nav.about", href: "#sobre" },
-    { key: "nav.practice_areas", href: "#areas" },
-    { key: "nav.team", href: "#equipe" },
-    { key: "nav.contact", href: "#contato" },
-    { key: "trabalhe_conosco" as any, href: "/trabalhe-conosco" },
-    { key: "avalie_nos" as any, href: "/avalie" },
-    { key: "blog_link" as any, href: "/blog" },
+    { key: "nav.home", href: "/" },
+    { key: "nav.about", href: "/#sobre" },
+    { key: "nav.practice_areas", href: "/#areas" },
+    { key: "nav.team", href: "/#equipe" },
+    { key: "nav.contact", href: "/#contato" },
+    { key: "trabalhe_conosco", href: "/trabalhe-conosco", label: "Trabalhe Conosco" },
+    { key: "avalie_nos", href: "/avalie", label: "Avalie-nos" },
+    { key: "blog_link", href: "/blog", label: "Blog" },
   ];
 
   return (
@@ -27,12 +28,12 @@ export const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.key}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-primary-foreground/80 hover:text-beige transition-colors text-sm"
                   >
-                    {link.key === "trabalhe_conosco" ? "Trabalhe Conosco" : link.key === "avalie_nos" ? "Avalie-nos" : link.key === "blog_link" ? "Blog" : t(link.key)}
-                  </a>
+                    {link.label || t(link.key)}
+                  </Link>
                 </li>
               ))}
             </ul>
