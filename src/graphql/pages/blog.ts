@@ -82,6 +82,7 @@ export const BlogPostBySlugQuery = graphql(`
       author {
         node {
           name
+          slug
           avatar {
             url
           }

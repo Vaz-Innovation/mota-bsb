@@ -135,10 +135,13 @@ export default function BlogPostPage({ slug }: { slug: string }) {
                     })}
                 </div>
                 {post.author?.node?.name && (
-                  <div className="flex items-center gap-2">
+                  <Link
+                    href={`/blog/autor/${post.author.node.slug}`}
+                    className="flex items-center gap-2 hover:text-accent transition-colors"
+                  >
                     <User className="h-4 w-4" />
                     {post.author.node.name}
-                  </div>
+                  </Link>
                 )}
               </div>
             </header>
