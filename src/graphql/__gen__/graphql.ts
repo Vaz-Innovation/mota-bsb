@@ -9978,6 +9978,32 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
+export type AuthorCardFragment = { __typename?: 'User', id: string, databaseId: number, name?: string | null, slug?: string | null, email?: string | null, description?: string | null, avatar?: { __typename?: 'Avatar', url?: string | null } | null } & { ' $fragmentName'?: 'AuthorCardFragment' };
+
+export type AuthorPostCardFragment = { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, excerpt?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null } } | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null }> } | null } & { ' $fragmentName'?: 'AuthorPostCardFragment' };
+
+export type AuthorBySlugQueryVariables = Exact<{
+  slug: Scalars['ID']['input'];
+  first?: InputMaybe<Scalars['Int']['input']>;
+  language: LanguageCodeFilterEnum;
+}>;
+
+
+export type AuthorBySlugQuery = { __typename?: 'RootQuery', user?: (
+    { __typename?: 'User', posts?: { __typename?: 'UserToPostConnection', nodes: Array<(
+        { __typename?: 'Post', language?: { __typename?: 'Language', code?: LanguageCodeEnum | null } | null }
+        & { ' $fragmentRefs'?: { 'AuthorPostCardFragment': AuthorPostCardFragment } }
+      )>, pageInfo: { __typename?: 'UserToPostConnectionPageInfo', hasNextPage: boolean, endCursor?: string | null } } | null }
+    & { ' $fragmentRefs'?: { 'AuthorCardFragment': AuthorCardFragment } }
+  ) | null, categories?: { __typename?: 'RootQueryToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null, count?: number | null }> } | null };
+
+export type AuthorSlugsQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type AuthorSlugsQuery = { __typename?: 'RootQuery', users?: { __typename?: 'RootQueryToUserConnection', nodes: Array<{ __typename?: 'User', slug?: string | null }> } | null };
+
 export type BlogListQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
@@ -9992,7 +10018,7 @@ export type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostBySlugQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, content?: string | null, excerpt?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null } } | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null }> } | null, tags?: { __typename?: 'PostToTagConnection', nodes: Array<{ __typename?: 'Tag', id: string, name?: string | null, slug?: string | null }> } | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null, avatar?: { __typename?: 'Avatar', url?: string | null } | null } } | null, translations?: Array<{ __typename?: 'Post', slug?: string | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null> | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null };
+export type BlogPostBySlugQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, content?: string | null, excerpt?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null } } | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null }> } | null, tags?: { __typename?: 'PostToTagConnection', nodes: Array<{ __typename?: 'Tag', id: string, name?: string | null, slug?: string | null }> } | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null, slug?: string | null, avatar?: { __typename?: 'Avatar', url?: string | null } | null } } | null, translations?: Array<{ __typename?: 'Post', slug?: string | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null> | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null };
 
 export type BlogPostSlugsQueryVariables = Exact<{
   language: LanguageCodeFilterEnum;
@@ -10028,7 +10054,107 @@ export class TypedDocumentString<TResult, TVariables>
     return this.value;
   }
 }
-
+export const AuthorCardFragmentDoc = new TypedDocumentString(`
+    fragment AuthorCard on User {
+  id
+  databaseId
+  name
+  slug
+  email
+  description
+  avatar {
+    url
+  }
+}
+    `, {"fragmentName":"AuthorCard"}) as unknown as TypedDocumentString<AuthorCardFragment, unknown>;
+export const AuthorPostCardFragmentDoc = new TypedDocumentString(`
+    fragment AuthorPostCard on Post {
+  id
+  title
+  slug
+  date
+  excerpt
+  featuredImage {
+    node {
+      sourceUrl
+      altText
+    }
+  }
+  categories {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
+}
+    `, {"fragmentName":"AuthorPostCard"}) as unknown as TypedDocumentString<AuthorPostCardFragment, unknown>;
+export const AuthorBySlugDocument = new TypedDocumentString(`
+    query AuthorBySlug($slug: ID!, $first: Int = 100, $language: LanguageCodeFilterEnum!) {
+  user(id: $slug, idType: SLUG) {
+    ...AuthorCard
+    posts(first: $first, where: {orderby: {field: DATE, order: DESC}}) {
+      nodes {
+        ...AuthorPostCard
+        language {
+          code
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+  categories(first: 100, where: {language: $language}) {
+    nodes {
+      id
+      name
+      slug
+      count
+    }
+  }
+}
+    fragment AuthorCard on User {
+  id
+  databaseId
+  name
+  slug
+  email
+  description
+  avatar {
+    url
+  }
+}
+fragment AuthorPostCard on Post {
+  id
+  title
+  slug
+  date
+  excerpt
+  featuredImage {
+    node {
+      sourceUrl
+      altText
+    }
+  }
+  categories {
+    nodes {
+      id
+      name
+      slug
+    }
+  }
+}`) as unknown as TypedDocumentString<AuthorBySlugQuery, AuthorBySlugQueryVariables>;
+export const AuthorSlugsDocument = new TypedDocumentString(`
+    query AuthorSlugs($first: Int = 100) {
+  users(first: $first) {
+    nodes {
+      slug
+    }
+  }
+}
+    `) as unknown as TypedDocumentString<AuthorSlugsQuery, AuthorSlugsQueryVariables>;
 export const BlogListDocument = new TypedDocumentString(`
     query BlogList($first: Int = 10, $after: String, $language: LanguageCodeFilterEnum!) {
   posts(
@@ -10103,6 +10229,7 @@ export const BlogPostBySlugDocument = new TypedDocumentString(`
     author {
       node {
         name
+        slug
         avatar {
           url
         }

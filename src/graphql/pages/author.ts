@@ -53,9 +53,12 @@ export const AuthorBySlugQuery = graphql(`
   query AuthorBySlug($slug: ID!, $first: Int = 100, $language: LanguageCodeFilterEnum!) {
     user(id: $slug, idType: SLUG) {
       ...AuthorCard
-      posts(first: $first, where: { orderby: { field: DATE, order: DESC }, language: $language }) {
+      posts(first: $first, where: { orderby: { field: DATE, order: DESC } }) {
         nodes {
           ...AuthorPostCard
+          language {
+            code
+          }
         }
         pageInfo {
           hasNextPage
