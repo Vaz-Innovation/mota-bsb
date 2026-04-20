@@ -21,7 +21,10 @@ import { AuthorBySlugQuery, AuthorSlugsQuery } from "@/graphql/pages/author";
 import { execute } from "@/graphql/execute";
 import { resolveWpLanguage } from "@/graphql/locale-to-wp-language";
 import { useFragment } from "@/graphql/__gen__/fragment-masking";
-import { AuthorPostCardFragment } from "@/graphql/pages/author";
+import {
+  AuthorPostCardFragment,
+  AuthorCardFragment,
+} from "@/graphql/pages/author";
 
 interface AuthorPageProps {
   slug: string;
@@ -41,34 +44,15 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
     })
   );
 
-  const author = data?.user;
+  const authorFragment = data?.user;
+  const author = useFragment(AuthorCardFragment, authorFragment);
   const posts = useMemo(() => data?.user?.posts?.nodes || [], [data]);
   const categories = useMemo(() => data?.categories?.nodes || [], [data]);
 
   const selectedCategory = query.category as string | undefined;
 
-  // Filter posts by search term and category
-  const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      // Use fragment to access post data for filtering
-      const postData = useFragment(AuthorPostCardFragment, post);
-
-      const matchesSearch =
-        (postData.title || "")
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase()) ||
-        (postData.excerpt?.toLowerCase().includes(searchTerm.toLowerCase()) ??
-          false);
-
-      const matchesCategory =
-        !selectedCategory ||
-        postData.categories?.nodes?.some(
-          (cat) => cat.slug === selectedCategory
-        );
-
-      return matchesSearch && matchesCategory;
-    });
-  }, [posts, searchTerm, selectedCategory]);
+  // Note: Filtering is handled in AuthorPostsGrid component
+  // which uses useFragment properly for each post
 
   const handleCategoryChange = (slug: string | null) => {
     if (!slug) {
@@ -98,7 +82,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
     [slug]
   );
 
-  if (!author && !isLoading) {
+  if (!authorFragment && !isLoading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground gap-6">
         <p className="text-2xl">Autor não encontrado</p>
@@ -109,16 +93,16 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
     );
   }
 
-  const structuredData = author
+  const structuredData = authorFragment
     ? {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
         mainEntity: {
           "@type": "Person",
-          name: author.name,
-          email: author.email,
-          image: author.avatar?.url,
-          description: author.description,
+          name: author?.name,
+          email: author?.email,
+          image: author?.avatar?.url,
+          description: author?.description,
         },
       }
     : null;
@@ -154,7 +138,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
             {t("blog.back_to_blog")}
           </Link>
 
-          {author && <AuthorHeader author={author} />}
+          {authorFragment && <AuthorHeader author={authorFragment} />}
 
           <AuthorFilters
             searchTerm={searchTerm}
@@ -164,7 +148,12 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
             categories={categories}
           />
 
-          <AuthorPostsGrid posts={filteredPosts} isLoading={isLoading} />
+          <AuthorPostsGrid
+            posts={posts}
+            isLoading={isLoading}
+            searchTerm={searchTerm}
+            selectedCategory={selectedCategory}
+          />
         </div>
       </main>
 

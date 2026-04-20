@@ -1,19 +1,59 @@
+import { useMemo } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { FragmentType } from "@/graphql/__gen__/fragment-masking";
+import {
+  FragmentType,
+  useFragment,
+} from "@/graphql/__gen__/fragment-masking";
 import { AuthorPostCardFragment } from "@/graphql/pages/author";
 import { AuthorPostCard } from "./AuthorPostCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface AuthorPostsGridProps {
   posts: FragmentType<typeof AuthorPostCardFragment>[];
   isLoading?: boolean;
+  searchTerm?: string;
+  selectedCategory?: string;
 }
 
 /**
  * AuthorPostsGrid - Organism component
- * Displays a grid of author posts with loading state
+ * Displays a grid of author posts with loading state and filtering
  * Composes AuthorPostCard molecules
  */
-export function AuthorPostsGrid({ posts, isLoading }: AuthorPostsGridProps) {
+export function AuthorPostsGrid({
+  posts,
+  isLoading,
+  searchTerm = "",
+  selectedCategory,
+}: AuthorPostsGridProps) {
+  const { t } = useLanguage();
+
+  // Extract fragment data for filtering
+  const postsWithData = useMemo(() => {
+    return posts.map((post) => ({
+      fragment: post,
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      data: useFragment(AuthorPostCardFragment, post),
+    }));
+  }, [posts]);
+
+  // Filter posts by search term and category
+  const filteredPosts = useMemo(() => {
+    return postsWithData.filter(({ data }) => {
+      const matchesSearch =
+        searchTerm === "" ||
+        (data.title || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (data.excerpt?.toLowerCase().includes(searchTerm.toLowerCase()) ??
+          false);
+
+      const matchesCategory =
+        !selectedCategory ||
+        data.categories?.nodes?.some((cat) => cat.slug === selectedCategory);
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [postsWithData, searchTerm, selectedCategory]);
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -34,11 +74,13 @@ export function AuthorPostsGrid({ posts, isLoading }: AuthorPostsGridProps) {
     );
   }
 
-  if (posts.length === 0) {
+  if (filteredPosts.length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground text-lg">
-          Este autor ainda não publicou nenhum artigo.
+          {searchTerm || selectedCategory
+            ? t("blog.no_results")
+            : "Este autor ainda não publicou nenhum artigo."}
         </p>
       </div>
     );
@@ -46,8 +88,8 @@ export function AuthorPostsGrid({ posts, isLoading }: AuthorPostsGridProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.map((post, index) => (
-        <AuthorPostCard key={index} post={post} />
+      {filteredPosts.map(({ fragment }, index) => (
+        <AuthorPostCard key={index} post={fragment} />
       ))}
     </div>
   );
