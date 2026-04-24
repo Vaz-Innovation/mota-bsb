@@ -6,6 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
@@ -34,10 +37,34 @@ export const ContactSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const message = `Nome completo: ${formData.name}
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setStatusMessage("");
+
+    try {
+      // Register user in WordPress with source=brasilia
+      const registerResponse = await fetch("/api/wordpress/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          source: "brasilia",
+        }),
+      });
+
+      const registerData = await registerResponse.json();
+
+      if (!registerResponse.ok && registerData.code !== "existing_user_email") {
+        throw new Error(registerData.error || "Erro ao registrar");
+      }
+
+      // Send message via WhatsApp
+      const message = `Nome completo: ${formData.name}
 CPF: ${formData.cpf}
 Telefone: ${formData.phone}
 E-mail: ${formData.email}
@@ -45,10 +72,37 @@ Número do processo: ${formData.processNumber || "Não informado"}
 
 Mensagem: ${formData.message}`;
 
-    const whatsappNumber = "5561984393925";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
+      const whatsappNumber = "5561984393925";
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+      
+      setSubmitStatus("success");
+      setStatusMessage("E-mail registrado com sucesso!");
+      
+      // Open WhatsApp after a short delay
+      setTimeout(() => {
+        window.open(whatsappUrl, "_blank");
+      }, 500);
+
+      // Reset form after success
+      setFormData({
+        name: "",
+        cpf: "",
+        phone: "",
+        email: "",
+        processNumber: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error("Submit error:", error);
+      setSubmitStatus("error");
+      setStatusMessage(
+        error instanceof Error ? error.message : "Erro ao enviar. Tente novamente."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -202,11 +256,24 @@ Mensagem: ${formData.message}`;
                   />
                 </div>
 
+                {submitStatus !== "idle" && (
+                  <div
+                    className={`p-3 rounded-lg text-sm ${
+                      submitStatus === "success"
+                        ? "bg-green-100 text-green-800 border border-green-200"
+                        : "bg-red-100 text-red-800 border border-red-200"
+                    }`}
+                  >
+                    {statusMessage}
+                  </div>
+                )}
+
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-gold hover:opacity-90 text-navy font-semibold h-12"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-gold hover:opacity-90 text-navy font-semibold h-12 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t("contact.send")}
+                  {isSubmitting ? "Enviando..." : t("contact.send")}
                 </Button>
               </form>
             </div>
