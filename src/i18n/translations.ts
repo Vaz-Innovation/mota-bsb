@@ -11,7 +11,7 @@ export const translationKeys = [
   "header.access",
   "header.contact_us",
   "header.language",
-  
+
   // About Section
   "about.title",
   "about.subtitle",
@@ -32,7 +32,7 @@ export const translationKeys = [
   "about.office.description",
   "about.office.full",
   "about.explore",
-  
+
   // Practice Areas
   "areas.title",
   "areas.subtitle",
@@ -77,18 +77,18 @@ export const translationKeys = [
   "areas.tax.title",
   "areas.tax.description",
   "areas.tax.full",
-  
+
   // Team Section
   "team.title",
   "team.subtitle",
   "team.scroll_hint",
-  
+
   // Stats Section
   "stats.years",
   "stats.clients",
   "stats.success_rate",
   "stats.cases",
-  
+
   // Contact Section
   "contact.title",
   "contact.subtitle",
@@ -102,7 +102,7 @@ export const translationKeys = [
   "contact.process_number",
   "contact.message",
   "contact.send",
-  
+
   // Footer
   "footer.description",
   "footer.quick_links",
@@ -110,14 +110,17 @@ export const translationKeys = [
   "footer.social",
   "footer.hours",
   "footer.rights",
-  
+
   // Newsletter
   "newsletter.title",
   "newsletter.subtitle",
   "newsletter.placeholder",
   "newsletter.button",
+  "newsletter.sending",
+  "newsletter.error",
+  "newsletter.errorMessage",
   "newsletter.success",
-  
+
   // Process Search
   "process.title",
   "process.subtitle",
@@ -150,7 +153,7 @@ export const translationKeys = [
   "blog.article_not_found_description",
   "blog.translation_error",
   "blog.translating",
-  
+
   // Latest News Section
   "news.title",
   "news.subtitle",
@@ -199,7 +202,7 @@ export const translationKeys = [
   "trabalheConosco.backHome",
 ] as const;
 
-export type TranslationKey = typeof translationKeys[number];
+export type TranslationKey = (typeof translationKeys)[number];
 
 type Translations = Record<Language, Record<TranslationKey, string>>;
 
@@ -215,90 +218,123 @@ export const translations: Translations = {
     "header.access": "Acessos",
     "header.contact_us": "Fale Conosco",
     "header.language": "Idioma",
-    
+
     // About Section
     "about.title": "Escritório",
-    "about.subtitle": "Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.",
+    "about.subtitle":
+      "Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.",
     "about.since": "Desde 2000",
     "about.trajectory.title": "Trajetória",
     "about.trajectory.description": "Mais de 26 anos de excelência jurídica",
-    "about.trajectory.full": "A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.\n\nA prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.",
+    "about.trajectory.full":
+      "A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.\n\nA prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.",
     "about.pillars.badge": "Ética | Comprometimento",
     "about.pillars.title": "Pilares Consolidados",
-    "about.pillars.description": "Os pilares de uma advocacia que une ética, excelência e resultados",
-    "about.pillars.full": "A MOTA & ADVOGADOS ASSOCIADOS tem sua atuação fundada nos princípios de uma advocacia ética, do trabalho comprometido, sério e eficiente, atento às mudanças da sociedade e às necessidades de cada cliente, sem dispensar a boa técnica e o papel social do advogado na busca pela solução eficaz.\n\nNosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho juridicamente competente, priorizando o relacionamento profissional com o cliente.\n\nNossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança jurídica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação com o trabalho desenvolvido.",
+    "about.pillars.description":
+      "Os pilares de uma advocacia que une ética, excelência e resultados",
+    "about.pillars.full":
+      "A MOTA & ADVOGADOS ASSOCIADOS tem sua atuação fundada nos princípios de uma advocacia ética, do trabalho comprometido, sério e eficiente, atento às mudanças da sociedade e às necessidades de cada cliente, sem dispensar a boa técnica e o papel social do advogado na busca pela solução eficaz.\n\nNosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho juridicamente competente, priorizando o relacionamento profissional com o cliente.\n\nNossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança jurídica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação com o trabalho desenvolvido.",
     "about.mission.badge": "Excelência",
     "about.mission.title": "Nossa Missão",
-    "about.mission.description": "Relacionamento de qualidade e serviços jurídicos eficazes",
-    "about.mission.full": "Estamos inseridos em uma sociedade em constante evolução, o que reflete a necessidade de capacitação contínua de nossa equipe. Alterações legislativas, normativas e jurisprudenciais exigem cada vez mais qualificação técnica e a incorporação de novas tecnologias, para que o atendimento aos nossos clientes proporcione satisfação, alcance eficiência, resolutividade e, principalmente, agilidade.",
+    "about.mission.description":
+      "Relacionamento de qualidade e serviços jurídicos eficazes",
+    "about.mission.full":
+      "Estamos inseridos em uma sociedade em constante evolução, o que reflete a necessidade de capacitação contínua de nossa equipe. Alterações legislativas, normativas e jurisprudenciais exigem cada vez mais qualificação técnica e a incorporação de novas tecnologias, para que o atendimento aos nossos clientes proporcione satisfação, alcance eficiência, resolutividade e, principalmente, agilidade.",
     "about.office.badge": "Atuação Nacional",
     "about.office.title": "Escritório",
     "about.office.description": "Sede em Brasília com cobertura nacional",
-    "about.office.full": "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Porto Alegre e Natal.",
+    "about.office.full":
+      "Tecnologia, agilidade e alcance nacional.\n\nPresença em todo o território, soluções em cada detalhe.\n\nCom endereços, também, em São Paulo, Porto Alegre e Natal.",
     "about.explore": "Explorar",
-    
+
     // Practice Areas
     "areas.title": "Áreas de Atuação",
-    "areas.subtitle": "Especializados em Direito Administrativo e atuantes em diversas áreas do Direito.",
+    "areas.subtitle":
+      "Especializados em Direito Administrativo e atuantes em diversas áreas do Direito.",
     "areas.learn_more": "Saiba mais",
     "areas.scroll_hint": "← Deslize para navegar →",
     "areas.admin.title": "Direito Administrativo (Servidor Público)",
-    "areas.admin.description": "Defesa dos direitos e interesses dos servidores públicos",
-    "areas.admin.full": "Ao longo de sua trajetória nos consolidamos como um dos maiores escritórios de advocacia do país na defesa dos direitos e interesses profissionais dos servidores públicos, atuando de forma resolutiva em milhares de ações judiciais que asseguraram aos servidores públicos o reconhecimento de seus direitos.\n\nSão inúmeros os servidores assistidos pelo escritório, sempre de forma direta e humanizada, com total transparência, orientação técnica, e encaminhamento jurídico responsável, proporcionando segurança jurídica na tomada de decisões que afetam seus direitos individuais e coletivos.",
+    "areas.admin.description":
+      "Defesa dos direitos e interesses dos servidores públicos",
+    "areas.admin.full":
+      "Ao longo de sua trajetória nos consolidamos como um dos maiores escritórios de advocacia do país na defesa dos direitos e interesses profissionais dos servidores públicos, atuando de forma resolutiva em milhares de ações judiciais que asseguraram aos servidores públicos o reconhecimento de seus direitos.\n\nSão inúmeros os servidores assistidos pelo escritório, sempre de forma direta e humanizada, com total transparência, orientação técnica, e encaminhamento jurídico responsável, proporcionando segurança jurídica na tomada de decisões que afetam seus direitos individuais e coletivos.",
     "areas.labor.title": "Direito do Trabalho Individual e Coletivo",
-    "areas.labor.description": "Reclamatórias trabalhistas e acompanhamento processual",
-    "areas.labor.full": "Reclamatórias trabalhistas (Horas-extras; Periculosidade/insalubridade; Promoções; Adicional de transferência; Vínculo empregatício; Estabilidade de gestante; Pedido de complementação da aposentadoria; Multa 40% FGTS; Função gratificada; Acidente de trabalho), acompanhamento em audiências, medidas cautelares, contestações, acompanhamento de todos os recursos no âmbito do TRTs e TST.",
+    "areas.labor.description":
+      "Reclamatórias trabalhistas e acompanhamento processual",
+    "areas.labor.full":
+      "Reclamatórias trabalhistas (Horas-extras; Periculosidade/insalubridade; Promoções; Adicional de transferência; Vínculo empregatício; Estabilidade de gestante; Pedido de complementação da aposentadoria; Multa 40% FGTS; Função gratificada; Acidente de trabalho), acompanhamento em audiências, medidas cautelares, contestações, acompanhamento de todos os recursos no âmbito do TRTs e TST.",
     "areas.union.title": "Direito Sindical",
     "areas.union.description": "Assessoria completa para entidades sindicais",
-    "areas.union.full": "Nosso escritório administra uma carteira de grandes clientes constituída por inúmeras associações, sindicatos e outras entidades representativas dos servidores públicos, atuando no âmbito administrativo e judicial, com ênfase em demandas coletivas de interesse dos integrantes das respectivas carreiras.",
+    "areas.union.full":
+      "Nosso escritório administra uma carteira de grandes clientes constituída por inúmeras associações, sindicatos e outras entidades representativas dos servidores públicos, atuando no âmbito administrativo e judicial, com ênfase em demandas coletivas de interesse dos integrantes das respectivas carreiras.",
     "areas.social_security.title": "Direito Previdenciário",
-    "areas.social_security.description": "Concessão e revisão de benefícios previdenciários",
-    "areas.social_security.full": "Atuamos no Regime Próprio de Previdência dos Servidores Públicos, no Regime Geral e nos regimes de previdência complementar, abrangendo servidores e empregados públicos.\n\nEntre nossos serviços estão: planejamento previdenciário, análise de tempo de serviço, orientação sobre contribuições, conversão de tempo especial, averbações, pedidos de aposentadoria, revisões, pensões, habilitação de herdeiros, isenção de IRPF por doença, entre outros.",
+    "areas.social_security.description":
+      "Concessão e revisão de benefícios previdenciários",
+    "areas.social_security.full":
+      "Atuamos no Regime Próprio de Previdência dos Servidores Públicos, no Regime Geral e nos regimes de previdência complementar, abrangendo servidores e empregados públicos.\n\nEntre nossos serviços estão: planejamento previdenciário, análise de tempo de serviço, orientação sobre contribuições, conversão de tempo especial, averbações, pedidos de aposentadoria, revisões, pensões, habilitação de herdeiros, isenção de IRPF por doença, entre outros.",
     "areas.constitutional.title": "Direito Constitucional",
-    "areas.constitutional.description": "Elaboração de ADI e recursos extraordinários",
-    "areas.constitutional.full": "Área de especialização do escritório que está relacionada ao acompanhamento, elaboração e desenvolvimento de teses jurídicas que envolvem temas de natureza constitucional, sejam elas os recursos extraordinários, ações diretas de inconstitucionalidade (ADI), mandados de injunção, Arguição de Descumprimento de Preceito Fundamental (ADPF), reclamações, dentre outras.",
+    "areas.constitutional.description":
+      "Elaboração de ADI e recursos extraordinários",
+    "areas.constitutional.full":
+      "Área de especialização do escritório que está relacionada ao acompanhamento, elaboração e desenvolvimento de teses jurídicas que envolvem temas de natureza constitucional, sejam elas os recursos extraordinários, ações diretas de inconstitucionalidade (ADI), mandados de injunção, Arguição de Descumprimento de Preceito Fundamental (ADPF), reclamações, dentre outras.",
     "areas.criminal.title": "Direito Penal",
     "areas.criminal.description": "Habeas Corpus e recursos criminais",
-    "areas.criminal.full": "O Direito Penal passou a integrar recentemente as áreas de atuação do nosso escritório. Trabalhamos em parceria com profissionais de ampla experiência, oferecendo atendimento especializado nas seguintes frentes:\n\n• Direito Penal Econômico\n• Atendimento personalizado ao cliente\n• Defesa Criminal em todas as instâncias\n• Atuação imediata perante autoridades e órgãos de Justiça",
+    "areas.criminal.full":
+      "O Direito Penal passou a integrar recentemente as áreas de atuação do nosso escritório. Trabalhamos em parceria com profissionais de ampla experiência, oferecendo atendimento especializado nas seguintes frentes:\n\n• Direito Penal Econômico\n• Atendimento personalizado ao cliente\n• Defesa Criminal em todas as instâncias\n• Atuação imediata perante autoridades e órgãos de Justiça",
     "areas.electoral.title": "Direito Eleitoral",
     "areas.electoral.description": "Assessoria eleitoral completa",
-    "areas.electoral.full": "Assessoria eleitoral a partidos, candidatos, elaboração de recursos, sustentação oral e demais providências de ordem administrativa perante Tribunais Regionais Eleitorais e Tribunal Superior Eleitoral.",
+    "areas.electoral.full":
+      "Assessoria eleitoral a partidos, candidatos, elaboração de recursos, sustentação oral e demais providências de ordem administrativa perante Tribunais Regionais Eleitorais e Tribunal Superior Eleitoral.",
     "areas.superior_courts.title": "Tribunais Superiores",
-    "areas.superior_courts.description": "Atuação em Brasília junto aos Tribunais Superiores",
-    "areas.superior_courts.full": "MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.",
+    "areas.superior_courts.description":
+      "Atuação em Brasília junto aos Tribunais Superiores",
+    "areas.superior_courts.full":
+      "MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.",
     "areas.real_estate.title": "Direito Imobiliário",
-    "areas.real_estate.description": "Assessoria completa em negócios e regularização imobiliária",
-    "areas.real_estate.full": "Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais.\n\nTambém tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.",
+    "areas.real_estate.description":
+      "Assessoria completa em negócios e regularização imobiliária",
+    "areas.real_estate.full":
+      "Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais.\n\nTambém tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.",
     "areas.family.title": "Direito de Família e Sucessões",
     "areas.family.description": "Inventários, divórcios, pensões e sucessões",
-    "areas.family.full": "Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.",
+    "areas.family.full":
+      "Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.",
     "areas.public_treasury.title": "Fazenda Pública e Entes Federados",
-    "areas.public_treasury.description": "Ações contra União, Estados, DF e Municípios",
-    "areas.public_treasury.full": "Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão a regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.",
+    "areas.public_treasury.description":
+      "Ações contra União, Estados, DF e Municípios",
+    "areas.public_treasury.full":
+      "Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão a regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.",
     "areas.mediation.title": "Mediação e Conciliação",
-    "areas.mediation.description": "Métodos alternativos de resolução de conflitos",
-    "areas.mediation.full": "Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário.\n\nO processo garante segurança, formalidade e soluções adequadas para cada situação.",
+    "areas.mediation.description":
+      "Métodos alternativos de resolução de conflitos",
+    "areas.mediation.full":
+      "Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário.\n\nO processo garante segurança, formalidade e soluções adequadas para cada situação.",
     "areas.tax.title": "Direito Tributário e Empresarial",
-    "areas.tax.description": "Assessoria jurídica para empresas e matéria tributária",
-    "areas.tax.full": "Diante da crescente demanda nessa área, o escritório estruturou uma equipe exclusiva, coordenada por advogados especializados, para oferecer assessoria jurídica de alta complexidade e apoiar empresas na organização jurídica de seus negócios.\n\nTambém acompanhamos as principais mudanças legislativas, especialmente em matéria tributária e regulatória, orientando sobre impactos, enquadramento legal, regularização de débitos e identificação de possíveis créditos tributários.",
-    
+    "areas.tax.description":
+      "Assessoria jurídica para empresas e matéria tributária",
+    "areas.tax.full":
+      "Diante da crescente demanda nessa área, o escritório estruturou uma equipe exclusiva, coordenada por advogados especializados, para oferecer assessoria jurídica de alta complexidade e apoiar empresas na organização jurídica de seus negócios.\n\nTambém acompanhamos as principais mudanças legislativas, especialmente em matéria tributária e regulatória, orientando sobre impactos, enquadramento legal, regularização de débitos e identificação de possíveis créditos tributários.",
+
     // Team Section
     "team.title": "Equipe",
-    "team.subtitle": "Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.",
+    "team.subtitle":
+      "Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.",
     "team.scroll_hint": "← Deslize para navegar →",
-    
+
     // Stats Section
     "stats.years": "Anos de Experiência",
     "stats.clients": "Clientes Atendidos",
     "stats.success_rate": "Taxa de Sucesso",
     "stats.cases": "Casos Resolvidos",
-    
+
     // Contact Section
     "contact.title": "Localização",
     "contact.subtitle": "Visite nosso escritório em Brasília.",
-    "contact.address": "SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edifício Athenas - Brasília - DF - CEP 70390-020",
+    "contact.address":
+      "SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edifício Athenas - Brasília - DF - CEP 70390-020",
     "contact.form_title": "Contato",
-    "contact.form_subtitle": "Preencha o formulário abaixo e entraremos em contato o mais breve possível",
+    "contact.form_subtitle":
+      "Preencha o formulário abaixo e entraremos em contato o mais breve possível",
     "contact.name": "Nome Completo",
     "contact.cpf": "CPF",
     "contact.phone": "Telefone",
@@ -306,40 +342,49 @@ export const translations: Translations = {
     "contact.process_number": "Número do Processo (Opcional)",
     "contact.message": "Mensagem",
     "contact.send": "Enviar Mensagem",
-    
+
     // Footer
-    "footer.description": "Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados, atuando em todo o território nacional.",
+    "footer.description":
+      "Desde 2000, oferecemos soluções jurídicas com excelência, ética e resultados, atuando em todo o território nacional.",
     "footer.quick_links": "Links Rápidos",
     "footer.contact": "Contato",
     "footer.social": "Redes Sociais",
     "footer.hours": "Seg - Sex: 9h às 18h",
     "footer.rights": "Todos os direitos reservados.",
-    
+
     // Newsletter
     "newsletter.title": "Fique por Dentro",
-    "newsletter.subtitle": "Cadastre-se na newsletter e receba dicas jurídicas e novidades do escritório.",
+    "newsletter.subtitle":
+      "Cadastre-se na newsletter e receba dicas jurídicas e novidades do escritório.",
     "newsletter.placeholder": "Seu melhor e-mail",
     "newsletter.button": "Inscrever",
-    "newsletter.success": "Sucesso! Agora verifique seu e-mail para confirmar sua inscrição.",
-    
+    "newsletter.sending": "Enviando...",
+    "newsletter.error": "Erro",
+    "newsletter.errorMessage": "Informe um e-mail válido.",
+    "newsletter.success":
+      "Sucesso! Agora verifique seu e-mail para confirmar sua inscrição.",
+
     // Process Search
     "process.title": "Consulte Seu Processo",
-    "process.subtitle": "Digite o número do processo e receba atualizações em poucos minutos.",
+    "process.subtitle":
+      "Digite o número do processo e receba atualizações em poucos minutos.",
     "process.placeholder": "Número do processo (ex: 0000000-00.0000.0.00.0000)",
     "process.name": "Nome completo",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Consultar via WhatsApp",
     "process.whatsapp_message": "Olá! Gostaria de consultar meu processo.",
-    
+
     // Cookie Banner
     "cookie.title": "Política de Cookies",
-    "cookie.description": "Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.",
+    "cookie.description":
+      "Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.",
     "cookie.reject": "Recusar",
     "cookie.accept": "Aceitar",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.",
+    "blog.subtitle":
+      "Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.",
     "blog.search_placeholder": "Buscar artigos...",
     "blog.all_tags": "Todas as tags",
     "blog.all": "Todos",
@@ -351,10 +396,11 @@ export const translations: Translations = {
     "blog.reading_time": "min de leitura",
     "blog.see_more_articles": "Ver mais artigos",
     "blog.article_not_found": "Artigo não encontrado",
-    "blog.article_not_found_description": "O artigo que você está procurando não existe ou foi removido.",
+    "blog.article_not_found_description":
+      "O artigo que você está procurando não existe ou foi removido.",
     "blog.translation_error": "Erro ao traduzir conteúdo",
     "blog.translating": "Traduzindo...",
-    
+
     // Latest News Section
     "news.title": "Últimas Notícias",
     "news.subtitle": "Acompanhe as últimas publicações do nosso blog jurídico.",
@@ -362,23 +408,30 @@ export const translations: Translations = {
 
     // Avalie
     "avalie.heroTitle": "Sua opinião é fundamental",
-    "avalie.heroSubtitle": "Ajude-nos a manter a excelência de nossos serviços através da sua avaliação.",
+    "avalie.heroSubtitle":
+      "Ajude-nos a manter a excelência de nossos serviços através da sua avaliação.",
     "avalie.cardTitle": "Avalie nosso atendimento",
-    "avalie.cardSubtitle": "Leva menos de 1 minuto e ajuda outras pessoas a encontrarem nossa ajuda especializada.",
-    "avalie.note": "Sua avaliação no Google nos ajuda a crescer e aprimorar nosso atendimento.",
+    "avalie.cardSubtitle":
+      "Leva menos de 1 minuto e ajuda outras pessoas a encontrarem nossa ajuda especializada.",
+    "avalie.note":
+      "Sua avaliação no Google nos ajuda a crescer e aprimorar nosso atendimento.",
     "avalie.cta": "Avaliar agora no Google",
     "avalie.disclaimer": "Você será redirecionado para o Google Maps",
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Trabalhe Conosco",
-    "trabalheConosco.heroSubtitle": "Construa o futuro da advocacia conosco, com ética e inovação.",
+    "trabalheConosco.heroSubtitle":
+      "Construa o futuro da advocacia conosco, com ética e inovação.",
     "trabalheConosco.whyTitle": "Por que trabalhar conosco?",
     "trabalheConosco.benefits.collaborativeTitle": "Ambiente Colaborativo",
-    "trabalheConosco.benefits.collaborativeDesc": "Trabalhe em uma equipe que valoriza a colaboração e o desenvolvimento profissional.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Trabalhe em uma equipe que valoriza a colaboração e o desenvolvimento profissional.",
     "trabalheConosco.benefits.challengingTitle": "Casos Desafiadores",
-    "trabalheConosco.benefits.challengingDesc": "Participe de casos complexos e relevantes em diversas áreas do direito.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Participe de casos complexos e relevantes em diversas áreas do direito.",
     "trabalheConosco.benefits.growthTitle": "Crescimento Profissional",
-    "trabalheConosco.benefits.growthDesc": "Desenvolva sua carreira em um escritório com tradição e excelência jurídica.",
+    "trabalheConosco.benefits.growthDesc":
+      "Desenvolva sua carreira em um escritório com tradição e excelência jurídica.",
     "trabalheConosco.roles.lawyer": "Advogado(a)",
     "trabalheConosco.roles.intern": "Estagiário(a)",
     "trabalheConosco.roles.adminAssistant": "Assistente Administrativo",
@@ -394,15 +447,18 @@ export const translations: Translations = {
     "trabalheConosco.fields.roleLabel": "Cargo / Função",
     "trabalheConosco.fields.rolePlaceholder": "Selecione o cargo desejado",
     "trabalheConosco.fields.interestAreaLabel": "Área de Interesse",
-    "trabalheConosco.fields.interestAreaPlaceholder": "Ex: Direito Civil, Tributário, etc.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "Ex: Direito Civil, Tributário, etc.",
     "trabalheConosco.fields.messageLabel": "Mensagem / Experiência",
-    "trabalheConosco.fields.messagePlaceholder": "Conte-nos um pouco sobre você...",
+    "trabalheConosco.fields.messagePlaceholder":
+      "Conte-nos um pouco sobre você...",
     "trabalheConosco.resumeBox.title": "Envio de Currículo",
-    "trabalheConosco.resumeBox.description": "Ao enviar, você será redirecionado para o WhatsApp para anexar seu currículo.",
+    "trabalheConosco.resumeBox.description":
+      "Ao enviar, você será redirecionado para o WhatsApp para anexar seu currículo.",
     "trabalheConosco.submit": "Enviar Candidatura",
     "trabalheConosco.backHome": "Voltar para Home",
   },
-  
+
   ES: {
     // Header
     "nav.home": "Inicio",
@@ -414,90 +470,123 @@ export const translations: Translations = {
     "header.access": "Accesos",
     "header.contact_us": "Contáctenos",
     "header.language": "Idioma",
-    
+
     // About Section
     "about.title": "Oficina",
-    "about.subtitle": "Construyendo soluciones jurídicas con excelencia, ética y resultados desde 2000, con actuación en todo el territorio nacional.",
+    "about.subtitle":
+      "Construyendo soluciones jurídicas con excelencia, ética y resultados desde 2000, con actuación en todo el territorio nacional.",
     "about.since": "Desde 2000",
     "about.trajectory.title": "Trayectoria",
     "about.trajectory.description": "Más de 26 años de excelencia jurídica",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS es una sociedad de abogados desde 2000, con actuación nacional.\n\nLa prestación de servicios jurídicos de excelencia es nuestro objetivo y se refleja en los resultados alcanzados y en la satisfacción de nuestros clientes.",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS es una sociedad de abogados desde 2000, con actuación nacional.\n\nLa prestación de servicios jurídicos de excelencia es nuestro objetivo y se refleja en los resultados alcanzados y en la satisfacción de nuestros clientes.",
     "about.pillars.badge": "Ética | Compromiso",
     "about.pillars.title": "Pilares Consolidados",
-    "about.pillars.description": "Los pilares de una abogacía que une ética, excelencia y resultados",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS basa su actuación en los principios de una abogacía ética, del trabajo comprometido, serio y eficiente, atento a los cambios de la sociedad y a las necesidades de cada cliente, sin prescindir de la buena técnica y el papel social del abogado en la búsqueda de la solución eficaz.\n\nNuestro propósito es promover el equilibrio de las relaciones sociales a través de la prestación de un trabajo jurídicamente competente, priorizando la relación profesional con el cliente.\n\nNuestra actuación, ya sea de forma preventiva, administrativa o judicial, está enfocada en la búsqueda por la garantía de los derechos, en la seguridad jurídica, valorando principalmente nuestro punto más fuerte: las personas y la satisfacción con el trabajo desarrollado.",
+    "about.pillars.description":
+      "Los pilares de una abogacía que une ética, excelencia y resultados",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS basa su actuación en los principios de una abogacía ética, del trabajo comprometido, serio y eficiente, atento a los cambios de la sociedad y a las necesidades de cada cliente, sin prescindir de la buena técnica y el papel social del abogado en la búsqueda de la solución eficaz.\n\nNuestro propósito es promover el equilibrio de las relaciones sociales a través de la prestación de un trabajo jurídicamente competente, priorizando la relación profesional con el cliente.\n\nNuestra actuación, ya sea de forma preventiva, administrativa o judicial, está enfocada en la búsqueda por la garantía de los derechos, en la seguridad jurídica, valorando principalmente nuestro punto más fuerte: las personas y la satisfacción con el trabajo desarrollado.",
     "about.mission.badge": "Excelencia",
     "about.mission.title": "Nuestra Misión",
-    "about.mission.description": "Relación de calidad y servicios jurídicos eficaces",
-    "about.mission.full": "Estamos inmersos en una sociedad en constante evolución, lo que refleja la necesidad de capacitación continua de nuestro equipo. Los cambios legislativos, normativos y jurisprudenciales exigen cada vez más calificación técnica y la incorporación de nuevas tecnologías, para que la atención a nuestros clientes proporcione satisfacción, alcance eficiencia, resolución y, principalmente, agilidad.",
+    "about.mission.description":
+      "Relación de calidad y servicios jurídicos eficaces",
+    "about.mission.full":
+      "Estamos inmersos en una sociedad en constante evolución, lo que refleja la necesidad de capacitación continua de nuestro equipo. Los cambios legislativos, normativos y jurisprudenciales exigen cada vez más calificación técnica y la incorporación de nuevas tecnologías, para que la atención a nuestros clientes proporcione satisfacción, alcance eficiencia, resolución y, principalmente, agilidad.",
     "about.office.badge": "Actuación Nacional",
     "about.office.title": "Oficina",
     "about.office.description": "Sede en Brasilia con cobertura nacional",
-    "about.office.full": "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",
+    "about.office.full":
+      "Tecnología, agilidad y alcance nacional.\n\nPresencia en todo el territorio, soluciones en cada detalle.\n\nCon direcciones también en São Paulo, Porto Alegre y Natal.",
     "about.explore": "Explorar",
-    
+
     // Practice Areas
     "areas.title": "Áreas de Actuación",
-    "areas.subtitle": "Especializados en Derecho Administrativo y actuantes en diversas áreas del Derecho.",
+    "areas.subtitle":
+      "Especializados en Derecho Administrativo y actuantes en diversas áreas del Derecho.",
     "areas.learn_more": "Saber más",
     "areas.scroll_hint": "← Deslice para navegar →",
     "areas.admin.title": "Derecho Administrativo (Servidor Público)",
-    "areas.admin.description": "Defensa de los derechos e intereses de los servidores públicos",
-    "areas.admin.full": "Actuamos en la defensa integral de los derechos de los servidores públicos federales, estatales y municipales.",
+    "areas.admin.description":
+      "Defensa de los derechos e intereses de los servidores públicos",
+    "areas.admin.full":
+      "Actuamos en la defensa integral de los derechos de los servidores públicos federales, estatales y municipales.",
     "areas.labor.title": "Derecho del Trabajo Individual y Colectivo",
     "areas.labor.description": "Reclamaciones laborales y seguimiento procesal",
-    "areas.labor.full": "Ofrecemos asesoría completa en cuestiones laborales, desde la elaboración de reclamaciones hasta el seguimiento procesal.",
+    "areas.labor.full":
+      "Ofrecemos asesoría completa en cuestiones laborales, desde la elaboración de reclamaciones hasta el seguimiento procesal.",
     "areas.union.title": "Derecho Sindical",
     "areas.union.description": "Asesoría completa para entidades sindicales",
-    "areas.union.full": "Prestamos asesoría jurídica especializada para sindicatos y entidades de clase.",
+    "areas.union.full":
+      "Prestamos asesoría jurídica especializada para sindicatos y entidades de clase.",
     "areas.social_security.title": "Derecho de Seguridad Social",
-    "areas.social_security.description": "Concesión y revisión de beneficios previsionales",
-    "areas.social_security.full": "Especializados en derecho de seguridad social, actuamos en la concesión y revisión de jubilaciones y pensiones.",
+    "areas.social_security.description":
+      "Concesión y revisión de beneficios previsionales",
+    "areas.social_security.full":
+      "Especializados en derecho de seguridad social, actuamos en la concesión y revisión de jubilaciones y pensiones.",
     "areas.constitutional.title": "Derecho Constitucional",
-    "areas.constitutional.description": "Elaboración de ADI y recursos extraordinarios",
-    "areas.constitutional.full": "Actuamos en cuestiones constitucionales de alta complejidad.",
+    "areas.constitutional.description":
+      "Elaboración de ADI y recursos extraordinarios",
+    "areas.constitutional.full":
+      "Actuamos en cuestiones constitucionales de alta complejidad.",
     "areas.criminal.title": "Derecho Penal",
     "areas.criminal.description": "Habeas Corpus y recursos criminales",
-    "areas.criminal.full": "Nuestro equipo de derecho penal actúa en todas las fases del proceso criminal.",
+    "areas.criminal.full":
+      "Nuestro equipo de derecho penal actúa en todas las fases del proceso criminal.",
     "areas.electoral.title": "Derecho Electoral",
     "areas.electoral.description": "Asesoría electoral completa",
-    "areas.electoral.full": "Prestamos asesoría electoral completa para candidatos y partidos políticos.",
+    "areas.electoral.full":
+      "Prestamos asesoría electoral completa para candidatos y partidos políticos.",
     "areas.superior_courts.title": "Tribunales Superiores",
-    "areas.superior_courts.description": "Actuación en Brasilia junto a los Tribunales Superiores",
-    "areas.superior_courts.full": "Con sede en Brasilia, tenemos actuación directa junto a los Tribunales Superiores.",
+    "areas.superior_courts.description":
+      "Actuación en Brasilia junto a los Tribunales Superiores",
+    "areas.superior_courts.full":
+      "Con sede en Brasilia, tenemos actuación directa junto a los Tribunales Superiores.",
     "areas.real_estate.title": "Derecho Inmobiliario",
-    "areas.real_estate.description": "Asesoría completa en negocios y regularización inmobiliaria",
-    "areas.real_estate.full": "Actuamos en todas las cuestiones relacionadas con inmuebles.",
+    "areas.real_estate.description":
+      "Asesoría completa en negocios y regularización inmobiliaria",
+    "areas.real_estate.full":
+      "Actuamos en todas las cuestiones relacionadas con inmuebles.",
     "areas.family.title": "Derecho de Familia y Sucesiones",
-    "areas.family.description": "Inventarios, divorcios, pensiones y sucesiones",
-    "areas.family.full": "Ofrecemos asesoría sensible y especializada en cuestiones familiares.",
+    "areas.family.description":
+      "Inventarios, divorcios, pensiones y sucesiones",
+    "areas.family.full":
+      "Ofrecemos asesoría sensible y especializada en cuestiones familiares.",
     "areas.public_treasury.title": "Hacienda Pública y Entes Federados",
-    "areas.public_treasury.description": "Acciones contra la Unión, Estados, DF y Municipios",
-    "areas.public_treasury.full": "Representamos clientes en acciones contra la Unión, Estados y Municipios.",
+    "areas.public_treasury.description":
+      "Acciones contra la Unión, Estados, DF y Municipios",
+    "areas.public_treasury.full":
+      "Representamos clientes en acciones contra la Unión, Estados y Municipios.",
     "areas.mediation.title": "Mediación y Conciliación",
-    "areas.mediation.description": "Métodos alternativos de resolución de conflictos",
-    "areas.mediation.full": "Creemos en los métodos alternativos de resolución de conflictos.",
+    "areas.mediation.description":
+      "Métodos alternativos de resolución de conflictos",
+    "areas.mediation.full":
+      "Creemos en los métodos alternativos de resolución de conflictos.",
     "areas.tax.title": "Derecho Tributario y Empresarial",
-    "areas.tax.description": "Asesoría jurídica para empresas y materia tributaria",
-    "areas.tax.full": "Prestamos consultoría tributaria y empresarial completa.",
-    
+    "areas.tax.description":
+      "Asesoría jurídica para empresas y materia tributaria",
+    "areas.tax.full":
+      "Prestamos consultoría tributaria y empresarial completa.",
+
     // Team Section
     "team.title": "Equipo",
-    "team.subtitle": "Construyendo soluciones jurídicas con excelencia, ética y resultados desde 2000, con actuación en todo el territorio nacional.",
+    "team.subtitle":
+      "Construyendo soluciones jurídicas con excelencia, ética y resultados desde 2000, con actuación en todo el territorio nacional.",
     "team.scroll_hint": "← Deslice para navegar →",
-    
+
     // Stats Section
     "stats.years": "Años de Experiencia",
     "stats.clients": "Clientes Atendidos",
     "stats.success_rate": "Tasa de Éxito",
     "stats.cases": "Casos Resueltos",
-    
+
     // Contact Section
     "contact.title": "Ubicación",
     "contact.subtitle": "Visite nuestra oficina en Brasilia.",
-    "contact.address": "SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edificio Athenas - Brasilia - DF - CEP 70390-020",
+    "contact.address":
+      "SGAS 902, lote 74, Bloco B, Salas 102 a 112 - Edificio Athenas - Brasilia - DF - CEP 70390-020",
     "contact.form_title": "Contacto",
-    "contact.form_subtitle": "Complete el formulario y nos pondremos en contacto lo antes posible",
+    "contact.form_subtitle":
+      "Complete el formulario y nos pondremos en contacto lo antes posible",
     "contact.name": "Nombre Completo",
     "contact.cpf": "CPF",
     "contact.phone": "Teléfono",
@@ -505,55 +594,66 @@ export const translations: Translations = {
     "contact.process_number": "Número de Proceso (Opcional)",
     "contact.message": "Mensaje",
     "contact.send": "Enviar Mensaje",
-    
+
     // Footer
-    "footer.description": "Desde 2000, ofrecemos soluciones jurídicas con excelencia, ética y resultados, actuando en todo el territorio nacional.",
+    "footer.description":
+      "Desde 2000, ofrecemos soluciones jurídicas con excelencia, ética y resultados, actuando en todo el territorio nacional.",
     "footer.quick_links": "Enlaces Rápidos",
     "footer.contact": "Contacto",
     "footer.social": "Redes Sociales",
     "footer.hours": "Lun - Vie: 9h a 18h",
     "footer.rights": "Todos los derechos reservados.",
-    
+
     // Newsletter
     "newsletter.title": "Mantente Informado",
-    "newsletter.subtitle": "Suscríbete al newsletter y recibe consejos legales y novedades del despacho.",
+    "newsletter.subtitle":
+      "Suscríbete al newsletter y recibe consejos legales y novedades del despacho.",
     "newsletter.placeholder": "Tu mejor correo electrónico",
     "newsletter.button": "Suscribirse",
-    "newsletter.success": "¡Éxito! Ahora revisa tu correo electrónico para confirmar tu suscripción.",
-    
+    "newsletter.sending": "Enviando...",
+    "newsletter.error": "Error",
+    "newsletter.errorMessage": "Introduce un correo electrónico válido.",
+    "newsletter.success":
+      "¡Éxito! Ahora revisa tu correo electrónico para confirmar tu suscripción.",
+
     // Process Search
     "process.title": "Consulta tu Proceso",
-    "process.subtitle": "Ingresa el número del proceso y recibe actualizaciones en pocos minutos.",
+    "process.subtitle":
+      "Ingresa el número del proceso y recibe actualizaciones en pocos minutos.",
     "process.placeholder": "Número del proceso (ej: 0000000-00.0000.0.00.0000)",
     "process.name": "Nombre completo",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Consultar vía WhatsApp",
     "process.whatsapp_message": "¡Hola! Me gustaría consultar mi proceso.",
-    
+
     // Cookie Banner
     "cookie.title": "Política de Cookies",
-    "cookie.description": "Utilizamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra política de privacidad.",
+    "cookie.description":
+      "Utilizamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra política de privacidad.",
     "cookie.reject": "Rechazar",
     "cookie.accept": "Aceptar",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Artículos, noticias y análisis sobre los cambios más recientes en la legislación y jurisprudencia brasileña.",
+    "blog.subtitle":
+      "Artículos, noticias y análisis sobre los cambios más recientes en la legislación y jurisprudencia brasileña.",
     "blog.search_placeholder": "Buscar artículos...",
     "blog.all_tags": "Todas las etiquetas",
     "blog.all": "Todos",
     "blog.read_more": "Leer más",
     "blog.no_image": "Sin imagen",
     "blog.no_posts": "Aún no hay artículos publicados.",
-    "blog.no_results": "No se encontraron artículos con los filtros seleccionados.",
+    "blog.no_results":
+      "No se encontraron artículos con los filtros seleccionados.",
     "blog.back_to_blog": "Volver al Blog",
     "blog.reading_time": "min de lectura",
     "blog.see_more_articles": "Ver más artículos",
     "blog.article_not_found": "Artículo no encontrado",
-    "blog.article_not_found_description": "El artículo que buscas no existe o ha sido eliminado.",
+    "blog.article_not_found_description":
+      "El artículo que buscas no existe o ha sido eliminado.",
     "blog.translation_error": "Error al traducir el contenido",
     "blog.translating": "Traduciendo...",
-    
+
     // Latest News Section
     "news.title": "Últimas Noticias",
     "news.subtitle": "Siga las últimas publicaciones de nuestro blog jurídico.",
@@ -561,23 +661,30 @@ export const translations: Translations = {
 
     // Avalie
     "avalie.heroTitle": "Su opinión es fundamental",
-    "avalie.heroSubtitle": "Ayúdenos a mantener la excelencia de nuestros servicios a través de su evaluación.",
+    "avalie.heroSubtitle":
+      "Ayúdenos a mantener la excelencia de nuestros servicios a través de su evaluación.",
     "avalie.cardTitle": "Evalué nuestra atención",
-    "avalie.cardSubtitle": "Toma menos de 1 minuto y ayuda a otras personas a encontrar ayuda especializada.",
-    "avalie.note": "Su evaluación en Google nos ayuda a crecer y mejorar nuestra atención.",
+    "avalie.cardSubtitle":
+      "Toma menos de 1 minuto y ayuda a otras personas a encontrar ayuda especializada.",
+    "avalie.note":
+      "Su evaluación en Google nos ayuda a crecer y mejorar nuestra atención.",
     "avalie.cta": "Evaluar ahora en Google",
     "avalie.disclaimer": "Usted será redireccionado a Google Maps",
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Trabaja con Nosotros",
-    "trabalheConosco.heroSubtitle": "Construye el futuro de la abogacía con nosotros, con ética e innovación.",
+    "trabalheConosco.heroSubtitle":
+      "Construye el futuro de la abogacía con nosotros, con ética e innovación.",
     "trabalheConosco.whyTitle": "¿Por qué trabajar con nosotros?",
     "trabalheConosco.benefits.collaborativeTitle": "Ambiente Colaborativo",
-    "trabalheConosco.benefits.collaborativeDesc": "Trabaja en un equipo que valora la colaboración y el desarrollo profesional.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Trabaja en un equipo que valora la colaboración y el desarrollo profesional.",
     "trabalheConosco.benefits.challengingTitle": "Casos Desafiantes",
-    "trabalheConosco.benefits.challengingDesc": "Participa en casos complejos y relevantes en diversas áreas del derecho.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Participa en casos complejos y relevantes en diversas áreas del derecho.",
     "trabalheConosco.benefits.growthTitle": "Crecimiento Profesional",
-    "trabalheConosco.benefits.growthDesc": "Desarrolla tu carrera en un despacho con tradición y excelencia jurídica.",
+    "trabalheConosco.benefits.growthDesc":
+      "Desarrolla tu carrera en un despacho con tradición y excelencia jurídica.",
     "trabalheConosco.roles.lawyer": "Abogado(a)",
     "trabalheConosco.roles.intern": "Pasante",
     "trabalheConosco.roles.adminAssistant": "Asistente Administrativo",
@@ -593,15 +700,18 @@ export const translations: Translations = {
     "trabalheConosco.fields.roleLabel": "Cargo / Función",
     "trabalheConosco.fields.rolePlaceholder": "Selecciona el cargo deseado",
     "trabalheConosco.fields.interestAreaLabel": "Área de Interés",
-    "trabalheConosco.fields.interestAreaPlaceholder": "Ej: Derecho Civil, Tributario, etc.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "Ej: Derecho Civil, Tributario, etc.",
     "trabalheConosco.fields.messageLabel": "Mensaje / Experiencia",
-    "trabalheConosco.fields.messagePlaceholder": "Cuéntanos un poco sobre ti...",
+    "trabalheConosco.fields.messagePlaceholder":
+      "Cuéntanos un poco sobre ti...",
     "trabalheConosco.resumeBox.title": "Envío de Currículum",
-    "trabalheConosco.resumeBox.description": "Al enviar, serás redirigido a WhatsApp para adjuntar tu currículum.",
+    "trabalheConosco.resumeBox.description":
+      "Al enviar, serás redirigido a WhatsApp para adjuntar tu currículum.",
     "trabalheConosco.submit": "Enviar Candidatura",
     "trabalheConosco.backHome": "Volver al Inicio",
   },
-  
+
   EN: {
     // Header
     "nav.home": "Home",
@@ -613,90 +723,120 @@ export const translations: Translations = {
     "header.access": "Access",
     "header.contact_us": "Contact Us",
     "header.language": "Language",
-    
+
     // About Section
     "about.title": "Our Firm",
-    "about.subtitle": "Building legal solutions with excellence, ethics and results since 2000, with nationwide coverage.",
+    "about.subtitle":
+      "Building legal solutions with excellence, ethics and results since 2000, with nationwide coverage.",
     "about.since": "Since 2000",
     "about.trajectory.title": "Trajectory",
     "about.trajectory.description": "Over 26 years of legal excellence",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS is a law firm since 2000, with nationwide coverage.\n\nProviding excellent legal services is our goal and is reflected in the results achieved and the satisfaction of our clients.",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS is a law firm since 2000, with nationwide coverage.\n\nProviding excellent legal services is our goal and is reflected in the results achieved and the satisfaction of our clients.",
     "about.pillars.badge": "Ethics | Commitment",
     "about.pillars.title": "Consolidated Pillars",
-    "about.pillars.description": "The pillars of a law practice that unites ethics, excellence and results",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS bases its practice on the principles of ethical advocacy, committed, serious and efficient work, attentive to changes in society and the needs of each client, without dispensing with good technique and the lawyer's social role in the search for effective solutions.\n\nOur purpose is to promote the balance of social relations through the provision of legally competent work, prioritizing the professional relationship with the client.\n\nOur work, whether preventive, administrative or judicial, is focused on the pursuit of guaranteed rights, legal security, valuing mainly our strongest point: people and satisfaction with the work developed.",
+    "about.pillars.description":
+      "The pillars of a law practice that unites ethics, excellence and results",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS bases its practice on the principles of ethical advocacy, committed, serious and efficient work, attentive to changes in society and the needs of each client, without dispensing with good technique and the lawyer's social role in the search for effective solutions.\n\nOur purpose is to promote the balance of social relations through the provision of legally competent work, prioritizing the professional relationship with the client.\n\nOur work, whether preventive, administrative or judicial, is focused on the pursuit of guaranteed rights, legal security, valuing mainly our strongest point: people and satisfaction with the work developed.",
     "about.mission.badge": "Excellence",
     "about.mission.title": "Our Mission",
-    "about.mission.description": "Quality relationships and effective legal services",
-    "about.mission.full": "We are part of a constantly evolving society, which reflects the need for continuous training of our team. Legislative, regulatory and jurisprudential changes increasingly require technical qualification and the incorporation of new technologies, so that our service to clients provides satisfaction, achieves efficiency, resolution and, above all, agility.",
+    "about.mission.description":
+      "Quality relationships and effective legal services",
+    "about.mission.full":
+      "We are part of a constantly evolving society, which reflects the need for continuous training of our team. Legislative, regulatory and jurisprudential changes increasingly require technical qualification and the incorporation of new technologies, so that our service to clients provides satisfaction, achieves efficiency, resolution and, above all, agility.",
     "about.office.badge": "Nationwide Coverage",
     "about.office.title": "Office",
-    "about.office.description": "Headquarters in Brasília with nationwide coverage",
-    "about.office.full": "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Porto Alegre, and Natal.",
+    "about.office.description":
+      "Headquarters in Brasília with nationwide coverage",
+    "about.office.full":
+      "Technology, agility and nationwide reach.\n\nPresence throughout the territory, solutions in every detail.\n\nWith addresses also in São Paulo, Porto Alegre, and Natal.",
     "about.explore": "Explore",
-    
+
     // Practice Areas
     "areas.title": "Practice Areas",
-    "areas.subtitle": "Specialized in Administrative Law and active in various areas of Law.",
+    "areas.subtitle":
+      "Specialized in Administrative Law and active in various areas of Law.",
     "areas.learn_more": "Learn more",
     "areas.scroll_hint": "← Swipe to navigate →",
     "areas.admin.title": "Administrative Law (Public Servants)",
-    "areas.admin.description": "Defense of public servants' rights and interests",
-    "areas.admin.full": "We work in the full defense of the rights of federal, state and municipal public servants.",
+    "areas.admin.description":
+      "Defense of public servants' rights and interests",
+    "areas.admin.full":
+      "We work in the full defense of the rights of federal, state and municipal public servants.",
     "areas.labor.title": "Individual and Collective Labor Law",
     "areas.labor.description": "Labor claims and procedural monitoring",
-    "areas.labor.full": "We offer complete advisory services on labor issues, from preparing claims to procedural monitoring.",
+    "areas.labor.full":
+      "We offer complete advisory services on labor issues, from preparing claims to procedural monitoring.",
     "areas.union.title": "Union Law",
     "areas.union.description": "Complete advisory for union entities",
-    "areas.union.full": "We provide specialized legal advisory for unions and class entities.",
+    "areas.union.full":
+      "We provide specialized legal advisory for unions and class entities.",
     "areas.social_security.title": "Social Security Law",
-    "areas.social_security.description": "Granting and review of social security benefits",
-    "areas.social_security.full": "Specialized in social security law, we work on granting and reviewing retirements and pensions.",
+    "areas.social_security.description":
+      "Granting and review of social security benefits",
+    "areas.social_security.full":
+      "Specialized in social security law, we work on granting and reviewing retirements and pensions.",
     "areas.constitutional.title": "Constitutional Law",
-    "areas.constitutional.description": "Drafting of ADI and extraordinary appeals",
-    "areas.constitutional.full": "We work on highly complex constitutional issues.",
+    "areas.constitutional.description":
+      "Drafting of ADI and extraordinary appeals",
+    "areas.constitutional.full":
+      "We work on highly complex constitutional issues.",
     "areas.criminal.title": "Criminal Law",
     "areas.criminal.description": "Habeas Corpus and criminal appeals",
-    "areas.criminal.full": "Our criminal law team works at all stages of criminal proceedings.",
+    "areas.criminal.full":
+      "Our criminal law team works at all stages of criminal proceedings.",
     "areas.electoral.title": "Electoral Law",
     "areas.electoral.description": "Complete electoral advisory",
-    "areas.electoral.full": "We provide complete electoral advisory for candidates and political parties.",
+    "areas.electoral.full":
+      "We provide complete electoral advisory for candidates and political parties.",
     "areas.superior_courts.title": "Superior Courts",
-    "areas.superior_courts.description": "Practice in Brasília before the Superior Courts",
-    "areas.superior_courts.full": "Headquartered in Brasília, we have direct practice before the Superior Courts.",
+    "areas.superior_courts.description":
+      "Practice in Brasília before the Superior Courts",
+    "areas.superior_courts.full":
+      "Headquartered in Brasília, we have direct practice before the Superior Courts.",
     "areas.real_estate.title": "Real Estate Law",
-    "areas.real_estate.description": "Complete advisory on real estate business and regularization",
+    "areas.real_estate.description":
+      "Complete advisory on real estate business and regularization",
     "areas.real_estate.full": "We work on all matters related to real estate.",
     "areas.family.title": "Family and Succession Law",
-    "areas.family.description": "Inventories, divorces, alimony and successions",
-    "areas.family.full": "We offer sensitive and specialized advisory on family matters.",
+    "areas.family.description":
+      "Inventories, divorces, alimony and successions",
+    "areas.family.full":
+      "We offer sensitive and specialized advisory on family matters.",
     "areas.public_treasury.title": "Public Treasury and Federal Entities",
-    "areas.public_treasury.description": "Actions against the Union, States, DF and Municipalities",
-    "areas.public_treasury.full": "We represent clients in actions against the Union, States and Municipalities.",
+    "areas.public_treasury.description":
+      "Actions against the Union, States, DF and Municipalities",
+    "areas.public_treasury.full":
+      "We represent clients in actions against the Union, States and Municipalities.",
     "areas.mediation.title": "Mediation and Conciliation",
     "areas.mediation.description": "Alternative dispute resolution methods",
-    "areas.mediation.full": "We believe in alternative dispute resolution methods.",
+    "areas.mediation.full":
+      "We believe in alternative dispute resolution methods.",
     "areas.tax.title": "Tax and Business Law",
     "areas.tax.description": "Legal advisory for companies and tax matters",
     "areas.tax.full": "We provide complete tax and business consultancy.",
-    
+
     // Team Section
     "team.title": "Team",
-    "team.subtitle": "Building legal solutions with excellence, ethics and results since 2000, with nationwide coverage.",
+    "team.subtitle":
+      "Building legal solutions with excellence, ethics and results since 2000, with nationwide coverage.",
     "team.scroll_hint": "← Swipe to navigate →",
-    
+
     // Stats Section
     "stats.years": "Years of Experience",
     "stats.clients": "Clients Served",
     "stats.success_rate": "Success Rate",
     "stats.cases": "Cases Resolved",
-    
+
     // Contact Section
     "contact.title": "Location",
     "contact.subtitle": "Visit our office in Brasília.",
-    "contact.address": "SGAS 902, lot 74, Block B, Rooms 102 to 112 - Athenas Building - Brasília - DF - ZIP 70390-020",
+    "contact.address":
+      "SGAS 902, lot 74, Block B, Rooms 102 to 112 - Athenas Building - Brasília - DF - ZIP 70390-020",
     "contact.form_title": "Contact",
-    "contact.form_subtitle": "Fill out the form below and we will contact you as soon as possible",
+    "contact.form_subtitle":
+      "Fill out the form below and we will contact you as soon as possible",
     "contact.name": "Full Name",
     "contact.cpf": "CPF",
     "contact.phone": "Phone",
@@ -704,40 +844,49 @@ export const translations: Translations = {
     "contact.process_number": "Process Number (Optional)",
     "contact.message": "Message",
     "contact.send": "Send Message",
-    
+
     // Footer
-    "footer.description": "Since 2000, we offer legal solutions with excellence, ethics and results, operating throughout the national territory.",
+    "footer.description":
+      "Since 2000, we offer legal solutions with excellence, ethics and results, operating throughout the national territory.",
     "footer.quick_links": "Quick Links",
     "footer.contact": "Contact",
     "footer.social": "Social Media",
     "footer.hours": "Mon - Fri: 9am to 6pm",
     "footer.rights": "All rights reserved.",
-    
+
     // Newsletter
     "newsletter.title": "Stay Updated",
-    "newsletter.subtitle": "Subscribe to our newsletter and receive legal tips and news from the office.",
+    "newsletter.subtitle":
+      "Subscribe to our newsletter and receive legal tips and news from the office.",
     "newsletter.placeholder": "Your best email",
     "newsletter.button": "Subscribe",
-    "newsletter.success": "Success! Now check your email to confirm your subscription.",
-    
+    "newsletter.sending": "Sending...",
+    "newsletter.error": "Error",
+    "newsletter.errorMessage": "Please enter a valid email.",
+    "newsletter.success":
+      "Success! Now check your email to confirm your subscription.",
+
     // Process Search
     "process.title": "Check Your Case",
-    "process.subtitle": "Enter the case number and receive updates in a few minutes.",
+    "process.subtitle":
+      "Enter the case number and receive updates in a few minutes.",
     "process.placeholder": "Case number (e.g.: 0000000-00.0000.0.00.0000)",
     "process.name": "Full name",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Consult via WhatsApp",
     "process.whatsapp_message": "Hello! I would like to check my case.",
-    
+
     // Cookie Banner
     "cookie.title": "Cookie Policy",
-    "cookie.description": "We use cookies to improve your experience on our site. By continuing to browse, you agree to our privacy policy.",
+    "cookie.description":
+      "We use cookies to improve your experience on our site. By continuing to browse, you agree to our privacy policy.",
     "cookie.reject": "Reject",
     "cookie.accept": "Accept",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Articles, news and analysis on the latest changes in Brazilian legislation and jurisprudence.",
+    "blog.subtitle":
+      "Articles, news and analysis on the latest changes in Brazilian legislation and jurisprudence.",
     "blog.search_placeholder": "Search articles...",
     "blog.all_tags": "All tags",
     "blog.all": "All",
@@ -749,10 +898,11 @@ export const translations: Translations = {
     "blog.reading_time": "min read",
     "blog.see_more_articles": "See more articles",
     "blog.article_not_found": "Article not found",
-    "blog.article_not_found_description": "The article you are looking for does not exist or has been removed.",
+    "blog.article_not_found_description":
+      "The article you are looking for does not exist or has been removed.",
     "blog.translation_error": "Error translating content",
     "blog.translating": "Translating...",
-    
+
     // Latest News Section
     "news.title": "Latest News",
     "news.subtitle": "Follow the latest publications from our legal blog.",
@@ -760,24 +910,31 @@ export const translations: Translations = {
 
     // Avalie
     "avalie.heroTitle": "Your opinion is essential",
-    "avalie.heroSubtitle": "Help us maintain our service excellence through your review.",
+    "avalie.heroSubtitle":
+      "Help us maintain our service excellence through your review.",
     "avalie.cardTitle": "Review our service",
-    "avalie.cardSubtitle": "It takes less than 1 minute and helps others find our specialized help.",
-    "avalie.note": "Your review on Google helps us grow and improve our service.",
+    "avalie.cardSubtitle":
+      "It takes less than 1 minute and helps others find our specialized help.",
+    "avalie.note":
+      "Your review on Google helps us grow and improve our service.",
     "avalie.cta": "Review now on Google",
     "avalie.disclaimer": "You will be redirected to Google Maps",
 
     // Trabalhe Conosco
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Work with Us",
-    "trabalheConosco.heroSubtitle": "Build the future of law with us, with ethics and innovation.",
+    "trabalheConosco.heroSubtitle":
+      "Build the future of law with us, with ethics and innovation.",
     "trabalheConosco.whyTitle": "Why work with us?",
     "trabalheConosco.benefits.collaborativeTitle": "Collaborative Environment",
-    "trabalheConosco.benefits.collaborativeDesc": "Work in a team that values collaboration and professional development.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Work in a team that values collaboration and professional development.",
     "trabalheConosco.benefits.challengingTitle": "Challenging Cases",
-    "trabalheConosco.benefits.challengingDesc": "Participate in complex and relevant cases in various areas of law.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Participate in complex and relevant cases in various areas of law.",
     "trabalheConosco.benefits.growthTitle": "Professional Growth",
-    "trabalheConosco.benefits.growthDesc": "Develop your career in a firm with tradition and legal excellence.",
+    "trabalheConosco.benefits.growthDesc":
+      "Develop your career in a firm with tradition and legal excellence.",
     "trabalheConosco.roles.lawyer": "Lawyer",
     "trabalheConosco.roles.intern": "Intern",
     "trabalheConosco.roles.adminAssistant": "Administrative Assistant",
@@ -793,15 +950,18 @@ export const translations: Translations = {
     "trabalheConosco.fields.roleLabel": "Position / Role",
     "trabalheConosco.fields.rolePlaceholder": "Select desired position",
     "trabalheConosco.fields.interestAreaLabel": "Interest Area",
-    "trabalheConosco.fields.interestAreaPlaceholder": "e.g., Civil Law, Tax Law, etc.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "e.g., Civil Law, Tax Law, etc.",
     "trabalheConosco.fields.messageLabel": "Message / Experience",
-    "trabalheConosco.fields.messagePlaceholder": "Tell us a bit about yourself...",
+    "trabalheConosco.fields.messagePlaceholder":
+      "Tell us a bit about yourself...",
     "trabalheConosco.resumeBox.title": "Resume Submission",
-    "trabalheConosco.resumeBox.description": "Upon submitting, you will be redirected to WhatsApp to attach your resume.",
+    "trabalheConosco.resumeBox.description":
+      "Upon submitting, you will be redirected to WhatsApp to attach your resume.",
     "trabalheConosco.submit": "Submit Application",
     "trabalheConosco.backHome": "Back to Home",
   },
-  
+
   DE: {
     // Header
     "nav.home": "Startseite",
@@ -813,90 +973,122 @@ export const translations: Translations = {
     "header.access": "Zugang",
     "header.contact_us": "Kontaktieren Sie uns",
     "header.language": "Sprache",
-    
+
     // About Section
     "about.title": "Kanzlei",
-    "about.subtitle": "Juristische Lösungen mit Exzellenz, Ethik und Ergebnissen seit 2000, mit landesweiter Abdeckung.",
+    "about.subtitle":
+      "Juristische Lösungen mit Exzellenz, Ethik und Ergebnissen seit 2000, mit landesweiter Abdeckung.",
     "about.since": "Seit 2000",
     "about.trajectory.title": "Werdegang",
     "about.trajectory.description": "Über 26 Jahre juristische Exzellenz",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS ist eine Anwaltskanzlei seit 2000 mit landesweiter Tätigkeit.\n\nDie Erbringung exzellenter juristischer Dienstleistungen ist unser Ziel und spiegelt sich in den erzielten Ergebnissen und der Zufriedenheit unserer Mandanten wider.",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS ist eine Anwaltskanzlei seit 2000 mit landesweiter Tätigkeit.\n\nDie Erbringung exzellenter juristischer Dienstleistungen ist unser Ziel und spiegelt sich in den erzielten Ergebnissen und der Zufriedenheit unserer Mandanten wider.",
     "about.pillars.badge": "Ethik | Engagement",
     "about.pillars.title": "Konsolidierte Säulen",
-    "about.pillars.description": "Die Säulen einer Anwaltspraxis, die Ethik, Exzellenz und Ergebnisse vereint",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS basiert auf den Grundsätzen einer ethischen Anwaltschaft, engagierter, seriöser und effizienter Arbeit, aufmerksam gegenüber gesellschaftlichen Veränderungen und den Bedürfnissen jedes Mandanten, ohne auf gute Technik und die soziale Rolle des Anwalts bei der Suche nach effektiven Lösungen zu verzichten.\n\nUnser Ziel ist es, das Gleichgewicht der sozialen Beziehungen durch die Erbringung rechtlich kompetenter Arbeit zu fördern, wobei die professionelle Beziehung zum Mandanten Priorität hat.\n\nUnsere Tätigkeit, sei sie präventiv, administrativ oder gerichtlich, konzentriert sich auf die Suche nach garantierten Rechten, Rechtssicherheit und schätzt vor allem unsere größte Stärke: die Menschen und die Zufriedenheit mit der geleisteten Arbeit.",
+    "about.pillars.description":
+      "Die Säulen einer Anwaltspraxis, die Ethik, Exzellenz und Ergebnisse vereint",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS basiert auf den Grundsätzen einer ethischen Anwaltschaft, engagierter, seriöser und effizienter Arbeit, aufmerksam gegenüber gesellschaftlichen Veränderungen und den Bedürfnissen jedes Mandanten, ohne auf gute Technik und die soziale Rolle des Anwalts bei der Suche nach effektiven Lösungen zu verzichten.\n\nUnser Ziel ist es, das Gleichgewicht der sozialen Beziehungen durch die Erbringung rechtlich kompetenter Arbeit zu fördern, wobei die professionelle Beziehung zum Mandanten Priorität hat.\n\nUnsere Tätigkeit, sei sie präventiv, administrativ oder gerichtlich, konzentriert sich auf die Suche nach garantierten Rechten, Rechtssicherheit und schätzt vor allem unsere größte Stärke: die Menschen und die Zufriedenheit mit der geleisteten Arbeit.",
     "about.mission.badge": "Exzellenz",
     "about.mission.title": "Unsere Mission",
-    "about.mission.description": "Qualitätsbeziehungen und effektive Rechtsdienstleistungen",
-    "about.mission.full": "Wir sind Teil einer sich ständig weiterentwickelnden Gesellschaft, was die Notwendigkeit einer kontinuierlichen Schulung unseres Teams widerspiegelt. Gesetzliche, regulatorische und rechtsprechungsbezogene Änderungen erfordern zunehmend technische Qualifikation und die Einbeziehung neuer Technologien, damit unser Service für Mandanten Zufriedenheit bietet, Effizienz, Lösungsorientierung und vor allem Agilität erreicht.",
+    "about.mission.description":
+      "Qualitätsbeziehungen und effektive Rechtsdienstleistungen",
+    "about.mission.full":
+      "Wir sind Teil einer sich ständig weiterentwickelnden Gesellschaft, was die Notwendigkeit einer kontinuierlichen Schulung unseres Teams widerspiegelt. Gesetzliche, regulatorische und rechtsprechungsbezogene Änderungen erfordern zunehmend technische Qualifikation und die Einbeziehung neuer Technologien, damit unser Service für Mandanten Zufriedenheit bietet, Effizienz, Lösungsorientierung und vor allem Agilität erreicht.",
     "about.office.badge": "Landesweite Abdeckung",
     "about.office.title": "Kanzlei",
-    "about.office.description": "Hauptsitz in Brasília mit landesweiter Abdeckung",
-    "about.office.full": "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Porto Alegre und Natal.",
+    "about.office.description":
+      "Hauptsitz in Brasília mit landesweiter Abdeckung",
+    "about.office.full":
+      "Technologie, Agilität und landesweite Reichweite.\n\nPräsenz im gesamten Territorium, Lösungen in jedem Detail.\n\nMit Adressen auch in São Paulo, Porto Alegre und Natal.",
     "about.explore": "Erkunden",
-    
+
     // Practice Areas
     "areas.title": "Tätigkeitsbereiche",
-    "areas.subtitle": "Spezialisiert auf Verwaltungsrecht und in verschiedenen Rechtsbereichen tätig.",
+    "areas.subtitle":
+      "Spezialisiert auf Verwaltungsrecht und in verschiedenen Rechtsbereichen tätig.",
     "areas.learn_more": "Mehr erfahren",
     "areas.scroll_hint": "← Wischen zum Navigieren →",
     "areas.admin.title": "Verwaltungsrecht (Beamte)",
-    "areas.admin.description": "Verteidigung der Rechte und Interessen von Beamten",
-    "areas.admin.full": "Wir arbeiten an der vollständigen Verteidigung der Rechte von Beamten.",
+    "areas.admin.description":
+      "Verteidigung der Rechte und Interessen von Beamten",
+    "areas.admin.full":
+      "Wir arbeiten an der vollständigen Verteidigung der Rechte von Beamten.",
     "areas.labor.title": "Individuelles und kollektives Arbeitsrecht",
-    "areas.labor.description": "Arbeitsrechtliche Ansprüche und Prozessbegleitung",
-    "areas.labor.full": "Wir bieten umfassende Beratung in arbeitsrechtlichen Fragen.",
+    "areas.labor.description":
+      "Arbeitsrechtliche Ansprüche und Prozessbegleitung",
+    "areas.labor.full":
+      "Wir bieten umfassende Beratung in arbeitsrechtlichen Fragen.",
     "areas.union.title": "Gewerkschaftsrecht",
     "areas.union.description": "Umfassende Beratung für Gewerkschaften",
-    "areas.union.full": "Wir bieten spezialisierte Rechtsberatung für Gewerkschaften.",
+    "areas.union.full":
+      "Wir bieten spezialisierte Rechtsberatung für Gewerkschaften.",
     "areas.social_security.title": "Sozialversicherungsrecht",
-    "areas.social_security.description": "Gewährung und Überprüfung von Sozialversicherungsleistungen",
+    "areas.social_security.description":
+      "Gewährung und Überprüfung von Sozialversicherungsleistungen",
     "areas.social_security.full": "Spezialisiert auf Sozialversicherungsrecht.",
     "areas.constitutional.title": "Verfassungsrecht",
-    "areas.constitutional.description": "Erstellung von ADI und außerordentlichen Berufungen",
-    "areas.constitutional.full": "Wir arbeiten an hochkomplexen verfassungsrechtlichen Fragen.",
+    "areas.constitutional.description":
+      "Erstellung von ADI und außerordentlichen Berufungen",
+    "areas.constitutional.full":
+      "Wir arbeiten an hochkomplexen verfassungsrechtlichen Fragen.",
     "areas.criminal.title": "Strafrecht",
     "areas.criminal.description": "Habeas Corpus und Strafrechtsmittel",
-    "areas.criminal.full": "Unser Strafrechts-Team arbeitet in allen Phasen des Strafverfahrens.",
+    "areas.criminal.full":
+      "Unser Strafrechts-Team arbeitet in allen Phasen des Strafverfahrens.",
     "areas.electoral.title": "Wahlrecht",
     "areas.electoral.description": "Umfassende Wahlberatung",
-    "areas.electoral.full": "Wir bieten umfassende Wahlberatung für Kandidaten und politische Parteien.",
+    "areas.electoral.full":
+      "Wir bieten umfassende Wahlberatung für Kandidaten und politische Parteien.",
     "areas.superior_courts.title": "Oberste Gerichte",
-    "areas.superior_courts.description": "Tätigkeit in Brasília vor den Obersten Gerichten",
-    "areas.superior_courts.full": "Mit Hauptsitz in Brasília haben wir direkte Tätigkeit vor den Obersten Gerichten.",
+    "areas.superior_courts.description":
+      "Tätigkeit in Brasília vor den Obersten Gerichten",
+    "areas.superior_courts.full":
+      "Mit Hauptsitz in Brasília haben wir direkte Tätigkeit vor den Obersten Gerichten.",
     "areas.real_estate.title": "Immobilienrecht",
-    "areas.real_estate.description": "Umfassende Beratung in Immobilienangelegenheiten",
-    "areas.real_estate.full": "Wir arbeiten an allen immobilienbezogenen Fragen.",
+    "areas.real_estate.description":
+      "Umfassende Beratung in Immobilienangelegenheiten",
+    "areas.real_estate.full":
+      "Wir arbeiten an allen immobilienbezogenen Fragen.",
     "areas.family.title": "Familien- und Erbrecht",
-    "areas.family.description": "Erbschaften, Scheidungen, Unterhalt und Nachfolge",
-    "areas.family.full": "Wir bieten einfühlsame und spezialisierte Beratung in Familienangelegenheiten.",
+    "areas.family.description":
+      "Erbschaften, Scheidungen, Unterhalt und Nachfolge",
+    "areas.family.full":
+      "Wir bieten einfühlsame und spezialisierte Beratung in Familienangelegenheiten.",
     "areas.public_treasury.title": "Öffentliche Finanzen und Bundeseinheiten",
-    "areas.public_treasury.description": "Klagen gegen Bund, Länder, DF und Gemeinden",
-    "areas.public_treasury.full": "Wir vertreten Mandanten in Klagen gegen Bund, Länder und Gemeinden.",
+    "areas.public_treasury.description":
+      "Klagen gegen Bund, Länder, DF und Gemeinden",
+    "areas.public_treasury.full":
+      "Wir vertreten Mandanten in Klagen gegen Bund, Länder und Gemeinden.",
     "areas.mediation.title": "Mediation und Schlichtung",
     "areas.mediation.description": "Alternative Streitbeilegungsmethoden",
-    "areas.mediation.full": "Wir glauben an alternative Streitbeilegungsmethoden.",
+    "areas.mediation.full":
+      "Wir glauben an alternative Streitbeilegungsmethoden.",
     "areas.tax.title": "Steuer- und Wirtschaftsrecht",
-    "areas.tax.description": "Rechtsberatung für Unternehmen und Steuerangelegenheiten",
+    "areas.tax.description":
+      "Rechtsberatung für Unternehmen und Steuerangelegenheiten",
     "areas.tax.full": "Wir bieten umfassende Steuer- und Unternehmensberatung.",
-    
+
     // Team Section
     "team.title": "Team",
-    "team.subtitle": "Juristische Lösungen mit Exzellenz, Ethik und Ergebnissen seit 2000, mit landesweiter Abdeckung.",
+    "team.subtitle":
+      "Juristische Lösungen mit Exzellenz, Ethik und Ergebnissen seit 2000, mit landesweiter Abdeckung.",
     "team.scroll_hint": "← Wischen zum Navigieren →",
-    
+
     // Stats Section
     "stats.years": "Jahre Erfahrung",
     "stats.clients": "Betreute Kunden",
     "stats.success_rate": "Erfolgsquote",
     "stats.cases": "Gelöste Fälle",
-    
+
     // Contact Section
     "contact.title": "Standort",
     "contact.subtitle": "Besuchen Sie unsere Kanzlei in Brasília.",
-    "contact.address": "SGAS 902, Grundstück 74, Block B, Räume 102 bis 112 - Athenas Gebäude - Brasília - DF - PLZ 70390-020",
+    "contact.address":
+      "SGAS 902, Grundstück 74, Block B, Räume 102 bis 112 - Athenas Gebäude - Brasília - DF - PLZ 70390-020",
     "contact.form_title": "Kontakt",
-    "contact.form_subtitle": "Füllen Sie das Formular aus und wir werden Sie schnellstmöglich kontaktieren",
+    "contact.form_subtitle":
+      "Füllen Sie das Formular aus und wir werden Sie schnellstmöglich kontaktieren",
     "contact.name": "Vollständiger Name",
     "contact.cpf": "CPF",
     "contact.phone": "Telefon",
@@ -904,40 +1096,50 @@ export const translations: Translations = {
     "contact.process_number": "Prozessnummer (Optional)",
     "contact.message": "Nachricht",
     "contact.send": "Nachricht senden",
-    
+
     // Footer
-    "footer.description": "Seit 2000 bieten wir juristische Lösungen mit Exzellenz, Ethik und Ergebnissen im gesamten nationalen Territorium.",
+    "footer.description":
+      "Seit 2000 bieten wir juristische Lösungen mit Exzellenz, Ethik und Ergebnissen im gesamten nationalen Territorium.",
     "footer.quick_links": "Schnelllinks",
     "footer.contact": "Kontakt",
     "footer.social": "Soziale Netzwerke",
     "footer.hours": "Mo - Fr: 9 bis 18 Uhr",
     "footer.rights": "Alle Rechte vorbehalten.",
-    
+
     // Newsletter
     "newsletter.title": "Bleiben Sie Informiert",
-    "newsletter.subtitle": "Abonnieren Sie unseren Newsletter und erhalten Sie juristische Tipps und Neuigkeiten.",
+    "newsletter.subtitle":
+      "Abonnieren Sie unseren Newsletter und erhalten Sie juristische Tipps und Neuigkeiten.",
     "newsletter.placeholder": "Ihre beste E-Mail",
     "newsletter.button": "Abonnieren",
-    "newsletter.success": "Erfolg! Überprüfen Sie jetzt Ihre E-Mail, um Ihr Abonnement zu bestätigen.",
-    
+    "newsletter.sending": "Wird gesendet...",
+    "newsletter.error": "Fehler",
+    "newsletter.errorMessage":
+      "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "newsletter.success":
+      "Erfolg! Überprüfen Sie jetzt Ihre E-Mail, um Ihr Abonnement zu bestätigen.",
+
     // Process Search
     "process.title": "Überprüfen Sie Ihren Fall",
-    "process.subtitle": "Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.",
+    "process.subtitle":
+      "Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.",
     "process.placeholder": "Fallnummer (z.B.: 0000000-00.0000.0.00.0000)",
     "process.name": "Vollständiger Name",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Über WhatsApp anfragen",
     "process.whatsapp_message": "Hallo! Ich möchte meinen Fall überprüfen.",
-    
+
     // Cookie Banner
     "cookie.title": "Cookie-Richtlinie",
-    "cookie.description": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch das Weitersurfen stimmen Sie unserer Datenschutzrichtlinie zu.",
+    "cookie.description":
+      "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch das Weitersurfen stimmen Sie unserer Datenschutzrichtlinie zu.",
     "cookie.reject": "Ablehnen",
     "cookie.accept": "Akzeptieren",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Artikel, Nachrichten und Analysen zu den neuesten Änderungen in der brasilianischen Gesetzgebung und Rechtsprechung.",
+    "blog.subtitle":
+      "Artikel, Nachrichten und Analysen zu den neuesten Änderungen in der brasilianischen Gesetzgebung und Rechtsprechung.",
     "blog.search_placeholder": "Artikel suchen...",
     "blog.all_tags": "Alle Tags",
     "blog.all": "Alle",
@@ -949,18 +1151,21 @@ export const translations: Translations = {
     "blog.reading_time": "Min. Lesezeit",
     "blog.see_more_articles": "Mehr Artikel anzeigen",
     "blog.article_not_found": "Artikel nicht gefunden",
-    "blog.article_not_found_description": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
+    "blog.article_not_found_description":
+      "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
     "blog.translation_error": "Fehler beim Übersetzen des Inhalts",
     "blog.translating": "Übersetzung...",
-    
+
     // Latest News Section
     "news.title": "Neueste Nachrichten",
-    "news.subtitle": "Verfolgen Sie die neuesten Veröffentlichungen unseres Rechtsblogs.",
+    "news.subtitle":
+      "Verfolgen Sie die neuesten Veröffentlichungen unseres Rechtsblogs.",
     "news.view_all": "Alle Nachrichten anzeigen",
 
     // Avalie
     "avalie.heroTitle": "Ihre Meinung ist uns wichtig",
-    "avalie.heroSubtitle": "Helfen Sie uns, unsere Servicequalität durch Ihre Bewertung zu erhalten.",
+    "avalie.heroSubtitle":
+      "Helfen Sie uns, unsere Servicequalität durch Ihre Bewertung zu erhalten.",
     "avalie.cardTitle": "Bewerten Sie unseren Service",
     "avalie.cardSubtitle": "Es dauert weniger als 1 Minute.",
     "avalie.note": "Ihre Bewertung auf Google hilft uns zu wachsen.",
@@ -969,14 +1174,18 @@ export const translations: Translations = {
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Arbeiten Sie mit uns",
-    "trabalheConosco.heroSubtitle": "Bauen Sie mit uns die Zukunft des Rechts auf, mit Ethik und Innovation.",
+    "trabalheConosco.heroSubtitle":
+      "Bauen Sie mit uns die Zukunft des Rechts auf, mit Ethik und Innovation.",
     "trabalheConosco.whyTitle": "Warum bei uns arbeiten?",
     "trabalheConosco.benefits.collaborativeTitle": "Kollaborative Umgebung",
-    "trabalheConosco.benefits.collaborativeDesc": "Arbeiten Sie in einem Team, das Zusammenarbeit und berufliche Entwicklung schätzt.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Arbeiten Sie in einem Team, das Zusammenarbeit und berufliche Entwicklung schätzt.",
     "trabalheConosco.benefits.challengingTitle": "Herausfordernde Fälle",
-    "trabalheConosco.benefits.challengingDesc": "Nehmen Sie an komplexen und relevanten Fällen in verschiedenen Rechtsbereichen teil.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Nehmen Sie an komplexen und relevanten Fällen in verschiedenen Rechtsbereichen teil.",
     "trabalheConosco.benefits.growthTitle": "Berufliches Wachstum",
-    "trabalheConosco.benefits.growthDesc": "Entwickeln Sie Ihre Karriere in einer Kanzlei mit Tradition und juristischer Exzellenz.",
+    "trabalheConosco.benefits.growthDesc":
+      "Entwickeln Sie Ihre Karriere in einer Kanzlei mit Tradition und juristischer Exzellenz.",
     "trabalheConosco.roles.lawyer": "Rechtsanwalt/anwältin",
     "trabalheConosco.roles.intern": "Praktikant/in",
     "trabalheConosco.roles.adminAssistant": "Verwaltungsassistent/in",
@@ -992,15 +1201,18 @@ export const translations: Translations = {
     "trabalheConosco.fields.roleLabel": "Position / Rolle",
     "trabalheConosco.fields.rolePlaceholder": "Gewünschte Position auswählen",
     "trabalheConosco.fields.interestAreaLabel": "Interessenbereich",
-    "trabalheConosco.fields.interestAreaPlaceholder": "z.B. Zivilrecht, Steuerrecht usw.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "z.B. Zivilrecht, Steuerrecht usw.",
     "trabalheConosco.fields.messageLabel": "Nachricht / Erfahrung",
-    "trabalheConosco.fields.messagePlaceholder": "Erzählen Sie uns ein wenig über sich...",
+    "trabalheConosco.fields.messagePlaceholder":
+      "Erzählen Sie uns ein wenig über sich...",
     "trabalheConosco.resumeBox.title": "Lebenslauf einreichen",
-    "trabalheConosco.resumeBox.description": "Nach dem Absenden werden Sie zu WhatsApp weitergeleitet, um Ihren Lebenslauf anzuhängen.",
+    "trabalheConosco.resumeBox.description":
+      "Nach dem Absenden werden Sie zu WhatsApp weitergeleitet, um Ihren Lebenslauf anzuhängen.",
     "trabalheConosco.submit": "Bewerbung absenden",
     "trabalheConosco.backHome": "Zurück zur Startseite",
   },
-  
+
   IT: {
     // Header
     "nav.home": "Home",
@@ -1012,90 +1224,120 @@ export const translations: Translations = {
     "header.access": "Accesso",
     "header.contact_us": "Contattaci",
     "header.language": "Lingua",
-    
+
     // About Section
     "about.title": "Studio",
-    "about.subtitle": "Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000, con copertura nazionale.",
+    "about.subtitle":
+      "Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000, con copertura nazionale.",
     "about.since": "Dal 2000",
     "about.trajectory.title": "Traiettoria",
     "about.trajectory.description": "Oltre 26 anni di eccellenza legale",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS è uno studio legale dal 2000, con copertura nazionale.\n\nFornire servizi legali di eccellenza è il nostro obiettivo e si riflette nei risultati raggiunti e nella soddisfazione dei nostri clienti.",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS è uno studio legale dal 2000, con copertura nazionale.\n\nFornire servizi legali di eccellenza è il nostro obiettivo e si riflette nei risultati raggiunti e nella soddisfazione dei nostri clienti.",
     "about.pillars.badge": "Etica | Impegno",
     "about.pillars.title": "Pilastri Consolidati",
-    "about.pillars.description": "I pilastri di una pratica legale che unisce etica, eccellenza e risultati",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS basa la sua pratica sui principi di un'avvocatura etica, del lavoro impegnato, serio ed efficiente, attento ai cambiamenti della società e alle esigenze di ogni cliente, senza rinunciare alla buona tecnica e al ruolo sociale dell'avvocato nella ricerca di soluzioni efficaci.\n\nIl nostro scopo è promuovere l'equilibrio delle relazioni sociali attraverso la prestazione di un lavoro giuridicamente competente, dando priorità al rapporto professionale con il cliente.\n\nLa nostra attività, che sia preventiva, amministrativa o giudiziaria, è focalizzata sulla ricerca della garanzia dei diritti, sulla sicurezza giuridica, valorizzando principalmente il nostro punto di forza: le persone e la soddisfazione per il lavoro svolto.",
+    "about.pillars.description":
+      "I pilastri di una pratica legale che unisce etica, eccellenza e risultati",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS basa la sua pratica sui principi di un'avvocatura etica, del lavoro impegnato, serio ed efficiente, attento ai cambiamenti della società e alle esigenze di ogni cliente, senza rinunciare alla buona tecnica e al ruolo sociale dell'avvocato nella ricerca di soluzioni efficaci.\n\nIl nostro scopo è promuovere l'equilibrio delle relazioni sociali attraverso la prestazione di un lavoro giuridicamente competente, dando priorità al rapporto professionale con il cliente.\n\nLa nostra attività, che sia preventiva, amministrativa o giudiziaria, è focalizzata sulla ricerca della garanzia dei diritti, sulla sicurezza giuridica, valorizzando principalmente il nostro punto di forza: le persone e la soddisfazione per il lavoro svolto.",
     "about.mission.badge": "Eccellenza",
     "about.mission.title": "La Nostra Missione",
-    "about.mission.description": "Relazioni di qualità e servizi legali efficaci",
-    "about.mission.full": "Siamo inseriti in una società in costante evoluzione, il che riflette la necessità di formazione continua del nostro team. I cambiamenti legislativi, normativi e giurisprudenziali richiedono sempre più qualificazione tecnica e l'incorporazione di nuove tecnologie, affinché il servizio ai nostri clienti fornisca soddisfazione, raggiunga efficienza, risolutività e, soprattutto, agilità.",
+    "about.mission.description":
+      "Relazioni di qualità e servizi legali efficaci",
+    "about.mission.full":
+      "Siamo inseriti in una società in costante evoluzione, il che riflette la necessità di formazione continua del nostro team. I cambiamenti legislativi, normativi e giurisprudenziali richiedono sempre più qualificazione tecnica e l'incorporazione di nuove tecnologie, affinché il servizio ai nostri clienti fornisca soddisfazione, raggiunga efficienza, risolutività e, soprattutto, agilità.",
     "about.office.badge": "Copertura Nazionale",
     "about.office.title": "Studio",
     "about.office.description": "Sede a Brasília con copertura nazionale",
-    "about.office.full": "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Porto Alegre e Natal.",
+    "about.office.full":
+      "Tecnologia, agilità e portata nazionale.\n\nPresenza in tutto il territorio, soluzioni in ogni dettaglio.\n\nCon indirizzi anche a São Paulo, Porto Alegre e Natal.",
     "about.explore": "Esplora",
-    
+
     // Practice Areas
     "areas.title": "Aree di Pratica",
-    "areas.subtitle": "Specializzati in Diritto Amministrativo e attivi in diverse aree del Diritto.",
+    "areas.subtitle":
+      "Specializzati in Diritto Amministrativo e attivi in diverse aree del Diritto.",
     "areas.learn_more": "Scopri di più",
     "areas.scroll_hint": "← Scorri per navigare →",
     "areas.admin.title": "Diritto Amministrativo (Dipendenti Pubblici)",
-    "areas.admin.description": "Difesa dei diritti e interessi dei dipendenti pubblici",
-    "areas.admin.full": "Lavoriamo nella difesa completa dei diritti dei dipendenti pubblici.",
+    "areas.admin.description":
+      "Difesa dei diritti e interessi dei dipendenti pubblici",
+    "areas.admin.full":
+      "Lavoriamo nella difesa completa dei diritti dei dipendenti pubblici.",
     "areas.labor.title": "Diritto del Lavoro Individuale e Collettivo",
     "areas.labor.description": "Reclami lavorativi e monitoraggio processuale",
     "areas.labor.full": "Offriamo consulenza completa su questioni lavorative.",
     "areas.union.title": "Diritto Sindacale",
     "areas.union.description": "Consulenza completa per enti sindacali",
-    "areas.union.full": "Forniamo consulenza legale specializzata per sindacati.",
+    "areas.union.full":
+      "Forniamo consulenza legale specializzata per sindacati.",
     "areas.social_security.title": "Diritto della Previdenza Sociale",
-    "areas.social_security.description": "Concessione e revisione dei benefici previdenziali",
-    "areas.social_security.full": "Specializzati in diritto della previdenza sociale.",
+    "areas.social_security.description":
+      "Concessione e revisione dei benefici previdenziali",
+    "areas.social_security.full":
+      "Specializzati in diritto della previdenza sociale.",
     "areas.constitutional.title": "Diritto Costituzionale",
-    "areas.constitutional.description": "Elaborazione di ADI e ricorsi straordinari",
-    "areas.constitutional.full": "Lavoriamo su questioni costituzionali di alta complessità.",
+    "areas.constitutional.description":
+      "Elaborazione di ADI e ricorsi straordinari",
+    "areas.constitutional.full":
+      "Lavoriamo su questioni costituzionali di alta complessità.",
     "areas.criminal.title": "Diritto Penale",
     "areas.criminal.description": "Habeas Corpus e ricorsi penali",
-    "areas.criminal.full": "Il nostro team di diritto penale lavora in tutte le fasi del processo penale.",
+    "areas.criminal.full":
+      "Il nostro team di diritto penale lavora in tutte le fasi del processo penale.",
     "areas.electoral.title": "Diritto Elettorale",
     "areas.electoral.description": "Consulenza elettorale completa",
-    "areas.electoral.full": "Forniamo consulenza elettorale completa per candidati e partiti politici.",
+    "areas.electoral.full":
+      "Forniamo consulenza elettorale completa per candidati e partiti politici.",
     "areas.superior_courts.title": "Tribunali Superiori",
-    "areas.superior_courts.description": "Pratica a Brasília presso i Tribunali Superiori",
-    "areas.superior_courts.full": "Con sede a Brasília, abbiamo pratica diretta presso i Tribunali Superiori.",
+    "areas.superior_courts.description":
+      "Pratica a Brasília presso i Tribunali Superiori",
+    "areas.superior_courts.full":
+      "Con sede a Brasília, abbiamo pratica diretta presso i Tribunali Superiori.",
     "areas.real_estate.title": "Diritto Immobiliare",
-    "areas.real_estate.description": "Consulenza completa in affari e regolarizzazione immobiliare",
-    "areas.real_estate.full": "Lavoriamo su tutte le questioni relative agli immobili.",
+    "areas.real_estate.description":
+      "Consulenza completa in affari e regolarizzazione immobiliare",
+    "areas.real_estate.full":
+      "Lavoriamo su tutte le questioni relative agli immobili.",
     "areas.family.title": "Diritto di Famiglia e Successioni",
     "areas.family.description": "Inventari, divorzi, alimenti e successioni",
-    "areas.family.full": "Offriamo consulenza sensibile e specializzata su questioni familiari.",
+    "areas.family.full":
+      "Offriamo consulenza sensibile e specializzata su questioni familiari.",
     "areas.public_treasury.title": "Tesoro Pubblico ed Enti Federali",
-    "areas.public_treasury.description": "Azioni contro l'Unione, Stati, DF e Comuni",
-    "areas.public_treasury.full": "Rappresentiamo clienti in azioni contro l'Unione, Stati e Comuni.",
+    "areas.public_treasury.description":
+      "Azioni contro l'Unione, Stati, DF e Comuni",
+    "areas.public_treasury.full":
+      "Rappresentiamo clienti in azioni contro l'Unione, Stati e Comuni.",
     "areas.mediation.title": "Mediazione e Conciliazione",
-    "areas.mediation.description": "Metodi alternativi di risoluzione delle controversie",
-    "areas.mediation.full": "Crediamo nei metodi alternativi di risoluzione delle controversie.",
+    "areas.mediation.description":
+      "Metodi alternativi di risoluzione delle controversie",
+    "areas.mediation.full":
+      "Crediamo nei metodi alternativi di risoluzione delle controversie.",
     "areas.tax.title": "Diritto Tributario e Commerciale",
-    "areas.tax.description": "Consulenza legale per aziende e materia tributaria",
+    "areas.tax.description":
+      "Consulenza legale per aziende e materia tributaria",
     "areas.tax.full": "Forniamo consulenza tributaria e commerciale completa.",
-    
+
     // Team Section
     "team.title": "Team",
-    "team.subtitle": "Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000, con copertura nazionale.",
+    "team.subtitle":
+      "Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000, con copertura nazionale.",
     "team.scroll_hint": "← Scorri per navigare →",
-    
+
     // Stats Section
     "stats.years": "Anni di Esperienza",
     "stats.clients": "Clienti Serviti",
     "stats.success_rate": "Tasso di Successo",
     "stats.cases": "Casi Risolti",
-    
+
     // Contact Section
     "contact.title": "Posizione",
     "contact.subtitle": "Visita il nostro studio a Brasília.",
-    "contact.address": "SGAS 902, lotto 74, Blocco B, Sale 102 a 112 - Edificio Athenas - Brasília - DF - CAP 70390-020",
+    "contact.address":
+      "SGAS 902, lotto 74, Blocco B, Sale 102 a 112 - Edificio Athenas - Brasília - DF - CAP 70390-020",
     "contact.form_title": "Contatto",
-    "contact.form_subtitle": "Compila il modulo e ti contatteremo il prima possibile",
+    "contact.form_subtitle":
+      "Compila il modulo e ti contatteremo il prima possibile",
     "contact.name": "Nome Completo",
     "contact.cpf": "CPF",
     "contact.phone": "Telefono",
@@ -1103,40 +1345,49 @@ export const translations: Translations = {
     "contact.process_number": "Numero di Processo (Opzionale)",
     "contact.message": "Messaggio",
     "contact.send": "Invia Messaggio",
-    
+
     // Footer
-    "footer.description": "Dal 2000, offriamo soluzioni legali con eccellenza, etica e risultati, operando in tutto il territorio nazionale.",
+    "footer.description":
+      "Dal 2000, offriamo soluzioni legali con eccellenza, etica e risultati, operando in tutto il territorio nazionale.",
     "footer.quick_links": "Link Rapidi",
     "footer.contact": "Contatto",
     "footer.social": "Social Network",
     "footer.hours": "Lun - Ven: 9 alle 18",
     "footer.rights": "Tutti i diritti riservati.",
-    
+
     // Newsletter
     "newsletter.title": "Resta Aggiornato",
-    "newsletter.subtitle": "Iscriviti alla newsletter e ricevi consigli legali e novità dallo studio.",
+    "newsletter.subtitle":
+      "Iscriviti alla newsletter e ricevi consigli legali e novità dallo studio.",
     "newsletter.placeholder": "La tua migliore email",
     "newsletter.button": "Iscriviti",
-    "newsletter.success": "Successo! Controlla ora la tua email per confermare l'iscrizione.",
-    
+    "newsletter.sending": "Invio in corso...",
+    "newsletter.error": "Errore",
+    "newsletter.errorMessage": "Inserisci un'email valida.",
+    "newsletter.success":
+      "Successo! Controlla ora la tua email per confermare l'iscrizione.",
+
     // Process Search
     "process.title": "Controlla il Tuo Caso",
-    "process.subtitle": "Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.",
+    "process.subtitle":
+      "Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.",
     "process.placeholder": "Numero del caso (es.: 0000000-00.0000.0.00.0000)",
     "process.name": "Nome completo",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Consulta tramite WhatsApp",
     "process.whatsapp_message": "Ciao! Vorrei consultare il mio caso.",
-    
+
     // Cookie Banner
     "cookie.title": "Politica dei Cookie",
-    "cookie.description": "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Continuando a navigare, accetti la nostra politica sulla privacy.",
+    "cookie.description":
+      "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Continuando a navigare, accetti la nostra politica sulla privacy.",
     "cookie.reject": "Rifiuta",
     "cookie.accept": "Accetta",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Articoli, notizie e analisi sui cambiamenti più recenti nella legislazione e giurisprudenza brasiliana.",
+    "blog.subtitle":
+      "Articoli, notizie e analisi sui cambiamenti più recenti nella legislazione e giurisprudenza brasiliana.",
     "blog.search_placeholder": "Cerca articoli...",
     "blog.all_tags": "Tutti i tag",
     "blog.all": "Tutti",
@@ -1148,10 +1399,11 @@ export const translations: Translations = {
     "blog.reading_time": "min di lettura",
     "blog.see_more_articles": "Vedi altri articoli",
     "blog.article_not_found": "Articolo non trovato",
-    "blog.article_not_found_description": "L'articolo che stai cercando non esiste o è stato rimosso.",
+    "blog.article_not_found_description":
+      "L'articolo che stai cercando non esiste o è stato rimosso.",
     "blog.translation_error": "Errore nella traduzione del contenuto",
     "blog.translating": "Traduzione in corso...",
-    
+
     // Latest News Section
     "news.title": "Ultime Notizie",
     "news.subtitle": "Segui le ultime pubblicazioni del nostro blog giuridico.",
@@ -1159,7 +1411,8 @@ export const translations: Translations = {
 
     // Avalie
     "avalie.heroTitle": "La tua opinione è fondamentale",
-    "avalie.heroSubtitle": "Aiutaci a mantenere l'eccellenza dei nostri servizi attraverso la tua valutazione.",
+    "avalie.heroSubtitle":
+      "Aiutaci a mantenere l'eccellenza dei nostri servizi attraverso la tua valutazione.",
     "avalie.cardTitle": "Valuta il nostro servizio",
     "avalie.cardSubtitle": "Ci vuole meno di 1 minuto.",
     "avalie.note": "La tua recensione su Google ci aiuta a crescere.",
@@ -1168,14 +1421,18 @@ export const translations: Translations = {
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Lavora con Noi",
-    "trabalheConosco.heroSubtitle": "Costruisci il futuro dell'avvocatura con noi, con etica e innovazione.",
+    "trabalheConosco.heroSubtitle":
+      "Costruisci il futuro dell'avvocatura con noi, con etica e innovazione.",
     "trabalheConosco.whyTitle": "Perché lavorare con noi?",
     "trabalheConosco.benefits.collaborativeTitle": "Ambiente Colaborativo",
-    "trabalheConosco.benefits.collaborativeDesc": "Lavora in un team che valorizza la collaborazione e lo sviluppo professionale.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Lavora in un team che valorizza la collaborazione e lo sviluppo professionale.",
     "trabalheConosco.benefits.challengingTitle": "Casi Sfidanti",
-    "trabalheConosco.benefits.challengingDesc": "Partecipa a casi complessi e rilevanti in varie aree del diritto.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Partecipa a casi complessi e rilevanti in varie aree del diritto.",
     "trabalheConosco.benefits.growthTitle": "Crescita Professionale",
-    "trabalheConosco.benefits.growthDesc": "Sviluppa la tua carriera in uno studio con tradizione ed eccellenza legale.",
+    "trabalheConosco.benefits.growthDesc":
+      "Sviluppa la tua carriera in uno studio con tradizione ed eccellenza legale.",
     "trabalheConosco.roles.lawyer": "Avvocato(a)",
     "trabalheConosco.roles.intern": "Stagista",
     "trabalheConosco.roles.adminAssistant": "Assistente Amministrativo",
@@ -1189,17 +1446,20 @@ export const translations: Translations = {
     "trabalheConosco.fields.phoneLabel": "Telefono / WhatsApp",
     "trabalheConosco.fields.phonePlaceholder": "(00) 00000-0000",
     "trabalheConosco.fields.roleLabel": "Ruolo / Posizione",
-    "trabalheConosco.fields.rolePlaceholder": "Seleziona la posizione desiderata",
+    "trabalheConosco.fields.rolePlaceholder":
+      "Seleziona la posizione desiderata",
     "trabalheConosco.fields.interestAreaLabel": "Area di Interesse",
-    "trabalheConosco.fields.interestAreaPlaceholder": "Es: Diritto Civile, Tributario, ecc.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "Es: Diritto Civile, Tributario, ecc.",
     "trabalheConosco.fields.messageLabel": "Messaggio / Esperienza",
     "trabalheConosco.fields.messagePlaceholder": "Raccontaci un po' di te...",
     "trabalheConosco.resumeBox.title": "Invio del Curriculum",
-    "trabalheConosco.resumeBox.description": "Dopo l'invio, sarai reindirizzato a WhatsApp per allegare il tuo curriculum.",
+    "trabalheConosco.resumeBox.description":
+      "Dopo l'invio, sarai reindirizzato a WhatsApp per allegare il tuo curriculum.",
     "trabalheConosco.submit": "Invia Candidatura",
     "trabalheConosco.backHome": "Torna alla Home",
   },
-  
+
   FR: {
     // Header
     "nav.home": "Accueil",
@@ -1211,90 +1471,123 @@ export const translations: Translations = {
     "header.access": "Accès",
     "header.contact_us": "Contactez-nous",
     "header.language": "Langue",
-    
+
     // About Section
     "about.title": "Cabinet",
-    "about.subtitle": "Construisant des solutions juridiques avec excellence, éthique et résultats depuis 2000, avec une couverture nationale.",
+    "about.subtitle":
+      "Construisant des solutions juridiques avec excellence, éthique et résultats depuis 2000, avec une couverture nationale.",
     "about.since": "Depuis 2000",
     "about.trajectory.title": "Trajectoire",
     "about.trajectory.description": "Plus de 26 ans d'excellence juridique",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS est un cabinet d'avocats depuis 2000, avec une couverture nationale.\n\nFournir des services juridiques d'excellence est notre objectif et se reflète dans les résultats obtenus et la satisfaction de nos clients.",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS est un cabinet d'avocats depuis 2000, avec une couverture nationale.\n\nFournir des services juridiques d'excellence est notre objectif et se reflète dans les résultats obtenus et la satisfaction de nos clients.",
     "about.pillars.badge": "Éthique | Engagement",
     "about.pillars.title": "Piliers Consolidés",
-    "about.pillars.description": "Les piliers d'une pratique juridique qui unit éthique, excellence et résultats",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS fonde son action sur les principes d'une avocature éthique, d'un travail engagé, sérieux et efficace, attentif aux changements de la société et aux besoins de chaque client, sans négliger la bonne technique et le rôle social de l'avocat dans la recherche de solutions efficaces.\n\nNotre objectif est de promouvoir l'équilibre des relations sociales à travers la fourniture d'un travail juridiquement compétent, en privilégiant la relation professionnelle avec le client.\n\nNotre action, qu'elle soit préventive, administrative ou judiciaire, est axée sur la recherche de la garantie des droits, la sécurité juridique, valorisant principalement notre point le plus fort : les personnes et la satisfaction du travail accompli.",
+    "about.pillars.description":
+      "Les piliers d'une pratique juridique qui unit éthique, excellence et résultats",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS fonde son action sur les principes d'une avocature éthique, d'un travail engagé, sérieux et efficace, attentif aux changements de la société et aux besoins de chaque client, sans négliger la bonne technique et le rôle social de l'avocat dans la recherche de solutions efficaces.\n\nNotre objectif est de promouvoir l'équilibre des relations sociales à travers la fourniture d'un travail juridiquement compétent, en privilégiant la relation professionnelle avec le client.\n\nNotre action, qu'elle soit préventive, administrative ou judiciaire, est axée sur la recherche de la garantie des droits, la sécurité juridique, valorisant principalement notre point le plus fort : les personnes et la satisfaction du travail accompli.",
     "about.mission.badge": "Excellence",
     "about.mission.title": "Notre Mission",
-    "about.mission.description": "Relations de qualité et services juridiques efficaces",
-    "about.mission.full": "Nous sommes insérés dans une société en constante évolution, ce qui reflète la nécessité d'une formation continue de notre équipe. Les changements législatifs, réglementaires et jurisprudentiels exigent de plus en plus de qualification technique et l'incorporation de nouvelles technologies, pour que le service à nos clients apporte satisfaction, atteigne efficacité, résolution et, surtout, agilité.",
+    "about.mission.description":
+      "Relations de qualité et services juridiques efficaces",
+    "about.mission.full":
+      "Nous sommes insérés dans une société en constante évolution, ce qui reflète la nécessité d'une formation continue de notre équipe. Les changements législatifs, réglementaires et jurisprudentiels exigent de plus en plus de qualification technique et l'incorporation de nouvelles technologies, pour que le service à nos clients apporte satisfaction, atteigne efficacité, résolution et, surtout, agilité.",
     "about.office.badge": "Couverture Nationale",
     "about.office.title": "Cabinet",
     "about.office.description": "Siège à Brasília avec couverture nationale",
-    "about.office.full": "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",
+    "about.office.full":
+      "Technologie, agilité et portée nationale.\n\nPrésence sur tout le territoire, solutions dans chaque détail.\n\nAvec des adresses également à São Paulo, Porto Alegre et Natal.",
     "about.explore": "Explorer",
-    
+
     // Practice Areas
     "areas.title": "Domaines d'expertise",
-    "areas.subtitle": "Spécialisés en Droit Administratif et actifs dans divers domaines du Droit.",
+    "areas.subtitle":
+      "Spécialisés en Droit Administratif et actifs dans divers domaines du Droit.",
     "areas.learn_more": "En savoir plus",
     "areas.scroll_hint": "← Faites glisser pour naviguer →",
     "areas.admin.title": "Droit Administratif (Fonctionnaires)",
-    "areas.admin.description": "Défense des droits et intérêts des fonctionnaires",
-    "areas.admin.full": "Nous travaillons à la défense complète des droits des fonctionnaires.",
+    "areas.admin.description":
+      "Défense des droits et intérêts des fonctionnaires",
+    "areas.admin.full":
+      "Nous travaillons à la défense complète des droits des fonctionnaires.",
     "areas.labor.title": "Droit du Travail Individuel et Collectif",
     "areas.labor.description": "Réclamations de travail et suivi procédural",
-    "areas.labor.full": "Nous offrons un conseil complet sur les questions de travail.",
+    "areas.labor.full":
+      "Nous offrons un conseil complet sur les questions de travail.",
     "areas.union.title": "Droit Syndical",
     "areas.union.description": "Conseil complet pour les entités syndicales",
-    "areas.union.full": "Nous fournissons un conseil juridique spécialisé pour les syndicats.",
+    "areas.union.full":
+      "Nous fournissons un conseil juridique spécialisé pour les syndicats.",
     "areas.social_security.title": "Droit de la Sécurité Sociale",
-    "areas.social_security.description": "Octroi et révision des prestations de sécurité sociale",
-    "areas.social_security.full": "Spécialisés en droit de la sécurité sociale.",
+    "areas.social_security.description":
+      "Octroi et révision des prestations de sécurité sociale",
+    "areas.social_security.full":
+      "Spécialisés en droit de la sécurité sociale.",
     "areas.constitutional.title": "Droit Constitutionnel",
-    "areas.constitutional.description": "Élaboration d'ADI et recours extraordinaires",
-    "areas.constitutional.full": "Nous travaillons sur des questions constitutionnelles de haute complexité.",
+    "areas.constitutional.description":
+      "Élaboration d'ADI et recours extraordinaires",
+    "areas.constitutional.full":
+      "Nous travaillons sur des questions constitutionnelles de haute complexité.",
     "areas.criminal.title": "Droit Pénal",
     "areas.criminal.description": "Habeas Corpus et recours pénaux",
-    "areas.criminal.full": "Notre équipe de droit pénal travaille à toutes les étapes de la procédure pénale.",
+    "areas.criminal.full":
+      "Notre équipe de droit pénal travaille à toutes les étapes de la procédure pénale.",
     "areas.electoral.title": "Droit Électoral",
     "areas.electoral.description": "Conseil électoral complet",
-    "areas.electoral.full": "Nous fournissons un conseil électoral complet pour les candidats et partis politiques.",
+    "areas.electoral.full":
+      "Nous fournissons un conseil électoral complet pour les candidats et partis politiques.",
     "areas.superior_courts.title": "Tribunaux Supérieurs",
-    "areas.superior_courts.description": "Pratique à Brasília devant les Tribunaux Supérieurs",
-    "areas.superior_courts.full": "Avec son siège à Brasília, nous avons une pratique directe devant les Tribunaux Supérieurs.",
+    "areas.superior_courts.description":
+      "Pratique à Brasília devant les Tribunaux Supérieurs",
+    "areas.superior_courts.full":
+      "Avec son siège à Brasília, nous avons une pratique directe devant les Tribunaux Supérieurs.",
     "areas.real_estate.title": "Droit Immobilier",
-    "areas.real_estate.description": "Conseil complet en affaires et régularisation immobilière",
-    "areas.real_estate.full": "Nous travaillons sur toutes les questions liées à l'immobilier.",
+    "areas.real_estate.description":
+      "Conseil complet en affaires et régularisation immobilière",
+    "areas.real_estate.full":
+      "Nous travaillons sur toutes les questions liées à l'immobilier.",
     "areas.family.title": "Droit de la Famille et des Successions",
-    "areas.family.description": "Inventaires, divorces, pensions et successions",
-    "areas.family.full": "Nous offrons un conseil sensible et spécialisé sur les questions familiales.",
+    "areas.family.description":
+      "Inventaires, divorces, pensions et successions",
+    "areas.family.full":
+      "Nous offrons un conseil sensible et spécialisé sur les questions familiales.",
     "areas.public_treasury.title": "Trésor Public et Entités Fédérales",
-    "areas.public_treasury.description": "Actions contre l'Union, États, DF et Municipalités",
-    "areas.public_treasury.full": "Nous représentons des clients dans des actions contre l'Union, États et Municipalités.",
+    "areas.public_treasury.description":
+      "Actions contre l'Union, États, DF et Municipalités",
+    "areas.public_treasury.full":
+      "Nous représentons des clients dans des actions contre l'Union, États et Municipalités.",
     "areas.mediation.title": "Médiation et Conciliation",
-    "areas.mediation.description": "Méthodes alternatives de résolution des conflits",
-    "areas.mediation.full": "Nous croyons aux méthodes alternatives de résolution des conflits.",
+    "areas.mediation.description":
+      "Méthodes alternatives de résolution des conflits",
+    "areas.mediation.full":
+      "Nous croyons aux méthodes alternatives de résolution des conflits.",
     "areas.tax.title": "Droit Fiscal et des Affaires",
-    "areas.tax.description": "Conseil juridique pour entreprises et matière fiscale",
-    "areas.tax.full": "Nous fournissons un conseil fiscal et commercial complet.",
-    
+    "areas.tax.description":
+      "Conseil juridique pour entreprises et matière fiscale",
+    "areas.tax.full":
+      "Nous fournissons un conseil fiscal et commercial complet.",
+
     // Team Section
     "team.title": "Équipe",
-    "team.subtitle": "Construisant des solutions juridiques avec excellence, éthique et résultats depuis 2000, avec couverture nationale.",
+    "team.subtitle":
+      "Construisant des solutions juridiques avec excellence, éthique et résultats depuis 2000, avec couverture nationale.",
     "team.scroll_hint": "← Faites glisser pour naviguer →",
-    
+
     // Stats Section
     "stats.years": "Années d'Expérience",
     "stats.clients": "Clients Servis",
     "stats.success_rate": "Taux de Réussite",
     "stats.cases": "Affaires Résolues",
-    
+
     // Contact Section
     "contact.title": "Emplacement",
     "contact.subtitle": "Visitez notre cabinet à Brasília.",
-    "contact.address": "SGAS 902, lot 74, Bloc B, Salles 102 à 112 - Bâtiment Athenas - Brasília - DF - Code Postal 70390-020",
+    "contact.address":
+      "SGAS 902, lot 74, Bloc B, Salles 102 à 112 - Bâtiment Athenas - Brasília - DF - Code Postal 70390-020",
     "contact.form_title": "Contact",
-    "contact.form_subtitle": "Remplissez le formulaire et nous vous contacterons dès que possible",
+    "contact.form_subtitle":
+      "Remplissez le formulaire et nous vous contacterons dès que possible",
     "contact.name": "Nom Complet",
     "contact.cpf": "CPF",
     "contact.phone": "Téléphone",
@@ -1302,40 +1595,49 @@ export const translations: Translations = {
     "contact.process_number": "Numéro de Dossier (Facultatif)",
     "contact.message": "Message",
     "contact.send": "Envoyer le Message",
-    
+
     // Footer
-    "footer.description": "Depuis 2000, nous offrons des solutions juridiques avec excellence, éthique et résultats, opérant sur tout le territoire national.",
+    "footer.description":
+      "Depuis 2000, nous offrons des solutions juridiques avec excellence, éthique et résultats, opérant sur tout le territoire national.",
     "footer.quick_links": "Liens Rapides",
     "footer.contact": "Contact",
     "footer.social": "Réseaux Sociaux",
     "footer.hours": "Lun - Ven: 9h à 18h",
     "footer.rights": "Tous droits réservés.",
-    
+
     // Newsletter
     "newsletter.title": "Restez Informé",
-    "newsletter.subtitle": "Abonnez-vous à la newsletter et recevez des conseils juridiques et des nouvelles du cabinet.",
+    "newsletter.subtitle":
+      "Abonnez-vous à la newsletter et recevez des conseils juridiques et des nouvelles du cabinet.",
     "newsletter.placeholder": "Votre meilleur email",
     "newsletter.button": "S'abonner",
-    "newsletter.success": "Succès! Vérifiez maintenant votre email pour confirmer votre inscription.",
-    
+    "newsletter.sending": "Envoi...",
+    "newsletter.error": "Erreur",
+    "newsletter.errorMessage": "Veuillez saisir une adresse e-mail valide.",
+    "newsletter.success":
+      "Succès! Vérifiez maintenant votre email pour confirmer votre inscription.",
+
     // Process Search
     "process.title": "Consultez Votre Dossier",
-    "process.subtitle": "Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.",
+    "process.subtitle":
+      "Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.",
     "process.placeholder": "Numéro du dossier (ex: 0000000-00.0000.0.00.0000)",
     "process.name": "Nom complet",
     "process.cpf": "CPF/CNPJ",
     "process.button": "Consulter via WhatsApp",
     "process.whatsapp_message": "Bonjour! Je voudrais consulter mon dossier.",
-    
+
     // Cookie Banner
     "cookie.title": "Politique de Cookies",
-    "cookie.description": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.",
+    "cookie.description":
+      "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.",
     "cookie.reject": "Refuser",
     "cookie.accept": "Accepter",
-    
+
     // Blog Page
     "blog.title": "Blog",
-    "blog.subtitle": "Articles, actualités et analyses sur les derniers changements dans la législation et la jurisprudence brésilienne.",
+    "blog.subtitle":
+      "Articles, actualités et analyses sur les derniers changements dans la législation et la jurisprudence brésilienne.",
     "blog.search_placeholder": "Rechercher des articles...",
     "blog.all_tags": "Tous les tags",
     "blog.all": "Tous",
@@ -1347,18 +1649,21 @@ export const translations: Translations = {
     "blog.reading_time": "min de lecture",
     "blog.see_more_articles": "Voir plus d'articles",
     "blog.article_not_found": "Article non trouvé",
-    "blog.article_not_found_description": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+    "blog.article_not_found_description":
+      "L'article que vous recherchez n'existe pas ou a été supprimé.",
     "blog.translation_error": "Erreur lors de la traduction du contenu",
     "blog.translating": "Traduction en cours...",
-    
+
     // Latest News Section
     "news.title": "Dernières Actualités",
-    "news.subtitle": "Suivez les dernières publications de notre blog juridique.",
+    "news.subtitle":
+      "Suivez les dernières publications de notre blog juridique.",
     "news.view_all": "Voir toutes les actualités",
 
     // Avalie
     "avalie.heroTitle": "Votre avis est essentiel",
-    "avalie.heroSubtitle": "Aidez-nous à maintenir l'excellence de nos services grâce à votre évaluation.",
+    "avalie.heroSubtitle":
+      "Aidez-nous à maintenir l'excellence de nos services grâce à votre évaluation.",
     "avalie.cardTitle": "Évaluez notre service",
     "avalie.cardSubtitle": "Cela prend moins d'une minute.",
     "avalie.note": "Votre avis sur Google nous aide à grandir.",
@@ -1367,14 +1672,18 @@ export const translations: Translations = {
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "Travailler avec nous",
-    "trabalheConosco.heroSubtitle": "Construisez l'avenir du droit avec nous, avec éthique et innovation.",
+    "trabalheConosco.heroSubtitle":
+      "Construisez l'avenir du droit avec nous, avec éthique et innovation.",
     "trabalheConosco.whyTitle": "Pourquoi travailler avec nous ?",
     "trabalheConosco.benefits.collaborativeTitle": "Environnement Collaboratif",
-    "trabalheConosco.benefits.collaborativeDesc": "Travaillez dans une équipe qui valorise la collaboration et le développement professionnel.",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "Travaillez dans une équipe qui valorise la collaboration et le développement professionnel.",
     "trabalheConosco.benefits.challengingTitle": "Cas Stimulants",
-    "trabalheConosco.benefits.challengingDesc": "Participez à des cas complexes et pertinents dans divers domaines du droit.",
+    "trabalheConosco.benefits.challengingDesc":
+      "Participez à des cas complexes et pertinents dans divers domaines du droit.",
     "trabalheConosco.benefits.growthTitle": "Croissance Professionnelle",
-    "trabalheConosco.benefits.growthDesc": "Développez votre carrière dans un cabinet de tradition et d'excellence juridique.",
+    "trabalheConosco.benefits.growthDesc":
+      "Développez votre carrière dans un cabinet de tradition et d'excellence juridique.",
     "trabalheConosco.roles.lawyer": "Avocat(e)",
     "trabalheConosco.roles.intern": "Stagiaire",
     "trabalheConosco.roles.adminAssistant": "Assistant(e) Administratif(ve)",
@@ -1390,15 +1699,18 @@ export const translations: Translations = {
     "trabalheConosco.fields.roleLabel": "Poste / Rôle",
     "trabalheConosco.fields.rolePlaceholder": "Sélectionnez le poste souhaité",
     "trabalheConosco.fields.interestAreaLabel": "Domaine d'Intérêt",
-    "trabalheConosco.fields.interestAreaPlaceholder": "Ex : Droit Civil, Fiscal, etc.",
+    "trabalheConosco.fields.interestAreaPlaceholder":
+      "Ex : Droit Civil, Fiscal, etc.",
     "trabalheConosco.fields.messageLabel": "Message / Expérience",
-    "trabalheConosco.fields.messagePlaceholder": "Parlez-nous un peu de vous...",
+    "trabalheConosco.fields.messagePlaceholder":
+      "Parlez-nous un peu de vous...",
     "trabalheConosco.resumeBox.title": "Envoi de Curriculum Vitae",
-    "trabalheConosco.resumeBox.description": "Après l'envoi, vous serez redirigé vers WhatsApp pour joindre votre CV.",
+    "trabalheConosco.resumeBox.description":
+      "Après l'envoi, vous serez redirigé vers WhatsApp pour joindre votre CV.",
     "trabalheConosco.submit": "Envoyer la Candidature",
     "trabalheConosco.backHome": "Retour à l'Accueil",
   },
-  
+
   ZH: {
     // Header
     "nav.home": "首页",
@@ -1410,28 +1722,33 @@ export const translations: Translations = {
     "header.access": "访问",
     "header.contact_us": "联系我们",
     "header.language": "语言",
-    
+
     // About Section
     "about.title": "律师事务所",
-    "about.subtitle": "自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国。",
+    "about.subtitle":
+      "自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国。",
     "about.since": "自2000年",
     "about.trajectory.title": "发展历程",
     "about.trajectory.description": "超过26年的法律卓越",
-    "about.trajectory.full": "MOTA & ADVOGADOS ASSOCIADOS 是一家自2000年成立的律师事务所，业务覆盖全国。\n\n提供卓越的法律服务是我们的目标，这体现在我们取得的成果和客户的满意度上。",
+    "about.trajectory.full":
+      "MOTA & ADVOGADOS ASSOCIADOS 是一家自2000年成立的律师事务所，业务覆盖全国。\n\n提供卓越的法律服务是我们的目标，这体现在我们取得的成果和客户的满意度上。",
     "about.pillars.badge": "道德 | 承诺",
     "about.pillars.title": "巩固的支柱",
     "about.pillars.description": "将道德、卓越和成果结合的法律实践支柱",
-    "about.pillars.full": "MOTA & ADVOGADOS ASSOCIADOS 的业务建立在道德律师事务、认真、严肃、高效工作的原则之上，关注社会变化和每位客户的需求，同时不忽视良好的技术和律师在寻求有效解决方案中的社会角色。\n\n我们的目标是通过提供法律上胜任的工作来促进社会关系的平衡，优先考虑与客户的专业关系。\n\n我们的工作，无论是预防性、行政性还是司法性的，都专注于寻求权利保障、法律安全，最重要的是重视我们最强的优势：人和对所完成工作的满意度。",
+    "about.pillars.full":
+      "MOTA & ADVOGADOS ASSOCIADOS 的业务建立在道德律师事务、认真、严肃、高效工作的原则之上，关注社会变化和每位客户的需求，同时不忽视良好的技术和律师在寻求有效解决方案中的社会角色。\n\n我们的目标是通过提供法律上胜任的工作来促进社会关系的平衡，优先考虑与客户的专业关系。\n\n我们的工作，无论是预防性、行政性还是司法性的，都专注于寻求权利保障、法律安全，最重要的是重视我们最强的优势：人和对所完成工作的满意度。",
     "about.mission.badge": "卓越",
     "about.mission.title": "我们的使命",
     "about.mission.description": "优质关系和有效的法律服务",
-    "about.mission.full": "我们身处一个不断发展的社会，这反映了我们团队持续培训的必要性。立法、监管和判例的变化越来越要求技术资格和新技术的融入，以便我们对客户的服务能够提供满意度，实现效率、解决能力，尤其是敏捷性。",
+    "about.mission.full":
+      "我们身处一个不断发展的社会，这反映了我们团队持续培训的必要性。立法、监管和判例的变化越来越要求技术资格和新技术的融入，以便我们对客户的服务能够提供满意度，实现效率、解决能力，尤其是敏捷性。",
     "about.office.badge": "全国覆盖",
     "about.office.title": "办公室",
     "about.office.description": "总部位于巴西利亚，覆盖全国",
-    "about.office.full": "技术、敏捷性和全国覆盖。\n\n遍布全国，每个细节都有解决方案。\n\n在圣保罗、巴西利亚和纳塔尔也设有办事处。",
+    "about.office.full":
+      "技术、敏捷性和全国覆盖。\n\n遍布全国，每个细节都有解决方案。\n\n在圣保罗、巴西利亚和纳塔尔也设有办事处。",
     "about.explore": "探索",
-    
+
     // Practice Areas
     "areas.title": "业务领域",
     "areas.subtitle": "专注于行政法，活跃于法律的各个领域。",
@@ -1460,7 +1777,8 @@ export const translations: Translations = {
     "areas.electoral.full": "我们为候选人和政党提供全面的选举咨询。",
     "areas.superior_courts.title": "高等法院",
     "areas.superior_courts.description": "在巴西利亚高等法院执业",
-    "areas.superior_courts.full": "总部位于巴西利亚，我们在高等法院有直接执业。",
+    "areas.superior_courts.full":
+      "总部位于巴西利亚，我们在高等法院有直接执业。",
     "areas.real_estate.title": "房地产法",
     "areas.real_estate.description": "房地产业务和合规化的全面咨询",
     "areas.real_estate.full": "我们处理所有与房地产相关的问题。",
@@ -1469,29 +1787,32 @@ export const translations: Translations = {
     "areas.family.full": "我们提供敏感和专业的家庭事务咨询。",
     "areas.public_treasury.title": "公共财政和联邦实体",
     "areas.public_treasury.description": "针对联邦、州、联邦区和市政当局的诉讼",
-    "areas.public_treasury.full": "我们代表客户针对联邦、州和市政当局提起诉讼。",
+    "areas.public_treasury.full":
+      "我们代表客户针对联邦、州和市政当局提起诉讼。",
     "areas.mediation.title": "调解与和解",
     "areas.mediation.description": "替代性争议解决方法",
     "areas.mediation.full": "我们相信替代性争议解决方法。",
     "areas.tax.title": "税法和商法",
     "areas.tax.description": "为企业提供法律咨询和税务事项",
     "areas.tax.full": "我们提供全面的税务和商业咨询。",
-    
+
     // Team Section
     "team.title": "团队",
-    "team.subtitle": "自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国。",
+    "team.subtitle":
+      "自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国。",
     "team.scroll_hint": "← 滑动浏览 →",
-    
+
     // Stats Section
     "stats.years": "年经验",
     "stats.clients": "服务客户",
     "stats.success_rate": "成功率",
     "stats.cases": "已解决案件",
-    
+
     // Contact Section
     "contact.title": "位置",
     "contact.subtitle": "访问我们在巴西利亚的办公室。",
-    "contact.address": "SGAS 902, 地块74, B座, 102至112室 - 雅典娜大厦 - 巴西利亚 - 联邦区 - 邮编 70390-020",
+    "contact.address":
+      "SGAS 902, 地块74, B座, 102至112室 - 雅典娜大厦 - 巴西利亚 - 联邦区 - 邮编 70390-020",
     "contact.form_title": "联系",
     "contact.form_subtitle": "填写表格，我们会尽快与您联系",
     "contact.name": "全名",
@@ -1501,22 +1822,26 @@ export const translations: Translations = {
     "contact.process_number": "案件编号（可选）",
     "contact.message": "留言",
     "contact.send": "发送信息",
-    
+
     // Footer
-    "footer.description": "自2000年以来，我们在全国范围内提供卓越、道德和成果的法律解决方案。",
+    "footer.description":
+      "自2000年以来，我们在全国范围内提供卓越、道德和成果的法律解决方案。",
     "footer.quick_links": "快速链接",
     "footer.contact": "联系",
     "footer.social": "社交媒体",
     "footer.hours": "周一至周五: 9点至18点",
     "footer.rights": "版权所有。",
-    
+
     // Newsletter
     "newsletter.title": "保持更新",
     "newsletter.subtitle": "订阅我们的通讯，获取法律建议和事务所新闻。",
     "newsletter.placeholder": "您的最佳邮箱",
     "newsletter.button": "订阅",
+    "newsletter.sending": "发送中...",
+    "newsletter.error": "错误",
+    "newsletter.errorMessage": "请输入有效的邮箱地址。",
     "newsletter.success": "成功！请检查您的邮箱以确认订阅。",
-    
+
     // Process Search
     "process.title": "查询您的案件",
     "process.subtitle": "输入案件编号，几分钟内即可收到更新。",
@@ -1525,13 +1850,14 @@ export const translations: Translations = {
     "process.cpf": "CPF/CNPJ",
     "process.button": "通过WhatsApp咨询",
     "process.whatsapp_message": "您好！我想查询我的案件。",
-    
+
     // Cookie Banner
     "cookie.title": "Cookie政策",
-    "cookie.description": "我们使用Cookie来改善您在网站上的体验。继续浏览即表示您同意我们的隐私政策。",
+    "cookie.description":
+      "我们使用Cookie来改善您在网站上的体验。继续浏览即表示您同意我们的隐私政策。",
     "cookie.reject": "拒绝",
     "cookie.accept": "接受",
-    
+
     // Blog Page
     "blog.title": "Blog",
     "blog.subtitle": "关于巴西立法和判例最新变化的文章、新闻和分析。",
@@ -1549,7 +1875,7 @@ export const translations: Translations = {
     "blog.article_not_found_description": "您查找的文章不存在或已被删除。",
     "blog.translation_error": "翻译内容时出错",
     "blog.translating": "翻译中...",
-    
+
     // Latest News Section
     "news.title": "最新新闻",
     "news.subtitle": "关注我们法律博客的最新发布。",
@@ -1566,14 +1892,18 @@ export const translations: Translations = {
 
     // Trabalhe Conosco
     "trabalheConosco.heroTitle": "加入我们",
-    "trabalheConosco.heroSubtitle": "与我们一起，以职业道德和创新精神构建法律的未来。",
+    "trabalheConosco.heroSubtitle":
+      "与我们一起，以职业道德和创新精神构建法律的未来。",
     "trabalheConosco.whyTitle": "为什么加入我们？",
     "trabalheConosco.benefits.collaborativeTitle": "协作环境",
-    "trabalheConosco.benefits.collaborativeDesc": "在重视协作和职业发展的团队中工作。",
+    "trabalheConosco.benefits.collaborativeDesc":
+      "在重视协作和职业发展的团队中工作。",
     "trabalheConosco.benefits.challengingTitle": "具有挑战性的案例",
-    "trabalheConosco.benefits.challengingDesc": "参与法律各个领域中复杂且相关的案例。",
+    "trabalheConosco.benefits.challengingDesc":
+      "参与法律各个领域中复杂且相关的案例。",
     "trabalheConosco.benefits.growthTitle": "职业成长",
-    "trabalheConosco.benefits.growthDesc": "在具有传统和法律卓越表现的事务所发展您的职业生涯。",
+    "trabalheConosco.benefits.growthDesc":
+      "在具有传统和法律卓越表现的事务所发展您的职业生涯。",
     "trabalheConosco.roles.lawyer": "律师",
     "trabalheConosco.roles.intern": "实习生",
     "trabalheConosco.roles.adminAssistant": "行政助理",
@@ -1593,7 +1923,8 @@ export const translations: Translations = {
     "trabalheConosco.fields.messageLabel": "信息 / 经验",
     "trabalheConosco.fields.messagePlaceholder": "向我们介绍一下您自己...",
     "trabalheConosco.resumeBox.title": "提交简历",
-    "trabalheConosco.resumeBox.description": "提交后，您将被重定向到 WhatsApp 以附件形式发送您的简历。",
+    "trabalheConosco.resumeBox.description":
+      "提交后，您将被重定向到 WhatsApp 以附件形式发送您的简历。",
     "trabalheConosco.submit": "提交申请",
     "trabalheConosco.backHome": "返回首页",
   },
