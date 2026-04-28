@@ -7,9 +7,11 @@ import { toast } from "@/hooks/use-toast";
 import { Input } from "./ui/input";
 import { z } from "zod";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 export const NewsletterSection = () => {
   const { t } = useLanguage();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // useEffect(() => {
@@ -69,6 +71,7 @@ export const NewsletterSection = () => {
 
       toast({ title: t("newsletter.success") });
       form.reset();
+      router.push("/blog");
     } catch (err: any) {
       toast({
         title: t("newsletter.error"),

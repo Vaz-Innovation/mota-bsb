@@ -361,8 +361,7 @@ export const translations: Translations = {
     "newsletter.sending": "Enviando...",
     "newsletter.error": "Erro",
     "newsletter.errorMessage": "Informe um e-mail válido.",
-    "newsletter.success":
-      "Sucesso! Agora verifique seu e-mail para confirmar sua inscrição.",
+    "newsletter.success": "Você foi inscrito em nossa newsletter",
 
     // Process Search
     "process.title": "Consulte Seu Processo",
@@ -613,8 +612,7 @@ export const translations: Translations = {
     "newsletter.sending": "Enviando...",
     "newsletter.error": "Error",
     "newsletter.errorMessage": "Introduce un correo electrónico válido.",
-    "newsletter.success":
-      "¡Éxito! Ahora revisa tu correo electrónico para confirmar tu suscripción.",
+    "newsletter.success": "Has sido suscrito a nuestro newsletter",
 
     // Process Search
     "process.title": "Consulta tu Proceso",
@@ -863,8 +861,7 @@ export const translations: Translations = {
     "newsletter.sending": "Sending...",
     "newsletter.error": "Error",
     "newsletter.errorMessage": "Please enter a valid email.",
-    "newsletter.success":
-      "Success! Now check your email to confirm your subscription.",
+    "newsletter.success": "You have been subscribed to our newsletter",
 
     // Process Search
     "process.title": "Check Your Case",
@@ -1117,7 +1114,7 @@ export const translations: Translations = {
     "newsletter.errorMessage":
       "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "newsletter.success":
-      "Erfolg! Überprüfen Sie jetzt Ihre E-Mail, um Ihr Abonnement zu bestätigen.",
+      "Sie wurden erfolgreich für unseren Newsletter angemeldet",
 
     // Process Search
     "process.title": "Überprüfen Sie Ihren Fall",
@@ -1365,7 +1362,7 @@ export const translations: Translations = {
     "newsletter.error": "Errore",
     "newsletter.errorMessage": "Inserisci un'email valida.",
     "newsletter.success":
-      "Successo! Controlla ora la tua email per confermare l'iscrizione.",
+      "Sei stato iscritto con successo alla nostra newsletter",
 
     // Process Search
     "process.title": "Controlla il Tuo Caso",
@@ -1615,7 +1612,7 @@ export const translations: Translations = {
     "newsletter.error": "Erreur",
     "newsletter.errorMessage": "Veuillez saisir une adresse e-mail valide.",
     "newsletter.success":
-      "Succès! Vérifiez maintenant votre email pour confirmer votre inscription.",
+      "Vous vous êtes abonné avec succès à notre newsletter",
 
     // Process Search
     "process.title": "Consultez Votre Dossier",
@@ -1840,7 +1837,7 @@ export const translations: Translations = {
     "newsletter.sending": "发送中...",
     "newsletter.error": "错误",
     "newsletter.errorMessage": "请输入有效的邮箱地址。",
-    "newsletter.success": "成功！请检查您的邮箱以确认订阅。",
+    "newsletter.success": "您已成功订阅我们的通讯",
 
     // Process Search
     "process.title": "查询您的案件",
