@@ -41,7 +41,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
   const { data, isLoading } = useQuery(
     gqlQueryOptions(AuthorBySlugQuery, {
       input: { slug, first: 100, language },
-    })
+    }),
   );
 
   const authorFragment = data?.user;
@@ -64,7 +64,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
       router.push(
         { pathname: router.pathname, query: { ...query, category: slug } },
         undefined,
-        { shallow: true }
+        { shallow: true },
       );
     }
   };
@@ -79,7 +79,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
       "fr-FR": `/blog/autor/${slug}`,
       "zh-CN": `/blog/autor/${slug}`,
     }),
-    [slug]
+    [slug],
   );
 
   if (!authorFragment && !isLoading) {
@@ -166,10 +166,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const data = await execute(AuthorSlugsQuery, { first: 100 });
 
-    const paths = (data.users?.nodes || [])
+    const slugs = (data.users?.nodes || [])
       .map((node) => node?.slug)
-      .filter(Boolean)
-      .map((slug) => ({ params: { slug } }));
+      .filter(
+        (slug): slug is string => typeof slug === "string" && slug.length > 0,
+      );
+
+    const paths = slugs.map((slug) => ({ params: { slug } }));
 
     return {
       paths,
@@ -201,7 +204,7 @@ export const getStaticProps: GetStaticProps<AuthorPageProps> = async ({
     await queryClient.prefetchQuery(
       gqlQueryOptions(AuthorBySlugQuery, {
         input: { slug, first: 100, language },
-      })
+      }),
     );
   } catch (error) {
     console.error(`Error prefetching author ${slug}:`, error);
