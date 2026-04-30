@@ -74,8 +74,7 @@ export const NewsletterSection = () => {
       router.push("/blog");
     } catch (err: any) {
       toast({
-        title: t("newsletter.error"),
-        description: err.message,
+        title: err.message,
         variant: "destructive",
       });
     } finally {
