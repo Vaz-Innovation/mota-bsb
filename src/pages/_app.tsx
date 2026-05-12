@@ -11,7 +11,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import SEO from "@/components/SEO";
 import "@/index.css";
 
 type AppPageProps = {
@@ -37,7 +36,6 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
-          <SEO />
           <Toaster />
           <Sonner />
           <HydrationBoundary state={dehydratedState}>
