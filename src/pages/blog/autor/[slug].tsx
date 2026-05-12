@@ -197,7 +197,7 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
       <SEO
         title={author?.name ? `Artigos de ${author.name}` : "Autor"}
         description={seoDescription}
-        image={author?.avatar?.url}
+        image={author?.avatar?.url ?? undefined}
         imageAlt={author?.name ? `Foto de ${author.name}` : "Foto do autor"}
         profile
         profileMeta={{

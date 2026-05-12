@@ -87,7 +87,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
       height: 630,
     } : undefined,
     datePublished: post.date,
-    dateModified: post.modified || post.date,
+    dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.author?.node?.name || "Mota & Advogados Associados",
@@ -148,9 +148,9 @@ export default function BlogPostPage({ slug }: { slug: string }) {
         imageAlt={post.featuredImage?.node?.altText || post.title || ""}
         article
         articleMeta={{
-          publishedTime: post.date,
-          modifiedTime: post.modified,
-          author: post.author?.node?.name,
+          publishedTime: post.date ?? undefined,
+          modifiedTime: post.date ?? undefined,
+          author: post.author?.node?.name ?? undefined,
           authorUrl: post.author?.node?.slug 
             ? `https://mota.adv.br/blog/autor/${post.author.node.slug}` 
             : undefined,
