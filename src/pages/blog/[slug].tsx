@@ -58,41 +58,116 @@ export default function BlogPostPage({ slug }: { slug: string }) {
     {} as Record<string, string>,
   );
 
+  // Clean excerpt for meta descriptions
+  const cleanExcerpt = post.excerpt?.replace(/<[^>]*>/g, "").trim().slice(0, 160) || "";
+  
+  // Extract category names for keywords
+  const categoryNames = post.categories?.nodes?.map((cat: any) => cat.name) || [];
+  const tagNames = post.tags?.nodes?.map((tag: any) => tag.name) || [];
+  const keywords = [...categoryNames, ...tagNames, "advocacia", "direito", "Mota Advogados"];
+
+  // Get primary category for article:section
+  const primaryCategory = categoryNames[0] || "Blog";
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `https://mota.adv.br/blog/${post.slug}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://mota.adv.br/blog/${post.slug}`,
+    },
     headline: post.title,
-    image: post.featuredImage?.node?.sourceUrl,
+    name: post.title,
+    description: cleanExcerpt,
+    image: post.featuredImage?.node?.sourceUrl ? {
+      "@type": "ImageObject",
+      url: post.featuredImage.node.sourceUrl,
+      width: 1200,
+      height: 630,
+    } : undefined,
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.author?.node?.name || "Mota & Advogados Associados",
+      url: post.author?.node?.slug 
+        ? `https://mota.adv.br/blog/autor/${post.author.node.slug}` 
+        : undefined,
     },
     publisher: {
       "@type": "Organization",
       name: "Mota & Advogados Associados",
+      url: "https://mota.adv.br",
       logo: {
         "@type": "ImageObject",
         url: "https://mota.adv.br/logo.png",
+        width: 200,
+        height: 60,
       },
     },
-    description: post.excerpt?.replace(/<[^>]*>/g, ""),
-    inLanguage: post.language?.code,
+    articleSection: primaryCategory,
+    keywords: keywords.join(", "),
+    inLanguage: post.language?.code || "pt-BR",
+    wordCount: post.content?.replace(/<[^>]*>/g, "").split(/\s+/).length || 0,
+    isAccessibleForFree: true,
+  };
+
+  // BreadcrumbList structured data
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mota.adv.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://mota.adv.br/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://mota.adv.br/blog/${post.slug}`,
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title={post.title || ""}
-        description={post.excerpt?.replace(/<[^>]*>/g, "")}
+        description={cleanExcerpt}
         image={post.featuredImage?.node?.sourceUrl || ""}
+        imageAlt={post.featuredImage?.node?.altText || post.title || ""}
         article
+        articleMeta={{
+          publishedTime: post.date ?? undefined,
+          modifiedTime: post.date ?? undefined,
+          author: post.author?.node?.name ?? undefined,
+          authorUrl: post.author?.node?.slug 
+            ? `https://mota.adv.br/blog/autor/${post.author.node.slug}` 
+            : undefined,
+          section: primaryCategory,
+          tags: tagNames,
+        }}
+        keywords={keywords}
         localePathOverrides={localePathOverrides}
       />
       <Head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
         />
       </Head>
 
