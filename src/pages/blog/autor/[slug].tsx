@@ -93,28 +93,119 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
     );
   }
 
+  // Parse author name for profile meta
+  const nameParts = author?.name?.split(" ") || [];
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || "";
+
+  // SEO description
+  const seoDescription = author?.description?.slice(0, 160) ||
+    `Confira todos os artigos jurídicos publicados por ${author?.name || "este autor"} no blog da Mota & Advogados Associados. Conteúdo especializado em direito.`;
+
+  // Keywords for author page
+  const authorKeywords = [
+    author?.name,
+    "advogado",
+    "artigos jurídicos",
+    "Mota Advogados",
+    "direito",
+    "advocacia",
+  ].filter(Boolean) as string[];
+
   const structuredData = authorFragment
     ? {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
+        "@id": `https://mota.adv.br/blog/autor/${slug}#profile`,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://mota.adv.br/blog/autor/${slug}`,
+        },
         mainEntity: {
           "@type": "Person",
+          "@id": `https://mota.adv.br/blog/autor/${slug}#person`,
           name: author?.name,
+          givenName: firstName,
+          familyName: lastName,
           email: author?.email,
-          image: author?.avatar?.url,
+          image: author?.avatar?.url ? {
+            "@type": "ImageObject",
+            url: author.avatar.url,
+            width: 96,
+            height: 96,
+          } : undefined,
           description: author?.description,
+          url: `https://mota.adv.br/blog/autor/${slug}`,
+          worksFor: {
+            "@type": "Organization",
+            name: "Mota & Advogados Associados",
+            url: "https://mota.adv.br",
+          },
+          jobTitle: "Advogado",
         },
+        dateModified: new Date().toISOString(),
       }
     : null;
+
+  // BreadcrumbList structured data
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mota.adv.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://mota.adv.br/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: author?.name || "Autor",
+        item: `https://mota.adv.br/blog/autor/${slug}`,
+      },
+    ],
+  };
+
+  // CollectionPage structured data for author's posts
+  const collectionData = authorFragment && posts.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `Artigos de ${author?.name}`,
+    description: seoDescription,
+    url: `https://mota.adv.br/blog/autor/${slug}`,
+    author: {
+      "@type": "Person",
+      name: author?.name,
+    },
+    numberOfItems: posts.length,
+    isPartOf: {
+      "@type": "Blog",
+      name: "Blog Mota & Advogados Associados",
+      url: "https://mota.adv.br/blog",
+    },
+  } : null;
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title={author?.name ? `Artigos de ${author.name}` : "Autor"}
-        description={
-          author?.description ||
-          `Veja todos os artigos publicados por ${author?.name || "este autor"}`
-        }
+        description={seoDescription}
+        image={author?.avatar?.url}
+        imageAlt={author?.name ? `Foto de ${author.name}` : "Foto do autor"}
+        profile
+        profileMeta={{
+          firstName,
+          lastName,
+          username: slug,
+        }}
+        keywords={authorKeywords}
         localePathOverrides={localePathOverrides}
       />
       <Head>
@@ -122,6 +213,16 @@ export default function AuthorPage({ slug }: AuthorPageProps) {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          />
+        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+        />
+        {collectionData && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionData) }}
           />
         )}
       </Head>
