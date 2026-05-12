@@ -204,7 +204,7 @@ const SEO = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
       <meta name="theme-color" content="#1a365d" />
-      <meta name="author" content={siteName} />
+      <meta name="author" content={article && articleMeta?.author ? articleMeta.author : siteName} />
     </Head>
   );
 };
