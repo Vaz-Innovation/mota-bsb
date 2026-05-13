@@ -89,7 +89,7 @@ export const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-12 pt-6">
           <div className="flex justify-center">
             <a
-              href="https://dev.motaeadvogados.com.br"
+              href="https://stg.motaeadvogados.com.br/sign-in"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary-foreground/70 hover:text-beige transition-colors text-sm"
